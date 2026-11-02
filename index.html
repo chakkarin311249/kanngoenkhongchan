@@ -28,15 +28,41 @@
     <p class="lede">วางแผนเรื่องเงินของคุณได้ในไม่กี่วินาที ทั้งภาษี การผ่อนรถ และอีกมากมาย ไม่ต้องสมัครสมาชิก และไม่เก็บข้อมูลที่คุณกรอก</p>
   </div>
 
-  <div class="tools">
-    <a class="tool" href="tax.html"><span class="ico">%</span><h2 style="font-size:1.1rem">คำนวณภาษีเงินได้</h2><p>มนุษย์เงินเดือนต้องเสียภาษีเท่าไร พร้อมค่าลดหย่อนครบ</p></a>
-    <a class="tool" href="salary.html"><span class="ico">฿</span><h2 style="font-size:1.1rem">เงินเดือนสุทธิ</h2><p>เงินเข้าบัญชีจริงเท่าไร หลังหักประกันสังคมและภาษี</p></a>
-    <a class="tool" href="home.html"><span class="ico">⌂</span><h2 style="font-size:1.1rem">ผ่อนบ้าน</h2><p>ค่างวดต่อเดือน ดอกเบี้ยรวม และผลของการโปะบ้าน</p></a>
-    <a class="tool" href="car.html"><span class="ico">฿</span><h2 style="font-size:1.1rem">ผ่อนรถ</h2><p>ผ่อนรถเดือนละเท่าไร เทียบ 24–84 งวดได้ทันที</p></a>
-    <a class="tool" href="savings.html"><span class="ico">↗</span><h2 style="font-size:1.1rem">เงินออม ดอกเบี้ยทบต้น</h2><p>ออมเดือนละเท่านี้ อีกกี่ปีจะมีเงินเท่าไร</p></a>
-    <a class="tool" href="vat.html"><span class="ico">7%</span><h2 style="font-size:1.1rem">VAT และหัก ณ ที่จ่าย</h2><p>บวก/ถอด VAT 7% และหัก ณ ที่จ่าย 1–5%</p></a>
-    <a class="tool" href="age.html"><span class="ico">๒๕</span><h2 style="font-size:1.1rem">อายุ / พ.ศ.</h2><p>อายุละเอียดถึงวัน ปีนักษัตร และสีวันเกิด</p></a>
-  </div>
+  <div class="chips" id="cats" role="group" aria-label="เลือกหมวดหมู่">
+      <button type="button" class="chip" data-c="all" aria-pressed="true">ทั้งหมด</button>
+      <button type="button" class="chip" data-c="tax" aria-pressed="false">ภาษีและเงินเดือน</button>
+      <button type="button" class="chip" data-c="loan" aria-pressed="false">ผ่อนและสินเชื่อ</button>
+      <button type="button" class="chip" data-c="save" aria-pressed="false">ออมเงิน</button>
+      <button type="button" class="chip" data-c="other" aria-pressed="false">เครื่องมืออื่น ๆ</button>
+    </div>
+
+  <section class="cat" id="tax" data-c="tax">
+    <div class="cat-head"><h2>ภาษีและเงินเดือน</h2><p>คำนวณภาษี เงินที่ได้รับจริง และภาษีธุรกิจ</p></div>
+    <div class="tools">
+      <a class="tool" href="tax.html"><span class="ico">%</span><h3>คำนวณภาษีเงินได้</h3><p>มนุษย์เงินเดือนต้องเสียภาษีเท่าไร พร้อมค่าลดหย่อนครบ</p></a>
+      <a class="tool" href="salary.html"><span class="ico">฿</span><h3>เงินเดือนสุทธิ</h3><p>เงินเข้าบัญชีจริงเท่าไร หลังหักประกันสังคมและภาษี</p></a>
+      <a class="tool" href="vat.html"><span class="ico">7%</span><h3>VAT และหัก ณ ที่จ่าย</h3><p>บวก/ถอด VAT 7% และหัก ณ ที่จ่าย 1–5%</p></a>
+    </div>
+  </section>
+  <section class="cat" id="loan" data-c="loan">
+    <div class="cat-head"><h2>ผ่อนและสินเชื่อ</h2><p>รู้ค่างวดก่อนตัดสินใจกู้</p></div>
+    <div class="tools">
+      <a class="tool" href="home.html"><span class="ico">⌂</span><h3>ผ่อนบ้าน</h3><p>ค่างวดต่อเดือน ดอกเบี้ยรวม และผลของการโปะบ้าน</p></a>
+      <a class="tool" href="car.html"><span class="ico">฿</span><h3>ผ่อนรถ</h3><p>ผ่อนรถเดือนละเท่าไร เทียบ 24–84 งวดได้ทันที</p></a>
+    </div>
+  </section>
+  <section class="cat" id="save" data-c="save">
+    <div class="cat-head"><h2>ออมเงิน</h2><p>วางแผนให้เงินงอกเงย</p></div>
+    <div class="tools">
+      <a class="tool" href="savings.html"><span class="ico">↗</span><h3>เงินออม ดอกเบี้ยทบต้น</h3><p>ออมเดือนละเท่านี้ อีกกี่ปีจะมีเงินเท่าไร</p></a>
+    </div>
+  </section>
+  <section class="cat" id="other" data-c="other">
+    <div class="cat-head"><h2>เครื่องมืออื่น ๆ</h2><p>เรื่องวันที่และตัวเลขในชีวิตประจำวัน</p></div>
+    <div class="tools">
+      <a class="tool" href="age.html"><span class="ico">๒๕</span><h3>อายุ / พ.ศ.</h3><p>อายุละเอียดถึงวัน ปีนักษัตร และสีวันเกิด</p></a>
+    </div>
+  </section>
 
   <div class="ad-slot"><!-- วางโค้ดหน่วยโฆษณา AdSense ตรงนี้ --></div>
 
@@ -54,5 +80,19 @@
   <span>© 2026 การเงินของฉัน</span>
   <span><a href="about.html">เกี่ยวกับเรา</a> · <a href="privacy.html">นโยบายความเป็นส่วนตัว</a></span>
 </div></footer>
+<script>
+(function(){
+  var chips=document.querySelectorAll("#cats .chip"), secs=document.querySelectorAll("section.cat");
+  function show(c){
+    chips.forEach(function(b){b.setAttribute("aria-pressed",b.dataset.c===c)});
+    secs.forEach(function(s){s.hidden=!(c==="all"||s.dataset.c===c)});
+  }
+  document.getElementById("cats").addEventListener("click",function(e){
+    var b=e.target.closest(".chip"); if(!b)return; show(b.dataset.c);
+    history.replaceState(null,"",b.dataset.c==="all"?location.pathname:"#"+b.dataset.c);
+  });
+  var h=location.hash.slice(1); if(document.getElementById(h)) show(h);
+})();
+</script>
 </body>
 </html>
