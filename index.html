@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>การเงินของฉัน</title>
 <meta name="description" content="การเงินของฉัน รวมเครื่องคำนวณการเงินภาษาไทย ใช้ฟรี คำนวณภาษี เงินเดือนสุทธิ ผ่อนบ้าน ผ่อนรถ บัตรเครดิต ลงทุน DCA เงินเกษียณ แปลงสกุลเงิน และเงินเฟ้อ ใช้ง่ายบนมือถือ">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;600;700&display=swap">
-<link rel="stylesheet" href="style.css?v=202611020830">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="style.css?v=202611020836">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#000000">
@@ -32,10 +32,35 @@
 </div></header>
 
 <main class="wrap">
-  <div>
-    <h1>เครื่องคำนวณการเงิน ใช้ฟรี</h1>
-    <p class="lede">วางแผนเรื่องเงินของคุณได้ในไม่กี่วินาที ทั้งภาษี การผ่อน การลงทุน และค่าเงินทั่วโลก ไม่ต้องสมัครสมาชิก และไม่เก็บข้อมูลที่คุณกรอก</p>
-  </div>
+  <section class="hero">
+    <div class="hero-txt">
+      <p class="eyebrow">ปีภาษี 2569 · อัปเดตพฤศจิกายน 2569</p>
+      <h1>เงินเดือนออกแล้ว<br>เหลือใช้จริงเท่าไร?</h1>
+      <p class="lede">เครื่องคิดเงินสำหรับคนทำงานในไทย คิดภาษี ประกันสังคม ค่าผ่อน และเงินออม ตามเกณฑ์ล่าสุด ไม่ต้องสมัคร และไม่เก็บข้อมูลที่คุณกรอก</p>
+    </div>
+    <form class="quick" id="quick" autocomplete="off">
+      <label for="q-sal">ลองใส่เงินเดือนของคุณ</label>
+      <div class="q-in"><input id="q-sal" inputmode="numeric" value="35,000"><span>บาท/เดือน</span></div>
+      <div class="q-rows">
+        <div><span>ประกันสังคม</span><b id="q-sso">–</b></div>
+        <div><span>ภาษีหัก ณ ที่จ่าย</span><b id="q-tax">–</b></div>
+        <div class="q-net"><span>เข้าบัญชีจริง</span><b id="q-net">–</b></div>
+      </div>
+      <a class="q-more" href="salary.html">ดูรายละเอียดและค่าลดหย่อน →</a>
+    </form>
+  </section>
+  <div class="deadline" id="deadline"></div>
+
+  <section class="popular">
+    <h2>คนใช้บ่อยที่สุด</h2>
+    <div class="pop-grid">
+      <a class="pop" href="tax.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 17l5-6"/><circle cx="10.5" cy="11.5" r="1"/><circle cx="14.5" cy="16.5" r="1"/></svg></span><b>ภาษีเงินได้ 2569</b><span class="pop-eg">เงินเดือน 30,000 เสียภาษี <em>1,975</em> บาท/ปี</span></a>
+      <a class="pop" href="home.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span><b>ผ่อนบ้าน</b><span class="pop-eg">กู้ 2.7 ล้าน 30 ปี ผ่อน <em>12,890</em> บาท/เดือน</span></a>
+      <a class="pop" href="game.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7" width="19" height="11" rx="5"/><path d="M7 12.5h4M9 10.5v4"/><circle cx="15.5" cy="11.5" r="1"/><circle cx="17.5" cy="13.5" r="1"/></svg></span><b>เกมชีวิตมนุษย์เงินเดือน</b><span class="pop-eg">12 เดือน 12 การตัดสินใจ จบปีเหลือเท่าไร</span></a>
+    </div>
+  </section>
+
+  <h2 class="all-h">เครื่องมือทั้งหมด</h2>
 
   <div class="chips" id="cats" role="group" aria-label="เลือกหมวดหมู่">
       <button type="button" class="chip" data-c="all" aria-pressed="true">ทั้งหมด</button>
@@ -50,47 +75,47 @@
   <section class="cat" id="learn" data-c="learn">
     <div class="cat-head"><h2>ความรู้และกิจกรรม</h2><p>อ่าน ทดสอบ และสร้างนิสัยการเงินที่ดี</p></div>
     <div class="tools">
-      <a class="tool" href="deductions-2569.html"><span class="ico">📝</span><h3>ลดหย่อนภาษี 2569</h3><p>รวมทุกรายการลดหย่อน พร้อมเพดานสูงสุด</p></a>
-      <a class="tool" href="quiz.html"><span class="ico">🩺</span><h3>แบบทดสอบสุขภาพการเงิน</h3><p>ตอบ 10 ข้อ รู้คะแนนและสิ่งที่ควรปรับ</p></a>
-      <a class="tool" href="game.html"><span class="ico">🎮</span><h3>เกมชีวิตมนุษย์เงินเดือน</h3><p>12 เดือน 12 การตัดสินใจ จบปีเหลือเงินเท่าไร</p></a>
-      <a class="tool" href="challenge.html"><span class="ico">🐷</span><h3>ชาเลนจ์เก็บเงิน</h3><p>365 วัน หรือ 52 สัปดาห์ ติ๊กได้ทุกวัน</p></a>
+      <a class="tool" href="deductions-2569.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M9.5 14.5l2 2 4-4.5"/></svg></span><h3>ลดหย่อนภาษี 2569</h3><p>รวมทุกรายการลดหย่อน พร้อมเพดานสูงสุด</p></a>
+      <a class="tool" href="quiz.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/><path d="M7 12h3l1.5-2.5 2 4 1.5-1.5H17"/></svg></span><h3>แบบทดสอบสุขภาพการเงิน</h3><p>ตอบ 10 ข้อ รู้คะแนนและสิ่งที่ควรปรับ</p></a>
+      <a class="tool" href="game.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7" width="19" height="11" rx="5"/><path d="M7 12.5h4M9 10.5v4"/><circle cx="15.5" cy="11.5" r="1"/><circle cx="17.5" cy="13.5" r="1"/></svg></span><h3>เกมชีวิตมนุษย์เงินเดือน</h3><p>12 เดือน 12 การตัดสินใจ จบปีเหลือเงินเท่าไร</p></a>
+      <a class="tool" href="challenge.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.2"/></svg></span><h3>ชาเลนจ์เก็บเงิน</h3><p>365 วัน หรือ 52 สัปดาห์ ติ๊กได้ทุกวัน</p></a>
     </div>
   </section>
   <section class="cat" id="tax" data-c="tax">
     <div class="cat-head"><h2>ภาษีและเงินเดือน</h2><p>คำนวณภาษี เงินที่ได้รับจริง และภาษีธุรกิจ</p></div>
     <div class="tools">
-      <a class="tool" href="tax.html"><span class="ico">%</span><h3>คำนวณภาษีเงินได้</h3><p>มนุษย์เงินเดือนต้องเสียภาษีเท่าไร พร้อมค่าลดหย่อนครบ</p></a>
-      <a class="tool" href="salary.html"><span class="ico">฿</span><h3>เงินเดือนสุทธิ</h3><p>เงินเข้าบัญชีจริงเท่าไร หลังหักประกันสังคมและภาษี</p></a>
-      <a class="tool" href="vat.html"><span class="ico">7%</span><h3>VAT และหัก ณ ที่จ่าย</h3><p>บวก/ถอด VAT 7% และหัก ณ ที่จ่าย 1–5%</p></a>
+      <a class="tool" href="tax.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 17l5-6"/><circle cx="10.5" cy="11.5" r="1"/><circle cx="14.5" cy="16.5" r="1"/></svg></span><h3>คำนวณภาษีเงินได้</h3><p>มนุษย์เงินเดือนต้องเสียภาษีเท่าไร พร้อมค่าลดหย่อนครบ</p></a>
+      <a class="tool" href="salary.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><path d="M16 14.5h2"/><path d="M6 6l9-3 1 3"/></svg></span><h3>เงินเดือนสุทธิ</h3><p>เงินเข้าบัญชีจริงเท่าไร หลังหักประกันสังคมและภาษี</p></a>
+      <a class="tool" href="vat.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2-1.5L14 21l-2-1.5L10 21l-2-1.5L6 21z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><h3>VAT และหัก ณ ที่จ่าย</h3><p>บวก/ถอด VAT 7% และหัก ณ ที่จ่าย 1–5%</p></a>
     </div>
   </section>
   <section class="cat" id="loan" data-c="loan">
     <div class="cat-head"><h2>ผ่อนและสินเชื่อ</h2><p>รู้ค่างวดก่อนตัดสินใจกู้</p></div>
     <div class="tools">
-      <a class="tool" href="home.html"><span class="ico">⌂</span><h3>ผ่อนบ้าน</h3><p>ค่างวดต่อเดือน ดอกเบี้ยรวม และผลของการโปะบ้าน</p></a>
-      <a class="tool" href="car.html"><span class="ico">฿</span><h3>ผ่อนรถ</h3><p>ผ่อนรถเดือนละเท่าไร เทียบ 24–84 งวดได้ทันที</p></a>
-      <a class="tool" href="credit-card.html"><span class="ico">💳</span><h3>หนี้บัตรเครดิต</h3><p>จ่ายขั้นต่ำกี่เดือนหมด เสียดอกเบี้ยเท่าไร</p></a>
+      <a class="tool" href="home.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span><h3>ผ่อนบ้าน</h3><p>ค่างวดต่อเดือน ดอกเบี้ยรวม และผลของการโปะบ้าน</p></a>
+      <a class="tool" href="car.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 16v-5l2-5h10l2 5v5"/><path d="M3 16h18v3H3z"/><circle cx="7.5" cy="13" r="1"/><circle cx="16.5" cy="13" r="1"/></svg></span><h3>ผ่อนรถ</h3><p>ผ่อนรถเดือนละเท่าไร เทียบ 24–84 งวดได้ทันที</p></a>
+      <a class="tool" href="credit-card.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9.5h18"/><path d="M7 15h4"/></svg></span><h3>หนี้บัตรเครดิต</h3><p>จ่ายขั้นต่ำกี่เดือนหมด เสียดอกเบี้ยเท่าไร</p></a>
     </div>
   </section>
   <section class="cat" id="save" data-c="save">
     <div class="cat-head"><h2>ออมและลงทุน</h2><p>วางแผนให้เงินงอกเงย จนถึงวันเกษียณ</p></div>
     <div class="tools">
-      <a class="tool" href="savings.html"><span class="ico">↗</span><h3>เงินออม ดอกเบี้ยทบต้น</h3><p>ออมเดือนละเท่านี้ อีกกี่ปีจะมีเงินเท่าไร</p></a>
-      <a class="tool" href="invest.html"><span class="ico">📈</span><h3>ลงทุน DCA</h3><p>ลงทุนเดือนละเท่ากัน อีกกี่ปีเงินจะโตเท่าไร</p></a>
-      <a class="tool" href="retire.html"><span class="ico">🏖</span><h3>เงินเกษียณ</h3><p>ต้องมีเงินเท่าไรถึงพอ และต้องออมเดือนละเท่าไร</p></a>
+      <a class="tool" href="savings.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v2a5 5 0 0 1 1 3v6a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-6a5 5 0 0 1 1-3z"/><path d="M8 4h8v3H8z"/><circle cx="12" cy="14" r="2.2"/></svg></span><h3>เงินออม ดอกเบี้ยทบต้น</h3><p>ออมเดือนละเท่านี้ อีกกี่ปีจะมีเงินเท่าไร</p></a>
+      <a class="tool" href="invest.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M6 16v-3M10 16V9M14 16v-5M18 16V6"/><path d="M5 9l5-4 4 3 5-4"/></svg></span><h3>ลงทุน DCA</h3><p>ลงทุนเดือนละเท่ากัน อีกกี่ปีเงินจะโตเท่าไร</p></a>
+      <a class="tool" href="retire.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="4"/><path d="M3 17h18M5 20h14M12 3v3M4.9 6.9l2.1 2.1M19.1 6.9 17 9"/></svg></span><h3>เงินเกษียณ</h3><p>ต้องมีเงินเท่าไรถึงพอ และต้องออมเดือนละเท่าไร</p></a>
     </div>
   </section>
   <section class="cat" id="world" data-c="world">
     <div class="cat-head"><h2>การเงินทั่วโลก</h2><p>ค่าเงินและเงินเฟ้อ เรื่องที่กระทบเงินในกระเป๋าทุกคน</p></div>
     <div class="tools">
-      <a class="tool" href="currency.html"><span class="ico">💱</span><h3>แปลงสกุลเงิน</h3><p>อัตราแลกเปลี่ยนวันนี้ 30 สกุลเงินทั่วโลก</p></a>
-      <a class="tool" href="inflation.html"><span class="ico">🛒</span><h3>เงินเฟ้อ</h3><p>เงินเท่านี้ อีก 10 ปีจะซื้อของได้เท่าไร</p></a>
+      <a class="tool" href="currency.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13l-3-3"/><path d="M20 16H7l3 3"/></svg></span><h3>แปลงสกุลเงิน</h3><p>อัตราแลกเปลี่ยนวันนี้ 30 สกุลเงินทั่วโลก</p></a>
+      <a class="tool" href="inflation.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 10.5h10L20 7H6.2"/><circle cx="9" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/><path d="M13 2.5v6M10.5 5 13 2.5 15.5 5"/></svg></span><h3>เงินเฟ้อ</h3><p>เงินเท่านี้ อีก 10 ปีจะซื้อของได้เท่าไร</p></a>
     </div>
   </section>
   <section class="cat" id="other" data-c="other">
     <div class="cat-head"><h2>เครื่องมืออื่น ๆ</h2><p>เรื่องวันที่และตัวเลขในชีวิตประจำวัน</p></div>
     <div class="tools">
-      <a class="tool" href="age.html"><span class="ico">๒๕</span><h3>อายุ / พ.ศ.</h3><p>อายุละเอียดถึงวัน ปีนักษัตร และสีวันเกิด</p></a>
+      <a class="tool" href="age.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M8 14h3v3H8z"/></svg></span><h3>อายุ / พ.ศ.</h3><p>อายุละเอียดถึงวัน ปีนักษัตร และสีวันเกิด</p></a>
     </div>
   </section>
 
@@ -107,8 +132,11 @@
 </main>
 
 <footer class="site-foot"><div class="in">
-  <span>© 2026 การเงินของฉัน</span>
-  <span><a href="about.html">เกี่ยวกับเรา</a> · <a href="privacy.html">นโยบายความเป็นส่วนตัว</a></span>
+  <div class="f-brand"><a class="logo" href="index.html"><span>฿</span>การเงินของฉัน</a><p>เครื่องคิดเงินสำหรับคนทำงานในไทย ใช้ฟรี ไม่เก็บข้อมูลที่คุณกรอก</p></div>
+  <div class="f-col"><b>เครื่องมือยอดนิยม</b><a href="tax.html">ภาษีเงินได้</a><a href="salary.html">เงินเดือนสุทธิ</a><a href="home.html">ผ่อนบ้าน</a><a href="credit-card.html">หนี้บัตรเครดิต</a></div>
+  <div class="f-col"><b>ความรู้</b><a href="deductions-2569.html">ลดหย่อนภาษี 2569</a><a href="quiz.html">แบบทดสอบการเงิน</a><a href="game.html">เกมการเงิน</a></div>
+  <div class="f-col"><b>เกี่ยวกับ</b><a href="about.html">เกี่ยวกับเรา</a><a href="privacy.html">นโยบายความเป็นส่วนตัว</a><span>kanngoenkhongchan@gmail.com</span></div>
+  <p class="f-legal">ข้อมูลอ้างอิงจากกรมสรรพากร สำนักงานประกันสังคม และอัตราแลกเปลี่ยนจาก ExchangeRate-API ผลคำนวณเป็นการประมาณ ไม่ใช่คำแนะนำทางการเงิน · © 2569 การเงินของฉัน</p>
 </div></footer>
 <script>
 (function(){
@@ -124,7 +152,17 @@
   var h=location.hash.slice(1); if(document.getElementById(h)) show(h);
 })();
 </script>
-<script src="menu.js?v=202611020830"></script>
-<script src="i18n.js?v=202611020830"></script>
+<script src="calc.js?v=202611020836"></script>
+<script>
+(function(){
+  var i=document.getElementById("q-sal");
+  function run(){var v=Number(String(i.value).replace(/[^0-9.]/g,""))||0;var r=Calc.computeSalary({salary:v});
+    document.getElementById("q-sso").textContent="−"+baht(r.sso);document.getElementById("q-tax").textContent="−"+baht(r.wht);document.getElementById("q-net").textContent=baht(r.net)+" ฿";}
+  i.addEventListener("input",run);i.addEventListener("blur",function(){var v=Number(String(i.value).replace(/[^0-9.]/g,""))||0;i.value=v.toLocaleString("th-TH");});
+  document.getElementById("quick").addEventListener("submit",function(e){e.preventDefault();});run();
+})();
+</script>
+<script src="menu.js?v=202611020836"></script>
+<script src="i18n.js?v=202611020836"></script>
 </body>
 </html>
