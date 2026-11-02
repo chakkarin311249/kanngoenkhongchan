@@ -226,3 +226,24 @@ table.ded td:last-child{color:var(--accent);font-weight:600}
 @keyframes pulse{50%{box-shadow:0 0 0 6px rgba(245,181,68,.25)}}
 .ch-reset{font:inherit;font-size:.88rem;color:var(--muted);background:none;border:0;text-decoration:underline;cursor:pointer;justify-self:start;padding:6px 0}
 table.ded th{text-align:left}
+
+/* ---------- game ---------- */
+.game{min-height:420px}
+.g-top{display:flex;justify-content:space-between;color:var(--muted);font-size:.9rem}
+.g-sal{color:var(--accent);font-weight:600}
+.g-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.g-stats div{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:8px;display:grid;gap:2px;text-align:center;min-width:0}
+.g-stats span{font-size:.72rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.g-stats b{font-size:.95rem;font-variant-numeric:tabular-nums}
+.g-stats .bad b{color:#ff7a6b}
+.g-final{width:100%}
+.g-note{background:#2a2110;border:1px solid #5a4718;border-radius:12px;padding:10px 14px;font-size:.92rem;color:var(--c2)}
+.g-card{display:grid;gap:12px;justify-items:center;text-align:center;animation:rise .35s ease both}
+.g-card .q-opts{width:100%}
+.g-emoji{font-size:64px;line-height:1.1}
+.g-msg{font-size:1.08rem}
+.g-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.g-chips span{padding:6px 12px;border-radius:999px;font-weight:700;font-variant-numeric:tabular-nums;background:var(--bg);border:1px solid var(--line)}
+.g-chips .up{color:#5fd29b;border-color:#1f5a3c}
+.g-chips .down{color:#ff7a6b;border-color:#5a2a24}
+@media (max-width:520px){.g-stats{grid-template-columns:1fr 1fr}.g-stats div{display:flex;justify-content:space-between;align-items:center;text-align:left;padding:8px 12px}.g-stats span{font-size:.8rem}}
