@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>คำนวณค่างวดรถ ผ่อนรถเดือนละเท่าไร (ดอกเบี้ยคงที่) | การเงินของฉัน</title>
+<meta name="description" content="คำนวณค่างวดรถยนต์และมอเตอร์ไซค์ออนไลน์ ฟรี ใส่ราคารถ เงินดาวน์ ดอกเบี้ย และจำนวนงวด เปรียบเทียบผ่อน 48–84 งวดได้ทันที รวม VAT 7%">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://kanngoenkhongchan.com/car.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="การเงินของฉัน">
+<meta property="og:title" content="คำนวณค่างวดรถ ผ่อนรถเดือนละเท่าไร (ดอกเบี้ยคงที่) | การเงินของฉัน">
+<meta property="og:description" content="คำนวณค่างวดรถยนต์และมอเตอร์ไซค์ออนไลน์ ฟรี ใส่ราคารถ เงินดาวน์ ดอกเบี้ย และจำนวนงวด เปรียบเทียบผ่อน 48–84 งวดได้ทันที รวม VAT 7%">
+<meta property="og:url" content="https://kanngoenkhongchan.com/car.html">
+<meta property="og:locale" content="th_TH">
+<!-- วางโค้ด Google AdSense (ส่วน <head>) ตรงนี้ หลังได้รับอนุมัติ -->
+</head>
+<body>
+<header class="site-head"><div class="in">
+  <a class="logo" href="index.html"><span>฿</span>การเงินของฉัน</a>
+  <nav class="nav"><a href="tax.html">ภาษี</a><a href="salary.html">เงินเดือนสุทธิ</a><a href="home.html">ผ่อนบ้าน</a><a href="car.html" aria-current="page">ผ่อนรถ</a><a href="savings.html">เงินออม</a><a href="vat.html">VAT</a><a href="age.html">อายุ / พ.ศ.</a></nav>
+</div></header>
+
+<main class="wrap">
+  <div>
+    <h1>คำนวณค่างวดรถ</h1>
+    <p class="lede">ใช้ได้ทั้งรถยนต์และมอเตอร์ไซค์ คิดแบบดอกเบี้ยคงที่ (flat rate) ตามที่ไฟแนนซ์ในไทยใช้</p>
+  </div>
+
+  <form class="card" id="f" autocomplete="off">
+    <div class="fields">
+      <div class="field"><label for="price">ราคารถ (บาท)</label><input id="price" inputmode="decimal" value="800000"></div>
+      <div class="field"><label for="downPct">เงินดาวน์ (%)</label><input id="downPct" inputmode="decimal" value="25"><small id="downBaht"></small></div>
+      <div class="field"><label for="rate">ดอกเบี้ยต่อปี (%)</label><input id="rate" inputmode="decimal" value="2.5"><small>รถใหม่มักอยู่ที่ 1.5–4% รถมือสอง 4–8%</small></div>
+      <div class="field"><label for="months">จำนวนงวด</label>
+        <select id="months"><option>12</option><option>24</option><option>36</option><option>48</option><option selected>60</option><option>72</option><option>84</option></select></div>
+    </div>
+    <label class="check"><input type="checkbox" id="vat" checked> รวม VAT 7% ในค่างวด (ไฟแนนซ์ส่วนใหญ่คิดแบบนี้)</label>
+
+    <section class="result" aria-live="polite">
+      <div><span class="note">ผ่อนเดือนละ</span><div class="big" id="monthly">–</div></div>
+      <div class="stats">
+        <div class="stat"><span>ยอดจัดไฟแนนซ์</span><b id="finance">–</b></div>
+        <div class="stat"><span>ดอกเบี้ยทั้งหมด</span><b id="interest">–</b></div>
+        <div class="stat"><span>จ่ายรวมทั้งหมด</span><b id="total">–</b></div>
+      </div>
+    </section>
+
+    <div>
+      <h3 style="margin-bottom:8px">เปรียบเทียบจำนวนงวด</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>จำนวนงวด</th><th>ค่างวด/เดือน</th><th>ดอกเบี้ยรวม</th><th>จ่ายรวม</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table></div>
+    </div>
+  </form>
+
+  <div class="ad-slot"><!-- วางโค้ดหน่วยโฆษณา AdSense ตรงนี้ --></div>
+
+  <article>
+    <h2>สูตรคำนวณค่างวดรถแบบดอกเบี้ยคงที่</h2>
+    <ol>
+      <li>ยอดจัด = ราคารถ − เงินดาวน์</li>
+      <li>ดอกเบี้ยทั้งหมด = ยอดจัด × อัตราดอกเบี้ยต่อปี × จำนวนปี</li>
+      <li>ค่างวด = (ยอดจัด + ดอกเบี้ยทั้งหมด) ÷ จำนวนงวด แล้วคูณ 1.07 ถ้ารวม VAT</li>
+    </ol>
+    <p>ดอกเบี้ยแบบคงที่คิดจากยอดจัดเต็มจำนวนตลอดสัญญา แม้คุณจะผ่อนเงินต้นลดลงไปเรื่อย ๆ อัตราดอกเบี้ยจริงจึงสูงกว่าตัวเลขที่ประกาศเกือบเท่าตัว</p>
+    <h2>เคล็ดลับให้จ่ายน้อยลง</h2>
+    <ul>
+      <li>ดาวน์มากขึ้น ยอดจัดลดลง ดอกเบี้ยรวมก็ลดลงตาม</li>
+      <li>ผ่อนสั้นลงจ่ายดอกเบี้ยรวมน้อยกว่า ดูตัวเลขเปรียบเทียบได้จากตารางด้านบน</li>
+      <li>ขอใบเสนอราคาจากไฟแนนซ์อย่างน้อย 2–3 เจ้า แล้วนำอัตราดอกเบี้ยมาเทียบกันที่นี่</li>
+      <li>ค่างวดรถไม่ควรเกิน 20–30% ของรายได้ต่อเดือน</li>
+    </ul>
+    <p class="note">ผลลัพธ์เป็นการประมาณเบื้องต้น ยังไม่รวมค่าประกันภัย ค่าจดทะเบียน และค่าธรรมเนียมอื่นของไฟแนนซ์</p>
+  </article>
+</main>
+
+<footer class="site-foot"><div class="in">
+  <span>© 2026 การเงินของฉัน</span>
+  <span><a href="about.html">เกี่ยวกับเรา</a> · <a href="privacy.html">นโยบายความเป็นส่วนตัว</a></span>
+</div></footer>
+
+<script src="calc.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const num=s=>Number(String(s).replace(/[, ]/g,""))||0;
+function run(){
+  const o={price:num($("price").value),downPct:num($("downPct").value),rate:num($("rate").value),months:num($("months").value),vat:$("vat").checked};
+  const r=Calc.computeCar(o);
+  $("downBaht").textContent=`= ${baht(r.down)} บาท`;
+  $("monthly").textContent=baht(r.monthly)+" บาท";
+  $("finance").textContent=baht(r.finance);
+  $("interest").textContent=baht(r.interest);
+  $("total").textContent=baht(r.total);
+  $("rows").innerHTML=[24,36,48,60,72,84].map(m=>{const x=Calc.computeCar({...o,months:m});
+    return `<tr class="${m===r.months?"on":""}"><td>${m} งวด (${m/12} ปี)</td><td>${baht(x.monthly)}</td><td>${baht(x.interest)}</td><td>${baht(x.total)}</td></tr>`}).join("");
+}
+$("f").addEventListener("input",run);
+$("f").addEventListener("submit",e=>e.preventDefault());
+run();
+</script>
+</body>
+</html>

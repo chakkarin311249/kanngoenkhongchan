@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>คำนวณเงินออม ดอกเบี้ยทบต้น ออมเดือนละเท่าไรได้เท่าไร | การเงินของฉัน</title>
+<meta name="description" content="คำนวณเงินออมและดอกเบี้ยทบต้น ออมเงินทุกเดือนแล้วจะมีเงินเท่าไรในอนาคต รองรับภาษีดอกเบี้ย 15% พร้อมตารางรายปี ใช้ฟรี">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://kanngoenkhongchan.com/savings.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="การเงินของฉัน">
+<meta property="og:title" content="คำนวณเงินออม ดอกเบี้ยทบต้น ออมเดือนละเท่าไรได้เท่าไร | การเงินของฉัน">
+<meta property="og:description" content="คำนวณเงินออมและดอกเบี้ยทบต้น ออมเงินทุกเดือนแล้วจะมีเงินเท่าไรในอนาคต รองรับภาษีดอกเบี้ย 15% พร้อมตารางรายปี ใช้ฟรี">
+<meta property="og:url" content="https://kanngoenkhongchan.com/savings.html">
+<meta property="og:locale" content="th_TH">
+<!-- วางโค้ด Google AdSense (ส่วน <head>) ตรงนี้ หลังได้รับอนุมัติ -->
+</head>
+<body>
+<header class="site-head"><div class="in">
+  <a class="logo" href="index.html"><span>฿</span>การเงินของฉัน</a>
+  <nav class="nav"><a href="tax.html">ภาษี</a><a href="salary.html">เงินเดือนสุทธิ</a><a href="home.html">ผ่อนบ้าน</a><a href="car.html">ผ่อนรถ</a><a href="savings.html" aria-current="page">เงินออม</a><a href="vat.html">VAT</a><a href="age.html">อายุ / พ.ศ.</a></nav>
+</div></header>
+
+<main class="wrap">
+  <div>
+    <h1>คำนวณเงินออม ดอกเบี้ยทบต้น</h1>
+    <p class="lede">ออมเงินทุกเดือน แล้วอีกกี่ปีจะมีเงินเท่าไร</p>
+  </div>
+
+  <form class="card" id="f" autocomplete="off">
+    <div class="fields">
+      <div class="field"><label for="initial">เงินต้นเริ่มต้น (บาท)</label><input id="initial" inputmode="decimal" value="10000"></div>
+      <div class="field"><label for="monthly">ออมเพิ่มต่อเดือน (บาท)</label><input id="monthly" inputmode="decimal" value="3000"></div>
+      <div class="field"><label for="rate">ผลตอบแทนต่อปี (%)</label><input id="rate" inputmode="decimal" value="2"><small>ฝากประจำ/ออมทรัพย์ดิจิทัล ~1–2.5% กองทุนตราสารหนี้ ~2–3%</small></div>
+      <div class="field"><label for="years">ระยะเวลา (ปี)</label><input id="years" type="number" min="1" max="60" value="10"></div>
+    </div>
+    <label class="check"><input type="checkbox" id="tax"> หักภาษีดอกเบี้ย 15%</label>
+
+    <section class="result" aria-live="polite">
+      <div><span class="note">เงินออมเมื่อครบกำหนด</span><div class="big" id="bal">–</div></div>
+      <div class="stats">
+        <div class="stat"><span>เงินที่ฝากเอง</span><b id="dep">–</b></div>
+        <div class="stat"><span>ดอกเบี้ยที่ได้</span><b id="int">–</b></div>
+      </div>
+    </section>
+
+    <div class="table-wrap"><table>
+      <thead><tr><th>ปีที่</th><th>เงินฝากสะสม</th><th>ดอกเบี้ยสะสม</th><th>ยอดเงินรวม</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table></div>
+  </form>
+
+  <div class="ad-slot"><!-- วางโค้ดหน่วยโฆษณา AdSense ตรงนี้ --></div>
+
+  <article>
+    <h2>ดอกเบี้ยทบต้นคืออะไร</h2>
+    <p>ดอกเบี้ยทบต้นคือดอกเบี้ยที่ได้จะถูกรวมเข้าเงินต้น แล้วงวดถัดไปคิดดอกเบี้ยจากยอดที่ใหญ่ขึ้น ยิ่งออมนาน เงินยิ่งโตเร็วขึ้น เครื่องคำนวณนี้ทบต้นทุกเดือน</p>
+    <h2>ดอกเบี้ยเงินฝากเสียภาษีไหม</h2>
+    <ul>
+      <li>ดอกเบี้ยเงินฝากทั่วไปถูกหักภาษี ณ ที่จ่าย 15%</li>
+      <li>บัญชีออมทรัพย์ได้รับยกเว้นภาษี ถ้าดอกเบี้ยรวมทุกบัญชีไม่เกิน 20,000 บาทต่อปี และต้องยินยอมให้ธนาคารส่งข้อมูลให้กรมสรรพากร</li>
+      <li>บัญชีเงินฝากปลอดภาษี (ฝากประจำ 24 เดือนขึ้นไป) ได้รับยกเว้นภาษี ตามเงื่อนไขของธนาคาร</li>
+    </ul>
+    <h2>เคล็ดลับออมให้ถึงเป้า</h2>
+    <ul>
+      <li>ตั้งโอนอัตโนมัติไปบัญชีออมทันทีที่เงินเดือนเข้า</li>
+      <li>เริ่มเร็วสำคัญกว่าเริ่มเยอะ ลองเปลี่ยนจำนวนปีด้านบนเพื่อดูผลต่าง</li>
+      <li>เงินที่ไม่ได้ใช้เกิน 5 ปี อาจพิจารณาการลงทุนที่ผลตอบแทนสูงกว่า แต่มีความเสี่ยงมากขึ้น</li>
+    </ul>
+    <p class="note">ผลลัพธ์เป็นการประมาณ ผลตอบแทนจริงขึ้นกับอัตราดอกเบี้ยที่เปลี่ยนแปลงตามเวลา</p>
+  </article>
+</main>
+
+<footer class="site-foot"><div class="in">
+  <span>© 2026 การเงินของฉัน</span>
+  <span><a href="about.html">เกี่ยวกับเรา</a> · <a href="privacy.html">นโยบายความเป็นส่วนตัว</a></span>
+</div></footer>
+
+<script src="calc.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const num=s=>Number(String(s).replace(/[, ]/g,""))||0;
+function run(){
+  const r=Calc.computeSavings({initial:num($("initial").value),monthly:num($("monthly").value),rate:num($("rate").value),years:num($("years").value),tax:$("tax").checked});
+  $("bal").textContent=baht(r.balance)+" บาท";
+  $("dep").textContent=baht(r.deposited);
+  $("int").textContent=baht(r.interest);
+  $("rows").innerHTML=r.rows.map(x=>`<tr><td>${x.year}</td><td>${baht(x.deposited)}</td><td>${baht(x.interest)}</td><td>${baht(x.balance)}</td></tr>`).join("");
+}
+$("f").addEventListener("input",run);
+$("f").addEventListener("submit",e=>e.preventDefault());
+run();
+</script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>คำนวณภาษีเงินได้บุคคลธรรมดา 2569 สำหรับมนุษย์เงินเดือน | การเงินของฉัน</title>
+<meta name="description" content="โปรแกรมคำนวณภาษีเงินได้บุคคลธรรมดาออนไลน์ ฟรี ใส่เงินเดือน โบนัส และค่าลดหย่อน รู้ทันทีว่าต้องเสียภาษีเท่าไร พร้อมตารางภาษีขั้นบันได">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://kanngoenkhongchan.com/tax.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="การเงินของฉัน">
+<meta property="og:title" content="คำนวณภาษีเงินได้บุคคลธรรมดา 2569 สำหรับมนุษย์เงินเดือน | การเงินของฉัน">
+<meta property="og:description" content="โปรแกรมคำนวณภาษีเงินได้บุคคลธรรมดาออนไลน์ ฟรี ใส่เงินเดือน โบนัส และค่าลดหย่อน รู้ทันทีว่าต้องเสียภาษีเท่าไร พร้อมตารางภาษีขั้นบันได">
+<meta property="og:url" content="https://kanngoenkhongchan.com/tax.html">
+<meta property="og:locale" content="th_TH">
+<!-- วางโค้ด Google AdSense (ส่วน <head>) ตรงนี้ หลังได้รับอนุมัติ -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"เงินเดือนเท่าไรถึงต้องเสียภาษี","acceptedAnswer":{"@type":"Answer","text":"ถ้ามีรายได้จากเงินเดือนอย่างเดียว และใช้แค่ค่าใช้จ่าย 100,000 บาท ค่าลดหย่อนส่วนตัว 60,000 บาท และประกันสังคม รายได้ทั้งปีเกินประมาณ 319,000 บาท (เงินเดือนราว 26,600 บาท) จะเริ่มเสียภาษี"}},
+{"@type":"Question","name":"ภาษีขั้นบันไดคำนวณอย่างไร","acceptedAnswer":{"@type":"Answer","text":"นำเงินได้สุทธิมาแบ่งเป็นช่วง ช่วงแรก 150,000 บาทได้รับยกเว้น ช่วงถัดไปเสีย 5%, 10%, 15%, 20%, 25%, 30% และ 35% ตามลำดับ แล้วรวมภาษีทุกช่วงเข้าด้วยกัน"}},
+{"@type":"Question","name":"ยื่นภาษีได้ถึงวันไหน","acceptedAnswer":{"@type":"Answer","text":"ยื่นภาษีเงินได้ของปีก่อนหน้าได้ตั้งแต่ 1 มกราคม ถึง 31 มีนาคม ถ้ายื่นออนไลน์ กรมสรรพากรมักขยายเวลาให้ถึงประมาณต้นเดือนเมษายน"}}
+]}
+</script>
+</head>
+<body>
+<header class="site-head"><div class="in">
+  <a class="logo" href="index.html"><span>฿</span>การเงินของฉัน</a>
+  <nav class="nav"><a href="tax.html" aria-current="page">ภาษี</a><a href="salary.html">เงินเดือนสุทธิ</a><a href="home.html">ผ่อนบ้าน</a><a href="car.html">ผ่อนรถ</a><a href="savings.html">เงินออม</a><a href="vat.html">VAT</a><a href="age.html">อายุ / พ.ศ.</a></nav>
+</div></header>
+
+<main class="wrap">
+  <div>
+    <h1>คำนวณภาษีเงินได้บุคคลธรรมดา</h1>
+    <p class="lede">สำหรับมนุษย์เงินเดือน ปีภาษี 2569 (ยื่นต้นปี 2570) กรอกเฉพาะช่องที่มี ผลลัพธ์จะเปลี่ยนทันที</p>
+  </div>
+
+  <form class="card" id="f" autocomplete="off">
+    <fieldset>
+      <legend>รายได้</legend>
+      <div class="fields">
+        <div class="field"><label for="salary">เงินเดือน (บาท/เดือน)</label><input id="salary" inputmode="decimal" value="30000"></div>
+        <div class="field"><label for="bonus">โบนัสทั้งปี</label><input id="bonus" inputmode="decimal" value="0"></div>
+        <div class="field"><label for="otherIncome">รายได้ประเภทเงินเดือนอื่น ๆ</label><input id="otherIncome" inputmode="decimal" value="0"><small>เช่น ค่าคอมมิชชัน ค่าล่วงเวลา</small></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>ค่าลดหย่อนพื้นฐาน</legend>
+      <div class="fields">
+        <div class="field"><label for="sso">ประกันสังคมที่จ่ายทั้งปี</label><input id="sso" inputmode="decimal" value="10500"><small>ตามที่จ่ายจริง ปี 2569 สูงสุด 10,500 บาท (เดือนละ 875 บาท)</small></div>
+        <div class="field"><label for="kids">จำนวนบุตร</label><input id="kids" type="number" min="0" value="0"></div>
+        <div class="field"><label for="kids2">บุตรคนที่ 2 ขึ้นไป ที่เกิดตั้งแต่ปี 2561</label><input id="kids2" type="number" min="0" value="0"><small>ได้ลดหย่อนคนละ 60,000 บาท</small></div>
+        <div class="field"><label for="parents">พ่อแม่ที่เลี้ยงดู (อายุ 60+)</label><input id="parents" type="number" min="0" max="4" value="0"><small>รวมพ่อแม่คู่สมรส สูงสุด 4 คน</small></div>
+      </div>
+      <label class="check"><input type="checkbox" id="spouse"> คู่สมรสไม่มีเงินได้</label>
+    </fieldset>
+
+    <details class="more">
+      <summary>ค่าลดหย่อนเพิ่มเติม (ประกัน กองทุน บ้าน บริจาค)</summary>
+      <div class="fields">
+        <div class="field"><label for="life">เบี้ยประกันชีวิต</label><input id="life" inputmode="decimal" value="0"><small>ไม่เกิน 100,000 บาท</small></div>
+        <div class="field"><label for="health">เบี้ยประกันสุขภาพตัวเอง</label><input id="health" inputmode="decimal" value="0"><small>ไม่เกิน 25,000 บาท รวมกับประกันชีวิตไม่เกิน 100,000 บาท</small></div>
+        <div class="field"><label for="parentHealth">ประกันสุขภาพพ่อแม่</label><input id="parentHealth" inputmode="decimal" value="0"><small>ไม่เกิน 15,000 บาท</small></div>
+        <div class="field"><label for="pvd">กองทุนสำรองเลี้ยงชีพ (PVD)</label><input id="pvd" inputmode="decimal" value="0"></div>
+        <div class="field"><label for="rmf">RMF</label><input id="rmf" inputmode="decimal" value="0"><small>ไม่เกิน 30% ของรายได้</small></div>
+        <div class="field"><label for="ssf">SSF</label><input id="ssf" inputmode="decimal" value="0"><small>ไม่เกิน 30% และ 200,000 บาท</small></div>
+        <div class="field"><label for="esg">Thai ESG</label><input id="esg" inputmode="decimal" value="0"><small>ไม่เกิน 30% และ 300,000 บาท</small></div>
+        <div class="field"><label for="homeInterest">ดอกเบี้ยบ้าน</label><input id="homeInterest" inputmode="decimal" value="0"><small>ไม่เกิน 100,000 บาท</small></div>
+        <div class="field"><label for="other">ค่าลดหย่อนอื่น ๆ</label><input id="other" inputmode="decimal" value="0"><small>เช่น มาตรการกระตุ้นเศรษฐกิจของรัฐในปีนั้น</small></div>
+        <div class="field"><label for="donation">เงินบริจาคทั่วไป</label><input id="donation" inputmode="decimal" value="0"><small>ไม่เกิน 10% ของเงินได้หลังหักค่าลดหย่อน</small></div>
+      </div>
+    </details>
+
+    <section class="result" aria-live="polite">
+      <div><span class="note">ภาษีที่ต้องจ่ายทั้งปี</span><div class="big" id="tax">–</div></div>
+      <div class="stats">
+        <div class="stat"><span>รายได้ทั้งปี</span><b id="income">–</b></div>
+        <div class="stat"><span>หักค่าใช้จ่าย</span><b id="expense">–</b></div>
+        <div class="stat"><span>หักค่าลดหย่อน</span><b id="deduct">–</b></div>
+        <div class="stat"><span>เงินได้สุทธิ</span><b id="net">–</b></div>
+        <div class="stat"><span>เฉลี่ยต่อเดือน</span><b id="monthly">–</b></div>
+        <div class="stat"><span>อัตราภาษีที่แท้จริง</span><b id="eff">–</b></div>
+      </div>
+      <p class="tip" id="tip"></p>
+    </section>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>เงินได้สุทธิ (บาท)</th><th>อัตรา</th><th>ส่วนที่คิดภาษี</th><th>ภาษี</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </form>
+
+  <div class="ad-slot"><!-- วางโค้ดหน่วยโฆษณา AdSense ตรงนี้ --></div>
+
+  <article>
+    <h2>วิธีคำนวณภาษีเงินได้ของมนุษย์เงินเดือน</h2>
+    <ol>
+      <li><strong>รวมรายได้ทั้งปี</strong> ได้แก่ เงินเดือน × 12 บวกโบนัสและรายได้อื่นที่เป็นเงินได้ประเภทเงินเดือน</li>
+      <li><strong>หักค่าใช้จ่าย</strong> 50% ของรายได้ แต่ไม่เกิน 100,000 บาท</li>
+      <li><strong>หักค่าลดหย่อน</strong> เริ่มจากค่าลดหย่อนส่วนตัว 60,000 บาท แล้วเพิ่มประกันสังคม บุตร พ่อแม่ ประกัน และกองทุนตามที่มี</li>
+      <li><strong>ได้เงินได้สุทธิ</strong> นำไปคิดภาษีตามอัตราขั้นบันไดในตารางด้านบน</li>
+    </ol>
+    <p>ภาษีขั้นบันไดคิดเฉพาะส่วนที่เกินแต่ละช่วงเท่านั้น ถ้าเงินได้สุทธิ 200,000 บาท จะเสียภาษีแค่ส่วน 50,000 บาทที่เกิน 150,000 บาท ในอัตรา 5% คือ 2,500 บาท ไม่ใช่ 5% ของทั้งก้อน</p>
+
+    <h2>คำถามที่พบบ่อย</h2>
+    <div class="faq">
+      <details><summary>เงินเดือนเท่าไรถึงต้องเสียภาษี</summary><p>ถ้ามีแค่เงินเดือนและใช้ค่าลดหย่อนพื้นฐาน รายได้ทั้งปีเกินประมาณ 319,000 บาท (เงินเดือนราว 26,600 บาท) จะเริ่มเสียภาษี แต่ทุกคนที่มีรายได้เกิน 120,000 บาทต่อปีต้องยื่นแบบแสดงรายการ แม้จะไม่ต้องจ่ายภาษีก็ตาม</p></details>
+      <details><summary>ทำไมภาษีที่คำนวณได้ไม่ตรงกับที่บริษัทหักไว้</summary><p>บริษัทหักภาษี ณ ที่จ่ายจากการประมาณรายได้และค่าลดหย่อนเท่าที่รู้ ถ้าคุณมีค่าลดหย่อนเพิ่ม เช่น ประกันหรือกองทุน จะได้เงินคืนตอนยื่นภาษี ถ้าภาษีจริงสูงกว่าที่หักไว้ ต้องจ่ายเพิ่ม</p></details>
+      <details><summary>ยื่นภาษีได้ถึงวันไหน</summary><p>ยื่นได้ตั้งแต่ 1 มกราคม ถึง 31 มีนาคมของปีถัดไป ถ้ายื่นออนไลน์ที่ efiling.rd.go.th มักได้ขยายเวลาถึงต้นเดือนเมษายน</p></details>
+      <details><summary>ลดหย่อนเพิ่มเท่าไรถึงจะคุ้ม</summary><p>ดูที่อัตราภาษีขั้นสูงสุดที่คุณเสียอยู่ ถ้าอยู่ขั้น 10% ทุก 10,000 บาทที่ลดหย่อนเพิ่ม จะประหยัดภาษีได้ 1,000 บาท ผลลัพธ์ด้านบนจะบอกตัวเลขนี้ของคุณ</p></details>
+    </div>
+    <p class="note">ผลลัพธ์เป็นการประมาณเบื้องต้นเพื่อวางแผนเท่านั้น เงื่อนไขค่าลดหย่อนอาจเปลี่ยนทุกปี ตรวจสอบข้อมูลล่าสุดได้ที่เว็บไซต์กรมสรรพากร rd.go.th</p>
+  </article>
+</main>
+
+<footer class="site-foot"><div class="in">
+  <span>© 2026 การเงินของฉัน</span>
+  <span><a href="about.html">เกี่ยวกับเรา</a> · <a href="privacy.html">นโยบายความเป็นส่วนตัว</a></span>
+</div></footer>
+
+<script src="calc.js"></script>
+<script>
+const ids=["salary","bonus","otherIncome","sso","kids","kids2","parents","life","health","parentHealth","pvd","rmf","ssf","esg","homeInterest","other","donation"];
+const $=id=>document.getElementById(id);
+const num=s=>Number(String(s).replace(/[, ]/g,""))||0;
+function run(){
+  const o={spouse:$("spouse").checked}; ids.forEach(k=>o[k]=num($(k).value));
+  const r=Calc.computeTax(o);
+  $("tax").textContent=baht(r.tax)+" บาท";
+  $("income").textContent=baht(r.income);
+  $("expense").textContent=baht(r.expense);
+  $("deduct").textContent=baht(r.totalDeduct+r.donation);
+  $("net").textContent=baht(r.net);
+  $("monthly").textContent=baht(r.monthly);
+  $("eff").textContent=(r.effective*100).toFixed(2)+"%";
+  $("tip").textContent = r.marginal>0
+    ? `คุณอยู่ในขั้นภาษี ${r.marginal*100}% ถ้าลดหย่อนเพิ่มทุก 10,000 บาท จะจ่ายภาษีน้อยลงประมาณ ${baht(10000*r.marginal)} บาท`
+    : "เงินได้สุทธิยังไม่เกิน 150,000 บาท จึงยังไม่ต้องเสียภาษี แต่ถ้ารายได้ทั้งปีเกิน 120,000 บาท ยังต้องยื่นแบบ";
+  $("rows").innerHTML=r.rows.map(x=>`<tr class="${x.part>0&&x.rate===r.marginal?"on":""}"><td>${baht(x.from+(x.from?1:0))} – ${x.to===Infinity?"ขึ้นไป":baht(x.to)}</td><td>${x.rate?x.rate*100+"%":"ยกเว้น"}</td><td>${baht(x.part)}</td><td>${baht(x.tax)}</td></tr>`).join("");
+}
+$("f").addEventListener("input",run);
+$("f").addEventListener("submit",e=>e.preventDefault());
+run();
+</script>
+</body>
+</html>

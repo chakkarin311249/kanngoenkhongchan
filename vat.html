@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>คำนวณ VAT 7% และภาษีหัก ณ ที่จ่าย 1% 3% 5% | การเงินของฉัน</title>
+<meta name="description" content="คำนวณภาษีมูลค่าเพิ่ม VAT 7% ทั้งแบบบวกเพิ่มและถอด VAT จากราคารวม พร้อมคำนวณภาษีหัก ณ ที่จ่าย 1% 2% 3% 5% และยอดที่ต้องจ่ายจริง ใช้ฟรี">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://kanngoenkhongchan.com/vat.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="การเงินของฉัน">
+<meta property="og:title" content="คำนวณ VAT 7% และภาษีหัก ณ ที่จ่าย 1% 3% 5% | การเงินของฉัน">
+<meta property="og:description" content="คำนวณภาษีมูลค่าเพิ่ม VAT 7% ทั้งแบบบวกเพิ่มและถอด VAT จากราคารวม พร้อมคำนวณภาษีหัก ณ ที่จ่าย 1% 2% 3% 5% และยอดที่ต้องจ่ายจริง ใช้ฟรี">
+<meta property="og:url" content="https://kanngoenkhongchan.com/vat.html">
+<meta property="og:locale" content="th_TH">
+<!-- วางโค้ด Google AdSense (ส่วน <head>) ตรงนี้ หลังได้รับอนุมัติ -->
+</head>
+<body>
+<header class="site-head"><div class="in">
+  <a class="logo" href="index.html"><span>฿</span>การเงินของฉัน</a>
+  <nav class="nav"><a href="tax.html">ภาษี</a><a href="salary.html">เงินเดือนสุทธิ</a><a href="home.html">ผ่อนบ้าน</a><a href="car.html">ผ่อนรถ</a><a href="savings.html">เงินออม</a><a href="vat.html" aria-current="page">VAT</a><a href="age.html">อายุ / พ.ศ.</a></nav>
+</div></header>
+
+<main class="wrap">
+  <div>
+    <h1>คำนวณ VAT 7% และหัก ณ ที่จ่าย</h1>
+    <p class="lede">สำหรับออกใบเสนอราคา ใบแจ้งหนี้ และจ่ายเงินให้ฟรีแลนซ์หรือร้านค้า</p>
+  </div>
+
+  <form class="card" id="f" autocomplete="off">
+    <div class="fields">
+      <div class="field"><label for="amount">จำนวนเงิน (บาท)</label><input id="amount" inputmode="decimal" value="10000"></div>
+      <div class="field"><label for="mode">จำนวนเงินนี้คือ</label>
+        <select id="mode"><option value="add">ราคายังไม่รวม VAT (บวก VAT เพิ่ม)</option><option value="extract">ราคารวม VAT แล้ว (ถอด VAT)</option></select></div>
+      <div class="field"><label for="whtPct">หัก ณ ที่จ่าย</label>
+        <select id="whtPct"><option value="0">ไม่หัก</option><option value="1">1% ค่าขนส่ง</option><option value="2">2% ค่าโฆษณา</option><option value="3" selected>3% ค่าบริการ / ค่าจ้างทำของ</option><option value="5">5% ค่าเช่า</option></select></div>
+    </div>
+
+    <section class="result" aria-live="polite">
+      <div><span class="note">ยอดที่ต้องโอนจริง</span><div class="big" id="pay">–</div></div>
+      <div class="stats">
+        <div class="stat"><span>ราคาก่อน VAT</span><b id="base">–</b></div>
+        <div class="stat"><span>VAT 7%</span><b id="vat">–</b></div>
+        <div class="stat"><span>ราคารวม VAT</span><b id="total">–</b></div>
+        <div class="stat"><span>หัก ณ ที่จ่าย</span><b id="wht">–</b></div>
+      </div>
+    </section>
+  </form>
+
+  <div class="ad-slot"><!-- วางโค้ดหน่วยโฆษณา AdSense ตรงนี้ --></div>
+
+  <article>
+    <h2>สูตรคำนวณ VAT</h2>
+    <ul>
+      <li><strong>บวก VAT:</strong> ราคารวม = ราคาก่อน VAT × 1.07</li>
+      <li><strong>ถอด VAT:</strong> ราคาก่อน VAT = ราคารวม ÷ 1.07 และ VAT = ราคารวม − ราคาก่อน VAT</li>
+    </ul>
+    <h2>หัก ณ ที่จ่ายคิดจากยอดไหน</h2>
+    <p>ภาษีหัก ณ ที่จ่ายคิดจากราคาก่อน VAT เสมอ เช่น ค่าบริการ 10,000 บาท บวก VAT 700 บาท เป็น 10,700 บาท หัก 3% จาก 10,000 บาท เท่ากับ 300 บาท ผู้จ่ายจึงโอนจริง 10,400 บาท และต้องออกหนังสือรับรองการหักภาษี (50 ทวิ) ให้ผู้รับเงิน</p>
+    <h2>อัตราหัก ณ ที่จ่ายที่ใช้บ่อย</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>ประเภทเงินได้</th><th>อัตรา</th></tr></thead>
+      <tbody>
+        <tr><td>ค่าขนส่ง</td><td>1%</td></tr>
+        <tr><td>ค่าโฆษณา</td><td>2%</td></tr>
+        <tr><td>ค่าบริการ ค่าจ้างทำของ ค่าวิชาชีพ</td><td>3%</td></tr>
+        <tr><td>ค่าเช่า</td><td>5%</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">อัตราข้างต้นใช้กับกรณีผู้จ่ายเป็นนิติบุคคลจ่ายให้ผู้รับในประเทศ อาจมีกรณีพิเศษ เช่น หัก ณ ที่จ่ายผ่านระบบ e-Withholding Tax ตรวจสอบเงื่อนไขล่าสุดได้ที่ rd.go.th</p>
+  </article>
+</main>
+
+<footer class="site-foot"><div class="in">
+  <span>© 2026 การเงินของฉัน</span>
+  <span><a href="about.html">เกี่ยวกับเรา</a> · <a href="privacy.html">นโยบายความเป็นส่วนตัว</a></span>
+</div></footer>
+
+<script src="calc.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const num=s=>Number(String(s).replace(/[, ]/g,""))||0;
+function run(){
+  const r=Calc.computeVat({amount:num($("amount").value),mode:$("mode").value,whtPct:num($("whtPct").value)});
+  $("pay").textContent=baht(r.pay,2)+" บาท";
+  $("base").textContent=baht(r.base,2);
+  $("vat").textContent=baht(r.vat,2);
+  $("total").textContent=baht(r.total,2);
+  $("wht").textContent="−"+baht(r.wht,2);
+}
+$("f").addEventListener("input",run);
+$("f").addEventListener("submit",e=>e.preventDefault());
+run();
+</script>
+</body>
+</html>

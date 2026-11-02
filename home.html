@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>คำนวณผ่อนบ้าน สินเชื่อบ้าน ผ่อนเดือนละเท่าไร | การเงินของฉัน</title>
+<meta name="description" content="คำนวณค่าผ่อนบ้านต่อเดือน ดอกเบี้ยรวม และดูว่าถ้าโปะบ้านเพิ่มจะหมดหนี้เร็วขึ้นกี่ปี ประหยัดดอกเบี้ยได้เท่าไร ใช้ฟรี">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://kanngoenkhongchan.com/home.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="การเงินของฉัน">
+<meta property="og:title" content="คำนวณผ่อนบ้าน สินเชื่อบ้าน ผ่อนเดือนละเท่าไร | การเงินของฉัน">
+<meta property="og:description" content="คำนวณค่าผ่อนบ้านต่อเดือน ดอกเบี้ยรวม และดูว่าถ้าโปะบ้านเพิ่มจะหมดหนี้เร็วขึ้นกี่ปี ประหยัดดอกเบี้ยได้เท่าไร ใช้ฟรี">
+<meta property="og:url" content="https://kanngoenkhongchan.com/home.html">
+<meta property="og:locale" content="th_TH">
+<!-- วางโค้ด Google AdSense (ส่วน <head>) ตรงนี้ หลังได้รับอนุมัติ -->
+</head>
+<body>
+<header class="site-head"><div class="in">
+  <a class="logo" href="index.html"><span>฿</span>การเงินของฉัน</a>
+  <nav class="nav"><a href="tax.html">ภาษี</a><a href="salary.html">เงินเดือนสุทธิ</a><a href="home.html" aria-current="page">ผ่อนบ้าน</a><a href="car.html">ผ่อนรถ</a><a href="savings.html">เงินออม</a><a href="vat.html">VAT</a><a href="age.html">อายุ / พ.ศ.</a></nav>
+</div></header>
+
+<main class="wrap">
+  <div>
+    <h1>คำนวณผ่อนบ้าน</h1>
+    <p class="lede">รู้ค่างวดต่อเดือน ดอกเบี้ยทั้งหมด และผลของการโปะบ้าน</p>
+  </div>
+
+  <form class="card" id="f" autocomplete="off">
+    <div class="fields">
+      <div class="field"><label for="price">ราคาบ้าน / คอนโด (บาท)</label><input id="price" inputmode="decimal" value="3000000"></div>
+      <div class="field"><label for="downPct">เงินดาวน์ (%)</label><input id="downPct" inputmode="decimal" value="10"><small id="loanTxt"></small></div>
+      <div class="field"><label for="rate">ดอกเบี้ยเฉลี่ยต่อปี (%)</label><input id="rate" inputmode="decimal" value="4"><small>ใช้ดอกเบี้ยเฉลี่ยตลอดสัญญา ส่วนใหญ่อยู่ที่ 3–6%</small></div>
+      <div class="field"><label for="years">ระยะเวลาผ่อน (ปี)</label><input id="years" type="number" min="1" max="40" value="30"></div>
+      <div class="field"><label for="extra">โปะเพิ่มต่อเดือน (บาท)</label><input id="extra" inputmode="decimal" value="3000"><small>ใส่ 0 ถ้าไม่โปะ</small></div>
+    </div>
+
+    <section class="result" aria-live="polite">
+      <div><span class="note">ผ่อนเดือนละ</span><div class="big" id="pay">–</div></div>
+      <div class="stats">
+        <div class="stat"><span>ยอดกู้</span><b id="loan">–</b></div>
+        <div class="stat"><span>ดอกเบี้ยรวม</span><b id="interest">–</b></div>
+        <div class="stat"><span>จ่ายรวมทั้งหมด</span><b id="total">–</b></div>
+        <div class="stat"><span>งวดแรก: ดอกเบี้ย</span><b id="fi">–</b></div>
+        <div class="stat"><span>งวดแรก: ตัดเงินต้น</span><b id="fp">–</b></div>
+      </div>
+      <p class="tip" id="tip"></p>
+    </section>
+  </form>
+
+  <div class="ad-slot"><!-- วางโค้ดหน่วยโฆษณา AdSense ตรงนี้ --></div>
+
+  <article>
+    <h2>ทำไมผ่อนบ้านช่วงแรกตัดต้นน้อย</h2>
+    <p>สินเชื่อบ้านคิดดอกเบี้ยจากเงินต้นคงเหลือ (ลดต้นลดดอก) ช่วงแรกเงินต้นยังสูง ค่างวดส่วนใหญ่จึงเป็นดอกเบี้ย ค่างวดที่เหลือถึงจะไปตัดเงินต้น เมื่อเงินต้นลดลง สัดส่วนนี้จะค่อย ๆ กลับกัน</p>
+    <h2>โปะบ้านคุ้มไหม</h2>
+    <p>เงินที่โปะเพิ่มจะไปตัดเงินต้นทั้งหมด ดอกเบี้ยเดือนถัดไปจึงลดลงทันที ยิ่งโปะเร็ว ยิ่งประหยัดดอกเบี้ยมาก ก่อนโปะควรตรวจสัญญาว่ามีค่าปรับไถ่ถอนก่อนกำหนดในช่วง 3 ปีแรกหรือไม่</p>
+    <h2>ควรผ่อนบ้านเท่าไรดี</h2>
+    <p>ธนาคารส่วนใหญ่อนุมัติเมื่อหนี้ทั้งหมดต่อเดือนไม่เกิน 40–50% ของรายได้ เพื่อความสบายใจ ค่าผ่อนบ้านควรอยู่ราว 30% ของรายได้ คำนวณรายได้หลังหักแล้วได้ที่ <a href="salary.html">เงินเดือนสุทธิ</a></p>
+    <p class="note">ผลลัพธ์เป็นการประมาณ ธนาคารจริงมักใช้ดอกเบี้ยคงที่ช่วงแรกแล้วลอยตัว และอาจปัดค่างวดต่างไปเล็กน้อย</p>
+  </article>
+</main>
+
+<footer class="site-foot"><div class="in">
+  <span>© 2026 การเงินของฉัน</span>
+  <span><a href="about.html">เกี่ยวกับเรา</a> · <a href="privacy.html">นโยบายความเป็นส่วนตัว</a></span>
+</div></footer>
+
+<script src="calc.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const num=s=>Number(String(s).replace(/[, ]/g,""))||0;
+const ym=m=>{const y=Math.floor(m/12),r=m%12;return (y?y+" ปี":"")+(r?(y?" ":"")+r+" เดือน":"")||"0 เดือน"};
+function run(){
+  const r=Calc.computeHome({price:num($("price").value),downPct:num($("downPct").value),rate:num($("rate").value),years:num($("years").value),extra:num($("extra").value)});
+  $("loanTxt").textContent=`ยอดกู้ ${baht(r.loan)} บาท`;
+  $("pay").textContent=baht(r.pay)+" บาท";
+  $("loan").textContent=baht(r.loan);
+  $("interest").textContent=baht(r.totalInterest);
+  $("total").textContent=baht(r.total);
+  $("fi").textContent=baht(r.firstInterest);
+  $("fp").textContent=baht(r.firstPrincipal);
+  $("tip").textContent=num($("extra").value)>0
+    ? `ถ้าโปะเพิ่มเดือนละ ${baht(num($("extra").value))} บาท จะหมดหนี้ใน ${ym(r.extraMonths)} เร็วขึ้น ${ym(r.months-r.extraMonths)} และประหยัดดอกเบี้ยได้ ${baht(r.totalInterest-r.extraInterest)} บาท`
+    : "ลองใส่จำนวนเงินในช่อง \"โปะเพิ่มต่อเดือน\" เพื่อดูว่าจะหมดหนี้เร็วขึ้นแค่ไหน";
+}
+$("f").addEventListener("input",run);
+$("f").addEventListener("submit",e=>e.preventDefault());
+run();
+</script>
+</body>
+</html>
