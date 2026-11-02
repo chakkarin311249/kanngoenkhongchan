@@ -6,7 +6,7 @@
 <title>การเงินของฉัน</title>
 <meta name="description" content="การเงินของฉัน รวมเครื่องคำนวณการเงินภาษาไทย ใช้ฟรี คำนวณภาษี เงินเดือนสุทธิ ผ่อนบ้าน ผ่อนรถ บัตรเครดิต ลงทุน DCA เงินเกษียณ แปลงสกุลเงิน และเงินเฟ้อ ใช้ง่ายบนมือถือ">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;600;700&display=swap">
-<link rel="stylesheet" href="style.css?v=202611020526">
+<link rel="stylesheet" href="style.css?v=202611020539">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#000000">
@@ -28,7 +28,7 @@
 <body>
 <header class="site-head"><div class="in">
   <a class="logo" href="index.html"><span>฿</span>การเงินของฉัน</a>
-  <nav class="nav"><a href="tax.html">ภาษี</a><a href="salary.html">เงินเดือนสุทธิ</a><a href="vat.html">VAT</a><a href="home.html">ผ่อนบ้าน</a><a href="car.html">ผ่อนรถ</a><a href="credit-card.html">บัตรเครดิต</a><a href="savings.html">เงินออม</a><a href="invest.html">ลงทุน DCA</a><a href="retire.html">เกษียณ</a><a href="currency.html">แปลงสกุลเงิน</a><a href="inflation.html">เงินเฟ้อ</a><a href="age.html">อายุ / พ.ศ.</a></nav>
+  <nav class="nav"><a href="tax.html">ภาษี</a><a href="salary.html">เงินเดือนสุทธิ</a><a href="vat.html">VAT</a><a href="home.html">ผ่อนบ้าน</a><a href="car.html">ผ่อนรถ</a><a href="credit-card.html">บัตรเครดิต</a><a href="savings.html">เงินออม</a><a href="invest.html">ลงทุน DCA</a><a href="retire.html">เกษียณ</a><a href="currency.html">แปลงสกุลเงิน</a><a href="inflation.html">เงินเฟ้อ</a><a href="age.html">อายุ / พ.ศ.</a><a href="deductions-2569.html">ลดหย่อนภาษี 2569</a><a href="quiz.html">แบบทดสอบการเงิน</a><a href="challenge.html">ชาเลนจ์เก็บเงิน</a></nav>
 </div></header>
 
 <main class="wrap">
@@ -43,9 +43,18 @@
       <button type="button" class="chip" data-c="loan" aria-pressed="false">ผ่อนและสินเชื่อ</button>
       <button type="button" class="chip" data-c="save" aria-pressed="false">ออมและลงทุน</button>
       <button type="button" class="chip" data-c="world" aria-pressed="false">การเงินทั่วโลก</button>
+      <button type="button" class="chip" data-c="learn" aria-pressed="false">ความรู้และกิจกรรม</button>
       <button type="button" class="chip" data-c="other" aria-pressed="false">เครื่องมืออื่น ๆ</button>
     </div>
 
+  <section class="cat" id="learn" data-c="learn">
+    <div class="cat-head"><h2>ความรู้และกิจกรรม</h2><p>อ่าน ทดสอบ และสร้างนิสัยการเงินที่ดี</p></div>
+    <div class="tools">
+      <a class="tool" href="deductions-2569.html"><span class="ico">📝</span><h3>ลดหย่อนภาษี 2569</h3><p>รวมทุกรายการลดหย่อน พร้อมเพดานสูงสุด</p></a>
+      <a class="tool" href="quiz.html"><span class="ico">🩺</span><h3>แบบทดสอบสุขภาพการเงิน</h3><p>ตอบ 10 ข้อ รู้คะแนนและสิ่งที่ควรปรับ</p></a>
+      <a class="tool" href="challenge.html"><span class="ico">🐷</span><h3>ชาเลนจ์เก็บเงิน</h3><p>365 วัน หรือ 52 สัปดาห์ ติ๊กได้ทุกวัน</p></a>
+    </div>
+  </section>
   <section class="cat" id="tax" data-c="tax">
     <div class="cat-head"><h2>ภาษีและเงินเดือน</h2><p>คำนวณภาษี เงินที่ได้รับจริง และภาษีธุรกิจ</p></div>
     <div class="tools">
@@ -114,7 +123,7 @@
   var h=location.hash.slice(1); if(document.getElementById(h)) show(h);
 })();
 </script>
-<script src="menu.js?v=202611020526"></script>
-<script src="i18n.js?v=202611020526"></script>
+<script src="menu.js?v=202611020539"></script>
+<script src="i18n.js?v=202611020539"></script>
 </body>
 </html>

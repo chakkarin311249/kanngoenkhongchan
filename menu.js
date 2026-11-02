@@ -2,6 +2,7 @@
 (function () {
   var en = (function () { try { return (new URLSearchParams(location.search).get("lang") || localStorage.getItem("lang")) === "en"; } catch (e) { return false; } })();
   var GROUPS = [
+    { th: "ความรู้และกิจกรรม", en: "Learn & activities", items: ["deductions-2569.html", "quiz.html", "challenge.html"] },
     { th: "ภาษีและเงินเดือน", en: "Tax & salary", items: ["tax.html", "salary.html", "vat.html"] },
     { th: "ผ่อนและสินเชื่อ", en: "Loans & credit", items: ["home.html", "car.html", "credit-card.html"] },
     { th: "ออมและลงทุน", en: "Saving & investing", items: ["savings.html", "invest.html", "retire.html"] },
