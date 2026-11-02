@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>การเงินของฉัน</title>
-<meta name="description" content="การเงินของฉัน รวมเครื่องคำนวณการเงินภาษาไทย ใช้ฟรี คำนวณภาษีเงินได้ เงินเดือนสุทธิ ผ่อนบ้าน ผ่อนรถ เงินออม และ VAT ใช้ง่ายบนมือถือ">
+<meta name="description" content="การเงินของฉัน รวมเครื่องคำนวณการเงินภาษาไทย ใช้ฟรี คำนวณภาษี เงินเดือนสุทธิ ผ่อนบ้าน ผ่อนรถ บัตรเครดิต ลงทุน DCA เงินเกษียณ แปลงสกุลเงิน และเงินเฟ้อ ใช้ง่ายบนมือถือ">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;600;700&display=swap">
 <link rel="stylesheet" href="style.css">
 <link rel="canonical" href="https://kanngoenkhongchan.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="การเงินของฉัน">
 <meta property="og:title" content="การเงินของฉัน">
-<meta property="og:description" content="การเงินของฉัน รวมเครื่องคำนวณการเงินภาษาไทย ใช้ฟรี คำนวณภาษีเงินได้ เงินเดือนสุทธิ ผ่อนบ้าน ผ่อนรถ เงินออม และ VAT ใช้ง่ายบนมือถือ">
+<meta property="og:description" content="การเงินของฉัน รวมเครื่องคำนวณการเงินภาษาไทย ใช้ฟรี คำนวณภาษี เงินเดือนสุทธิ ผ่อนบ้าน ผ่อนรถ บัตรเครดิต ลงทุน DCA เงินเกษียณ แปลงสกุลเงิน และเงินเฟ้อ ใช้ง่ายบนมือถือ">
 <meta property="og:url" content="https://kanngoenkhongchan.com/">
 <meta property="og:locale" content="th_TH">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1190395119954248" crossorigin="anonymous"></script>
@@ -19,20 +19,21 @@
 <body>
 <header class="site-head"><div class="in">
   <a class="logo" href="index.html"><span>฿</span>การเงินของฉัน</a>
-  <nav class="nav"><a href="tax.html">ภาษี</a><a href="salary.html">เงินเดือนสุทธิ</a><a href="home.html">ผ่อนบ้าน</a><a href="car.html">ผ่อนรถ</a><a href="savings.html">เงินออม</a><a href="vat.html">VAT</a><a href="age.html">อายุ / พ.ศ.</a></nav>
+  <nav class="nav"><a href="tax.html">ภาษี</a><a href="salary.html">เงินเดือนสุทธิ</a><a href="vat.html">VAT</a><a href="home.html">ผ่อนบ้าน</a><a href="car.html">ผ่อนรถ</a><a href="credit-card.html">บัตรเครดิต</a><a href="savings.html">เงินออม</a><a href="invest.html">ลงทุน DCA</a><a href="retire.html">เกษียณ</a><a href="currency.html">แปลงสกุลเงิน</a><a href="inflation.html">เงินเฟ้อ</a><a href="age.html">อายุ / พ.ศ.</a></nav>
 </div></header>
 
 <main class="wrap">
   <div>
     <h1>เครื่องคำนวณการเงิน ใช้ฟรี</h1>
-    <p class="lede">วางแผนเรื่องเงินของคุณได้ในไม่กี่วินาที ทั้งภาษี การผ่อนรถ และอีกมากมาย ไม่ต้องสมัครสมาชิก และไม่เก็บข้อมูลที่คุณกรอก</p>
+    <p class="lede">วางแผนเรื่องเงินของคุณได้ในไม่กี่วินาที ทั้งภาษี การผ่อน การลงทุน และค่าเงินทั่วโลก ไม่ต้องสมัครสมาชิก และไม่เก็บข้อมูลที่คุณกรอก</p>
   </div>
 
   <div class="chips" id="cats" role="group" aria-label="เลือกหมวดหมู่">
       <button type="button" class="chip" data-c="all" aria-pressed="true">ทั้งหมด</button>
       <button type="button" class="chip" data-c="tax" aria-pressed="false">ภาษีและเงินเดือน</button>
       <button type="button" class="chip" data-c="loan" aria-pressed="false">ผ่อนและสินเชื่อ</button>
-      <button type="button" class="chip" data-c="save" aria-pressed="false">ออมเงิน</button>
+      <button type="button" class="chip" data-c="save" aria-pressed="false">ออมและลงทุน</button>
+      <button type="button" class="chip" data-c="world" aria-pressed="false">การเงินทั่วโลก</button>
       <button type="button" class="chip" data-c="other" aria-pressed="false">เครื่องมืออื่น ๆ</button>
     </div>
 
@@ -49,12 +50,22 @@
     <div class="tools">
       <a class="tool" href="home.html"><span class="ico">⌂</span><h3>ผ่อนบ้าน</h3><p>ค่างวดต่อเดือน ดอกเบี้ยรวม และผลของการโปะบ้าน</p></a>
       <a class="tool" href="car.html"><span class="ico">฿</span><h3>ผ่อนรถ</h3><p>ผ่อนรถเดือนละเท่าไร เทียบ 24–84 งวดได้ทันที</p></a>
+      <a class="tool" href="credit-card.html"><span class="ico">💳</span><h3>หนี้บัตรเครดิต</h3><p>จ่ายขั้นต่ำกี่เดือนหมด เสียดอกเบี้ยเท่าไร</p></a>
     </div>
   </section>
   <section class="cat" id="save" data-c="save">
-    <div class="cat-head"><h2>ออมเงิน</h2><p>วางแผนให้เงินงอกเงย</p></div>
+    <div class="cat-head"><h2>ออมและลงทุน</h2><p>วางแผนให้เงินงอกเงย จนถึงวันเกษียณ</p></div>
     <div class="tools">
       <a class="tool" href="savings.html"><span class="ico">↗</span><h3>เงินออม ดอกเบี้ยทบต้น</h3><p>ออมเดือนละเท่านี้ อีกกี่ปีจะมีเงินเท่าไร</p></a>
+      <a class="tool" href="invest.html"><span class="ico">📈</span><h3>ลงทุน DCA</h3><p>ลงทุนเดือนละเท่ากัน อีกกี่ปีเงินจะโตเท่าไร</p></a>
+      <a class="tool" href="retire.html"><span class="ico">🏖</span><h3>เงินเกษียณ</h3><p>ต้องมีเงินเท่าไรถึงพอ และต้องออมเดือนละเท่าไร</p></a>
+    </div>
+  </section>
+  <section class="cat" id="world" data-c="world">
+    <div class="cat-head"><h2>การเงินทั่วโลก</h2><p>ค่าเงินและเงินเฟ้อ เรื่องที่กระทบเงินในกระเป๋าทุกคน</p></div>
+    <div class="tools">
+      <a class="tool" href="currency.html"><span class="ico">💱</span><h3>แปลงสกุลเงิน</h3><p>อัตราแลกเปลี่ยนวันนี้ 30 สกุลเงินทั่วโลก</p></a>
+      <a class="tool" href="inflation.html"><span class="ico">🛒</span><h3>เงินเฟ้อ</h3><p>เงินเท่านี้ อีก 10 ปีจะซื้อของได้เท่าไร</p></a>
     </div>
   </section>
   <section class="cat" id="other" data-c="other">

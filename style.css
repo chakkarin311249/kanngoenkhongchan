@@ -109,3 +109,4 @@ section.cat{display:grid;gap:12px;scroll-margin-top:120px}
 .cat-head p{color:var(--muted);font-size:.9rem}
 .tool h3{font-size:1.05rem}
 .crumb{display:inline-block;font-size:.85rem;font-weight:600;color:var(--accent);text-decoration:none;background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:999px;padding:3px 12px;margin-bottom:8px}
+.swap{justify-self:start;font:inherit;font-weight:600;color:var(--accent);background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:12px;padding:10px 16px;min-height:44px;cursor:pointer}

@@ -140,7 +140,49 @@
     return { base, vat, total, wht, pay: total - wht };
   }
 
-  const api = { computeTax, computeCar, computeAge, computeSalary, computeHome, computeSavings, computeVat, BRACKETS };
+  // Inflation: what an amount costs in the future, and what it is worth in today's money.
+  function computeInflation(o) {
+    const amt = n(o.amount), r = n(o.rate) / 100, y = Math.max(0, n(o.years));
+    const f = Math.pow(1 + r, y);
+    return { future: amt * f, worth: amt / f, lost: 1 - 1 / f };
+  }
+
+  // Retirement: money needed at retirement and monthly saving to get there.
+  function computeRetire(o) {
+    const age = n(o.age), ret = n(o.retireAge), life = n(o.lifeAge);
+    const Y = Math.max(0, ret - age), N = Math.max(1, life - ret);
+    const inf = n(o.inflation) / 100, rb = n(o.returnBefore) / 100, ra = n(o.returnAfter) / 100;
+    const yearlyAtRetire = n(o.expense) * 12 * Math.pow(1 + inf, Y);
+    const rr = (1 + ra) / (1 + inf) - 1;
+    const need = Math.abs(rr) < 1e-9 ? yearlyAtRetire * N : yearlyAtRetire * (1 - Math.pow(1 + rr, -N)) / rr;
+    const have = n(o.saved) * Math.pow(1 + rb, Y);
+    const gap = Math.max(0, need - have);
+    const rm = rb / 12, m = Y * 12;
+    const monthly = gap === 0 ? 0 : m === 0 ? gap : (rm ? gap * rm / (Math.pow(1 + rm, m) - 1) : gap / m);
+    return { years: Y, retireYears: N, monthlyExpenseAtRetire: yearlyAtRetire / 12, need, have, gap, monthly };
+  }
+
+  // Credit card payoff: minimum payments vs a fixed monthly payment.
+  function payoff(balance, apr, payFn) {
+    let bal = n(balance), m = 0, interest = 0;
+    const r = n(apr) / 100 / 12;
+    while (bal > 0.005 && m < 1200) {
+      const i = bal * r; interest += i; bal += i;
+      const p = Math.min(bal, payFn(bal));
+      if (p <= i - 1e-9 && m > 0) return { months: Infinity, interest: Infinity };
+      bal -= p; m++;
+    }
+    return { months: m >= 1200 ? Infinity : m, interest };
+  }
+  function computeCard(o) {
+    const pct = n(o.minPct) / 100, floor = n(o.minBaht);
+    const min = payoff(o.balance, o.apr, b => Math.max(b * pct, floor));
+    const fixed = n(o.fixed) > 0 ? payoff(o.balance, o.apr, () => n(o.fixed)) : null;
+    return { firstMin: Math.min(n(o.balance) * (1 + n(o.apr) / 1200), Math.max(n(o.balance) * (1 + n(o.apr) / 1200) * pct, floor)), min, fixed };
+  }
+
+  const api = { computeTax, computeCar, computeAge, computeSalary, computeHome, computeSavings, computeVat,
+    computeInflation, computeRetire, computeCard, BRACKETS };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else root.Calc = api;
 })(this);

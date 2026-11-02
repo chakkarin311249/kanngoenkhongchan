@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>คำนวณลงทุน DCA รายเดือน ผลตอบแทนทบต้น หุ้น กองทุน | การเงินของฉัน</title>
+<meta name="description" content="คำนวณการลงทุนแบบ DCA ลงทุนเดือนละเท่านี้ ผลตอบแทนเฉลี่ยกี่เปอร์เซ็นต์ อีกกี่ปีจะมีเงินเท่าไร พร้อมเทียบกับฝากธนาคาร ใช้ฟรี">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://kanngoenkhongchan.com/invest.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="การเงินของฉัน">
+<meta property="og:title" content="คำนวณลงทุน DCA รายเดือน ผลตอบแทนทบต้น หุ้น กองทุน | การเงินของฉัน">
+<meta property="og:description" content="คำนวณการลงทุนแบบ DCA ลงทุนเดือนละเท่านี้ ผลตอบแทนเฉลี่ยกี่เปอร์เซ็นต์ อีกกี่ปีจะมีเงินเท่าไร พร้อมเทียบกับฝากธนาคาร ใช้ฟรี">
+<meta property="og:url" content="https://kanngoenkhongchan.com/invest.html">
+<meta property="og:locale" content="th_TH">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1190395119954248" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="in">
+  <a class="logo" href="index.html"><span>฿</span>การเงินของฉัน</a>
+  <nav class="nav"><a href="tax.html">ภาษี</a><a href="salary.html">เงินเดือนสุทธิ</a><a href="vat.html">VAT</a><a href="home.html">ผ่อนบ้าน</a><a href="car.html">ผ่อนรถ</a><a href="credit-card.html">บัตรเครดิต</a><a href="savings.html">เงินออม</a><a href="invest.html" aria-current="page">ลงทุน DCA</a><a href="retire.html">เกษียณ</a><a href="currency.html">แปลงสกุลเงิน</a><a href="inflation.html">เงินเฟ้อ</a><a href="age.html">อายุ / พ.ศ.</a></nav>
+</div></header>
+
+<main class="wrap">
+  <div>
+    <a class="crumb" href="index.html#save">ออมและลงทุน</a>
+    <h1>คำนวณลงทุน DCA</h1>
+    <p class="lede">ลงทุนเท่ากันทุกเดือนในหุ้นหรือกองทุน แล้วดูว่าเงินโตได้แค่ไหน</p>
+  </div>
+
+  <form class="card" id="f" autocomplete="off">
+    <div class="fields">
+      <div class="field"><label for="initial">เงินลงทุนเริ่มต้น (บาท)</label><input id="initial" inputmode="decimal" value="0"></div>
+      <div class="field"><label for="monthly">ลงทุนต่อเดือน (บาท)</label><input id="monthly" inputmode="decimal" value="5000"></div>
+      <div class="field"><label for="rate">ผลตอบแทนเฉลี่ยต่อปี (%)</label><input id="rate" inputmode="decimal" value="7"><small>กองทุนหุ้นโลกในอดีตเฉลี่ยราว 6–8% แต่ไม่รับประกันในอนาคต</small></div>
+      <div class="field"><label for="years">ระยะเวลา (ปี)</label><input id="years" type="number" min="1" max="60" value="20"></div>
+    </div>
+    <section class="result" aria-live="polite">
+      <div><span class="note">มูลค่าเงินลงทุนเมื่อครบกำหนด</span><div class="big" id="bal">–</div></div>
+      <div class="stats">
+        <div class="stat"><span>เงินที่ลงทุนเอง</span><b id="dep">–</b></div>
+        <div class="stat"><span>กำไร</span><b id="gain">–</b></div>
+        <div class="stat"><span>ถ้าฝากธนาคาร 1.5%</span><b id="bank">–</b></div>
+      </div>
+      <p class="tip" id="tip"></p>
+    </section>
+    <div class="table-wrap"><table>
+      <thead><tr><th>ปีที่</th><th>เงินลงทุนสะสม</th><th>มูลค่า</th></tr></thead><tbody id="rows"></tbody>
+    </table></div>
+  </form>
+
+  <div class="ad-slot"><!-- วางโค้ดหน่วยโฆษณา AdSense ตรงนี้ --></div>
+
+  <article>
+    <h2>DCA คืออะไร</h2>
+    <p>DCA (Dollar-Cost Averaging) คือการลงทุนจำนวนเท่ากันทุกเดือน ไม่ต้องจับจังหวะตลาด ช่วงราคาตกจะได้หน่วยลงทุนมาก ช่วงราคาขึ้นจะได้น้อย ต้นทุนจึงเฉลี่ยออกไป เหมาะกับมนุษย์เงินเดือนที่ลงทุนระยะยาว</p>
+    <h2>ข้อควรรู้</h2>
+    <ul>
+      <li>ผลตอบแทนจริงขึ้นลงทุกปี บางปีอาจติดลบ ตัวเลขนี้คิดจากค่าเฉลี่ยคงที่</li>
+      <li>ระยะเวลาสำคัญมาก ลองเปลี่ยนจาก 10 ปีเป็น 20 ปี แล้วดูกำไรที่ต่างกัน</li>
+      <li>ลงทุนผ่านกองทุน SSF, RMF หรือ Thai ESG นำไปลดหย่อนภาษีได้ด้วย ดูที่ <a href="tax.html">คำนวณภาษี</a></li>
+    </ul>
+    <p class="note">การลงทุนมีความเสี่ยง ผลตอบแทนในอดีตไม่ได้รับประกันผลตอบแทนในอนาคต เครื่องมือนี้ไม่ใช่คำแนะนำการลงทุน</p>
+  </article>
+</main>
+
+<footer class="site-foot"><div class="in">
+  <span>© 2026 การเงินของฉัน</span>
+  <span><a href="about.html">เกี่ยวกับเรา</a> · <a href="privacy.html">นโยบายความเป็นส่วนตัว</a></span>
+</div></footer>
+
+<script src="calc.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const num=s=>Number(String(s).replace(/[, ]/g,""))||0;
+function run(){
+  const o={initial:num($("initial").value),monthly:num($("monthly").value),rate:num($("rate").value),years:num($("years").value)};
+  const r=Calc.computeSavings(o), b=Calc.computeSavings({...o,rate:1.5});
+  $("bal").textContent=baht(r.balance)+" บาท";
+  $("dep").textContent=baht(r.deposited);
+  $("gain").textContent=baht(r.interest);
+  $("bank").textContent=baht(b.balance);
+  $("tip").textContent=`ลงทุนได้มากกว่าฝากธนาคาร ${baht(r.balance-b.balance)} บาท (สมมติผลตอบแทนเฉลี่ย ${o.rate}% ต่อปี)`;
+  $("rows").innerHTML=r.rows.map(x=>`<tr><td>${x.year}</td><td>${baht(x.deposited)}</td><td>${baht(x.balance)}</td></tr>`).join("");
+}
+$("f").addEventListener("input",run); run();
+document.querySelectorAll("form").forEach(f=>f.addEventListener("submit",e=>e.preventDefault()));
+</script>
+</body>
+</html>

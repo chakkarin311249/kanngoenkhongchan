@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>คำนวณหนี้บัตรเครดิต จ่ายขั้นต่ำกี่ปีหมด เสียดอกเบี้ยเท่าไร | การเงินของฉัน</title>
+<meta name="description" content="คำนวณหนี้บัตรเครดิต ถ้าจ่ายขั้นต่ำทุกเดือนต้องใช้กี่เดือนถึงหมด เสียดอกเบี้ยรวมเท่าไร เทียบกับจ่ายเดือนละเท่ากัน ใช้ฟรี">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://kanngoenkhongchan.com/credit-card.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="การเงินของฉัน">
+<meta property="og:title" content="คำนวณหนี้บัตรเครดิต จ่ายขั้นต่ำกี่ปีหมด เสียดอกเบี้ยเท่าไร | การเงินของฉัน">
+<meta property="og:description" content="คำนวณหนี้บัตรเครดิต ถ้าจ่ายขั้นต่ำทุกเดือนต้องใช้กี่เดือนถึงหมด เสียดอกเบี้ยรวมเท่าไร เทียบกับจ่ายเดือนละเท่ากัน ใช้ฟรี">
+<meta property="og:url" content="https://kanngoenkhongchan.com/credit-card.html">
+<meta property="og:locale" content="th_TH">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1190395119954248" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="in">
+  <a class="logo" href="index.html"><span>฿</span>การเงินของฉัน</a>
+  <nav class="nav"><a href="tax.html">ภาษี</a><a href="salary.html">เงินเดือนสุทธิ</a><a href="vat.html">VAT</a><a href="home.html">ผ่อนบ้าน</a><a href="car.html">ผ่อนรถ</a><a href="credit-card.html" aria-current="page">บัตรเครดิต</a><a href="savings.html">เงินออม</a><a href="invest.html">ลงทุน DCA</a><a href="retire.html">เกษียณ</a><a href="currency.html">แปลงสกุลเงิน</a><a href="inflation.html">เงินเฟ้อ</a><a href="age.html">อายุ / พ.ศ.</a></nav>
+</div></header>
+
+<main class="wrap">
+  <div>
+    <a class="crumb" href="index.html#loan">ผ่อนและสินเชื่อ</a>
+    <h1>คำนวณหนี้บัตรเครดิต</h1>
+    <p class="lede">จ่ายขั้นต่ำกี่เดือนถึงหมด และจ่ายเพิ่มช่วยประหยัดได้แค่ไหน</p>
+  </div>
+
+  <form class="card" id="f" autocomplete="off">
+    <div class="fields">
+      <div class="field"><label for="balance">ยอดหนี้บัตรเครดิต (บาท)</label><input id="balance" inputmode="decimal" value="50000"></div>
+      <div class="field"><label for="apr">ดอกเบี้ยต่อปี (%)</label><input id="apr" inputmode="decimal" value="16"><small>เพดานดอกเบี้ยบัตรเครดิตในไทยคือ 16% ต่อปี</small></div>
+      <div class="field"><label for="minPct">จ่ายขั้นต่ำ (% ของยอด)</label><input id="minPct" inputmode="decimal" value="8"><small>ดูอัตราขั้นต่ำในใบแจ้งยอดของคุณ</small></div>
+      <div class="field"><label for="minBaht">ขั้นต่ำไม่น้อยกว่า (บาท)</label><input id="minBaht" inputmode="decimal" value="300"></div>
+      <div class="field"><label for="fixed">ถ้าจ่ายเดือนละ (บาท)</label><input id="fixed" inputmode="decimal" value="5000"><small>ใช้เทียบกับการจ่ายขั้นต่ำ</small></div>
+    </div>
+    <section class="result" aria-live="polite">
+      <div><span class="note">ถ้าจ่ายขั้นต่ำ จะหมดหนี้ใน</span><div class="big" id="minTime">–</div></div>
+      <div class="stats">
+        <div class="stat"><span>ขั้นต่ำเดือนแรก</span><b id="first">–</b></div>
+        <div class="stat"><span>ดอกเบี้ยรวม (จ่ายขั้นต่ำ)</span><b id="minInt">–</b></div>
+        <div class="stat"><span>หมดหนี้ใน (จ่ายคงที่)</span><b id="fixTime">–</b></div>
+        <div class="stat"><span>ดอกเบี้ยรวม (จ่ายคงที่)</span><b id="fixInt">–</b></div>
+      </div>
+      <p class="tip" id="tip"></p>
+    </section>
+  </form>
+
+  <div class="ad-slot"><!-- วางโค้ดหน่วยโฆษณา AdSense ตรงนี้ --></div>
+
+  <article>
+    <h2>ทำไมจ่ายขั้นต่ำแล้วหนี้ไม่ค่อยลด</h2>
+    <p>บัตรเครดิตคิดดอกเบี้ยจากยอดค้างทุกวัน เงินที่จ่ายขั้นต่ำส่วนหนึ่งจึงหมดไปกับดอกเบี้ย ยิ่งยอดลดลง ขั้นต่ำก็ลดตาม หนี้จึงลากยาว</p>
+    <h2>วิธีปลดหนี้บัตรเครดิตให้เร็วขึ้น</h2>
+    <ul>
+      <li>จ่ายเกินขั้นต่ำทุกเดือน แม้เพิ่มไม่มากก็ช่วยได้เยอะ</li>
+      <li>หยุดรูดเพิ่มระหว่างปลดหนี้</li>
+      <li>ถ้ามีหลายใบ จ่ายใบที่ดอกเบี้ยสูงที่สุดก่อน</li>
+      <li>สอบถามธนาคารเรื่องการรวมหนี้ หรือเปลี่ยนเป็นสินเชื่อผ่อนที่ดอกเบี้ยต่ำกว่า</li>
+    </ul>
+    <p class="note">ผลลัพธ์เป็นการประมาณ คิดดอกเบี้ยแบบรายเดือนและสมมติว่าไม่มีการรูดเพิ่ม อัตราขั้นต่ำและดอกเบี้ยจริงดูได้จากใบแจ้งยอดของคุณ</p>
+  </article>
+</main>
+
+<footer class="site-foot"><div class="in">
+  <span>© 2026 การเงินของฉัน</span>
+  <span><a href="about.html">เกี่ยวกับเรา</a> · <a href="privacy.html">นโยบายความเป็นส่วนตัว</a></span>
+</div></footer>
+
+<script src="calc.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const num=s=>Number(String(s).replace(/[, ]/g,""))||0;
+const ym=m=>{if(!isFinite(m))return "ไม่มีวันหมด";const y=Math.floor(m/12),r=m%12;return (y?y+" ปี":"")+(r?(y?" ":"")+r+" เดือน":"")||"0 เดือน"};
+function run(){
+  const o={balance:num($("balance").value),apr:num($("apr").value),minPct:num($("minPct").value),minBaht:num($("minBaht").value),fixed:num($("fixed").value)};
+  const r=Calc.computeCard(o);
+  $("minTime").textContent=ym(r.min.months);
+  $("first").textContent=baht(r.firstMin);
+  $("minInt").textContent=isFinite(r.min.interest)?baht(r.min.interest):"–";
+  $("fixTime").textContent=r.fixed?ym(r.fixed.months):"–";
+  $("fixInt").textContent=r.fixed&&isFinite(r.fixed.interest)?baht(r.fixed.interest):"–";
+  $("tip").textContent=!r.fixed?"ใส่จำนวนเงินในช่อง \"ถ้าจ่ายเดือนละ\" เพื่อเทียบ":
+    !isFinite(r.fixed.months)?"ยอดจ่ายต่อเดือนน้อยกว่าดอกเบี้ย หนี้จะไม่ลดลง ต้องจ่ายมากกว่านี้":
+    r.fixed.months<r.min.months?`จ่ายเดือนละ ${baht(o.fixed)} บาท หมดหนี้เร็วกว่าจ่ายขั้นต่ำ ${ym(r.min.months-r.fixed.months)} และประหยัดดอกเบี้ย ${baht(r.min.interest-r.fixed.interest)} บาท`:
+    "จ่ายคงที่จำนวนนี้น้อยกว่าขั้นต่ำช่วงแรก ลองเพิ่มยอดจ่ายต่อเดือน";
+}
+$("f").addEventListener("input",run); run();
+document.querySelectorAll("form").forEach(f=>f.addEventListener("submit",e=>e.preventDefault()));
+</script>
+</body>
+</html>

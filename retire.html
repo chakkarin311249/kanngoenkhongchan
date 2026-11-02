@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>คำนวณเงินเกษียณ ต้องมีเงินเท่าไรถึงพอใช้หลังเกษียณ | การเงินของฉัน</title>
+<meta name="description" content="คำนวณเงินที่ต้องมีตอนเกษียณ และต้องออมเดือนละเท่าไร คิดรวมเงินเฟ้อและผลตอบแทนการลงทุน ใช้ฟรี">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://kanngoenkhongchan.com/retire.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="การเงินของฉัน">
+<meta property="og:title" content="คำนวณเงินเกษียณ ต้องมีเงินเท่าไรถึงพอใช้หลังเกษียณ | การเงินของฉัน">
+<meta property="og:description" content="คำนวณเงินที่ต้องมีตอนเกษียณ และต้องออมเดือนละเท่าไร คิดรวมเงินเฟ้อและผลตอบแทนการลงทุน ใช้ฟรี">
+<meta property="og:url" content="https://kanngoenkhongchan.com/retire.html">
+<meta property="og:locale" content="th_TH">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1190395119954248" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="in">
+  <a class="logo" href="index.html"><span>฿</span>การเงินของฉัน</a>
+  <nav class="nav"><a href="tax.html">ภาษี</a><a href="salary.html">เงินเดือนสุทธิ</a><a href="vat.html">VAT</a><a href="home.html">ผ่อนบ้าน</a><a href="car.html">ผ่อนรถ</a><a href="credit-card.html">บัตรเครดิต</a><a href="savings.html">เงินออม</a><a href="invest.html">ลงทุน DCA</a><a href="retire.html" aria-current="page">เกษียณ</a><a href="currency.html">แปลงสกุลเงิน</a><a href="inflation.html">เงินเฟ้อ</a><a href="age.html">อายุ / พ.ศ.</a></nav>
+</div></header>
+
+<main class="wrap">
+  <div>
+    <a class="crumb" href="index.html#save">ออมและลงทุน</a>
+    <h1>คำนวณเงินเกษียณ</h1>
+    <p class="lede">ต้องมีเงินเท่าไรถึงพอใช้ และต้องเริ่มออมเดือนละเท่าไร</p>
+  </div>
+
+  <form class="card" id="f" autocomplete="off">
+    <div class="fields">
+      <div class="field"><label for="age">อายุตอนนี้</label><input id="age" type="number" value="30"></div>
+      <div class="field"><label for="retireAge">อายุที่อยากเกษียณ</label><input id="retireAge" type="number" value="60"></div>
+      <div class="field"><label for="lifeAge">คาดว่าจะใช้เงินถึงอายุ</label><input id="lifeAge" type="number" value="85"></div>
+      <div class="field"><label for="expense">ค่าใช้จ่ายต่อเดือน (ราคาวันนี้)</label><input id="expense" inputmode="decimal" value="20000"></div>
+      <div class="field"><label for="saved">เงินออมสำหรับเกษียณที่มีแล้ว</label><input id="saved" inputmode="decimal" value="100000"></div>
+    </div>
+    <details class="more">
+      <summary>ตั้งค่าเงินเฟ้อและผลตอบแทน</summary>
+      <div class="fields">
+        <div class="field"><label for="inflation">เงินเฟ้อต่อปี (%)</label><input id="inflation" inputmode="decimal" value="3"></div>
+        <div class="field"><label for="returnBefore">ผลตอบแทนก่อนเกษียณ (%)</label><input id="returnBefore" inputmode="decimal" value="5"></div>
+        <div class="field"><label for="returnAfter">ผลตอบแทนหลังเกษียณ (%)</label><input id="returnAfter" inputmode="decimal" value="3"><small>หลังเกษียณมักลงทุนแบบเสี่ยงน้อยลง</small></div>
+      </div>
+    </details>
+    <section class="result" aria-live="polite">
+      <div><span class="note">ต้องออมเพิ่มเดือนละ</span><div class="big" id="monthly">–</div></div>
+      <div class="stats">
+        <div class="stat"><span>เงินที่ต้องมีตอนเกษียณ</span><b id="need">–</b></div>
+        <div class="stat"><span>เงินที่มีแล้ว (มูลค่าตอนเกษียณ)</span><b id="have">–</b></div>
+        <div class="stat"><span>ค่าใช้จ่ายต่อเดือนตอนเกษียณ</span><b id="exp">–</b></div>
+      </div>
+      <p class="tip" id="tip"></p>
+    </section>
+  </form>
+
+  <div class="ad-slot"><!-- วางโค้ดหน่วยโฆษณา AdSense ตรงนี้ --></div>
+
+  <article>
+    <h2>คำนวณอย่างไร</h2>
+    <ol>
+      <li>ปรับค่าใช้จ่ายวันนี้ด้วยเงินเฟ้อ เพื่อดูว่าตอนเกษียณต้องใช้เดือนละเท่าไร</li>
+      <li>คำนวณเงินก้อนที่ต้องมี เพื่อใช้จ่ายตลอดช่วงหลังเกษียณ โดยเงินที่เหลือยังได้ผลตอบแทนต่อ</li>
+      <li>หักเงินออมที่มีแล้ว ส่วนที่ขาดคือเงินที่ต้องออมเพิ่มทุกเดือนจนถึงวันเกษียณ</li>
+    </ol>
+    <h2>เริ่มเร็วได้เปรียบ</h2>
+    <p>ลองเปลี่ยนอายุตอนนี้เป็น 25 หรือ 40 ปี แล้วดูเงินที่ต้องออมต่อเดือน ยิ่งเริ่มช้า ยิ่งต้องออมต่อเดือนมากขึ้นหลายเท่า เพราะเวลาให้ดอกเบี้ยทบต้นทำงานน้อยลง</p>
+    <h2>แหล่งเงินเกษียณที่คนไทยมี</h2>
+    <ul>
+      <li>เงินบำนาญหรือบำเหน็จชราภาพจากประกันสังคม</li>
+      <li>กองทุนสำรองเลี้ยงชีพ (PVD) จากที่ทำงาน</li>
+      <li>กองทุน RMF และประกันบำนาญ ซึ่งนำไปลดหย่อนภาษีได้</li>
+    </ul>
+    <p class="note">ผลลัพธ์เป็นการประมาณเพื่อวางแผน ยังไม่รวมเงินจากประกันสังคม และไม่ใช่คำแนะนำการลงทุน</p>
+  </article>
+</main>
+
+<footer class="site-foot"><div class="in">
+  <span>© 2026 การเงินของฉัน</span>
+  <span><a href="about.html">เกี่ยวกับเรา</a> · <a href="privacy.html">นโยบายความเป็นส่วนตัว</a></span>
+</div></footer>
+
+<script src="calc.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const num=s=>Number(String(s).replace(/[, ]/g,""))||0;
+function run(){
+  const ids=["age","retireAge","lifeAge","expense","saved","inflation","returnBefore","returnAfter"], o={};
+  ids.forEach(k=>o[k]=num($(k).value));
+  const r=Calc.computeRetire(o);
+  if(o.retireAge<=o.age||o.lifeAge<=o.retireAge){$("monthly").textContent="ตรวจสอบอายุอีกครั้ง";$("tip").textContent="อายุเกษียณต้องมากกว่าอายุตอนนี้ และอายุที่ใช้เงินถึงต้องมากกว่าอายุเกษียณ";return;}
+  $("monthly").textContent=baht(r.monthly)+" บาท";
+  $("need").textContent=baht(r.need);
+  $("have").textContent=baht(r.have);
+  $("exp").textContent=baht(r.monthlyExpenseAtRetire);
+  $("tip").textContent=r.gap===0?"เงินที่มีอยู่เพียงพอสำหรับเกษียณตามแผนนี้แล้ว":`ออมเดือนละ ${baht(r.monthly)} บาท ต่อเนื่อง ${r.years} ปี จะมีเงินพอใช้เดือนละ ${baht(r.monthlyExpenseAtRetire)} บาท ไปอีก ${r.retireYears} ปีหลังเกษียณ`;
+}
+$("f").addEventListener("input",run); run();
+document.querySelectorAll("form").forEach(f=>f.addEventListener("submit",e=>e.preventDefault()));
+</script>
+</body>
+</html>
