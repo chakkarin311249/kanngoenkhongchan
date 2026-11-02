@@ -7,6 +7,13 @@
 <meta name="description" content="คำนวณเงินเดือนสุทธิที่ได้รับจริงต่อเดือน หลังหักประกันสังคม กองทุนสำรองเลี้ยงชีพ และภาษีหัก ณ ที่จ่าย ฟรี อัปเดตเพดานประกันสังคมปี 2569">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;600;700&display=swap">
 <link rel="stylesheet" href="style.css">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#000000">
+<meta property="og:image" content="https://kanngoenkhongchan.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://kanngoenkhongchan.com/salary.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="การเงินของฉัน">
@@ -85,8 +92,8 @@ function run(){
   const r=Calc.computeSalary({salary:num($("salary").value),bonus:num($("bonus").value),pvdPct:num($("pvdPct").value),kids:num($("kids").value),spouse:$("spouse").checked});
   $("net").textContent=baht(r.net)+" บาท";
   $("gross").textContent=baht(r.salary);
-  $("sso").textContent="−"+baht(r.sso);
-  $("pvd").textContent="−"+baht(r.pvd);
+  $("sso").textContent=r.sso?"−"+baht(r.sso):"0";
+  $("pvd").textContent=r.pvd?"−"+baht(r.pvd):"0";
   $("wht").textContent="−"+baht(r.wht);
   $("annual").textContent=baht(r.annualTax);
   $("tip").textContent=r.marginal>0
