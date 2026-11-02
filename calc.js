@@ -145,6 +145,28 @@
   else root.Calc = api;
 })(this);
 
+// Sticky bottom bar that mirrors the main result while the result box is off screen.
+if (typeof document !== "undefined") {
+  document.addEventListener("DOMContentLoaded", function () {
+    const box = document.querySelector(".result");
+    const big = box && box.querySelector(".big");
+    if (!big) return;
+    const label = (box.querySelector(".note") || {}).textContent || "ผลลัพธ์";
+    const bar = document.createElement("div");
+    bar.className = "sumbar";
+    bar.innerHTML = "<span></span><b></b>";
+    bar.firstChild.textContent = label;
+    document.body.appendChild(bar);
+    document.body.classList.add("has-sumbar");
+    const sync = () => { bar.lastChild.textContent = big.textContent; };
+    new MutationObserver(sync).observe(big, { childList: true, characterData: true, subtree: true });
+    sync();
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(es => bar.classList.toggle("hide", es[0].isIntersecting)).observe(big);
+    }
+  });
+}
+
 // Number formatting helper for the pages.
 function baht(v, digits) {
   return Number(v).toLocaleString("th-TH", { minimumFractionDigits: digits || 0, maximumFractionDigits: digits || 0 });
