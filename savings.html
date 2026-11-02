@@ -44,6 +44,7 @@
         <div class="stat"><span>เงินที่ฝากเอง</span><b id="dep">–</b></div>
         <div class="stat"><span>ดอกเบี้ยที่ได้</span><b id="int">–</b></div>
       </div>
+      <div class="bars" id="bars"></div>
     </section>
 
     <div class="table-wrap"><table>
@@ -88,10 +89,12 @@ function run(){
   $("dep").textContent=baht(r.deposited);
   $("int").textContent=baht(r.interest);
   $("rows").innerHTML=r.rows.map(x=>`<tr><td>${x.year}</td><td>${baht(x.deposited)}</td><td>${baht(x.interest)}</td><td>${baht(x.balance)}</td></tr>`).join("");
+  drawBars("bars",[{th:"เงินที่ฝากเอง",en:"Deposits",v:r.deposited},{th:"ดอกเบี้ย",en:"Interest",v:r.interest,c:3}]);
 }
 $("f").addEventListener("input",run);
 $("f").addEventListener("submit",e=>e.preventDefault());
 run();
 </script>
+<script src="i18n.js"></script>
 </body>
 </html>

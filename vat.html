@@ -46,6 +46,7 @@
         <div class="stat"><span>ราคารวม VAT</span><b id="total">–</b></div>
         <div class="stat"><span>หัก ณ ที่จ่าย</span><b id="wht">–</b></div>
       </div>
+      <div class="bars" id="bars"></div>
     </section>
   </form>
 
@@ -89,10 +90,12 @@ function run(){
   $("vat").textContent=baht(r.vat,2);
   $("total").textContent=baht(r.total,2);
   $("wht").textContent="−"+baht(r.wht,2);
+  drawBars("bars",[{th:"ราคาก่อน VAT",en:"Before VAT",v:r.base},{th:"VAT 7%",en:"VAT 7%",v:r.vat,c:3}]);
 }
 $("f").addEventListener("input",run);
 $("f").addEventListener("submit",e=>e.preventDefault());
 run();
 </script>
+<script src="i18n.js"></script>
 </body>
 </html>

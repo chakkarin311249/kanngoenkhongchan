@@ -47,6 +47,7 @@
         <div class="stat"><span>งวดแรก: ดอกเบี้ย</span><b id="fi">–</b></div>
         <div class="stat"><span>งวดแรก: ตัดเงินต้น</span><b id="fp">–</b></div>
       </div>
+      <div class="bars" id="bars"></div>
       <p class="tip" id="tip"></p>
     </section>
   </form>
@@ -86,10 +87,12 @@ function run(){
   $("tip").textContent=num($("extra").value)>0
     ? `ถ้าโปะเพิ่มเดือนละ ${baht(num($("extra").value))} บาท จะหมดหนี้ใน ${ym(r.extraMonths)} เร็วขึ้น ${ym(r.months-r.extraMonths)} และประหยัดดอกเบี้ยได้ ${baht(r.totalInterest-r.extraInterest)} บาท`
     : "ลองใส่จำนวนเงินในช่อง \"โปะเพิ่มต่อเดือน\" เพื่อดูว่าจะหมดหนี้เร็วขึ้นแค่ไหน";
+  drawBars("bars",[{th:"เงินต้น",en:"Principal",v:r.loan},{th:"ดอกเบี้ย",en:"Interest",v:r.totalInterest,c:2}]);
 }
 $("f").addEventListener("input",run);
 $("f").addEventListener("submit",e=>e.preventDefault());
 run();
 </script>
+<script src="i18n.js"></script>
 </body>
 </html>

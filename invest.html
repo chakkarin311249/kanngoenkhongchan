@@ -43,6 +43,7 @@
         <div class="stat"><span>กำไร</span><b id="gain">–</b></div>
         <div class="stat"><span>ถ้าฝากธนาคาร 1.5%</span><b id="bank">–</b></div>
       </div>
+      <div class="bars" id="bars"></div>
       <p class="tip" id="tip"></p>
     </section>
     <div class="table-wrap"><table>
@@ -83,9 +84,11 @@ function run(){
   $("bank").textContent=baht(b.balance);
   $("tip").textContent=`ลงทุนได้มากกว่าฝากธนาคาร ${baht(r.balance-b.balance)} บาท (สมมติผลตอบแทนเฉลี่ย ${o.rate}% ต่อปี)`;
   $("rows").innerHTML=r.rows.map(x=>`<tr><td>${x.year}</td><td>${baht(x.deposited)}</td><td>${baht(x.balance)}</td></tr>`).join("");
+  drawBars("bars",[{th:"เงินที่ลงทุนเอง",en:"Invested",v:r.deposited},{th:"กำไร",en:"Profit",v:r.interest,c:3}]);
 }
 $("f").addEventListener("input",run); run();
 document.querySelectorAll("form").forEach(f=>f.addEventListener("submit",e=>e.preventDefault()));
 </script>
+<script src="i18n.js"></script>
 </body>
 </html>

@@ -1,4 +1,9 @@
 // การเงินของฉัน — pure calculation functions (no DOM), shared by the pages and testable with Node.
+// Language chosen by the viewer (set before page scripts run; i18n.js applies the translation).
+if (typeof window !== "undefined") {
+  try { window.LANG = new URLSearchParams(location.search).get("lang") || localStorage.getItem("lang") || "th"; }
+  catch (e) { window.LANG = "th"; }
+}
 (function (root) {
   const BRACKETS = [
     [150000, 0], [300000, 0.05], [500000, 0.10], [750000, 0.15],
@@ -200,13 +205,33 @@ if (typeof document !== "undefined") {
     bar.firstChild.textContent = label;
     document.body.appendChild(bar);
     document.body.classList.add("has-sumbar");
-    const sync = () => { bar.lastChild.textContent = big.textContent; };
+    let last = big.textContent;
+    const sync = () => {
+      bar.lastChild.textContent = big.textContent;
+      if (big.textContent !== last) {
+        last = big.textContent;
+        big.classList.remove("bump"); void big.offsetWidth; big.classList.add("bump");
+      }
+    };
     new MutationObserver(sync).observe(big, { childList: true, characterData: true, subtree: true });
     sync();
     if ("IntersectionObserver" in window) {
       new IntersectionObserver(es => bar.classList.toggle("hide", es[0].isIntersecting)).observe(big);
     }
   });
+}
+
+// Stacked bar + legend showing how a total splits into parts. parts: [{th, en, v, c}]
+function drawBars(id, parts) {
+  const el = typeof document !== "undefined" && document.getElementById(id);
+  if (!el) return;
+  const en = window.LANG === "en", unit = en ? " THB" : " บาท";
+  const list = parts.filter(p => p.v > 0.005);
+  const total = list.reduce((a, p) => a + p.v, 0);
+  if (!total) { el.innerHTML = ""; return; }
+  const seg = list.map(p => `<span class="seg c${p.c || 1}" style="width:${(p.v / total * 100).toFixed(2)}%"></span>`).join("");
+  const leg = list.map(p => `<li><i class="c${p.c || 1}"></i><span>${en ? p.en : p.th}</span><b>${baht(p.v)}${unit}</b><em>${(p.v / total * 100).toFixed(0)}%</em></li>`).join("");
+  el.innerHTML = `<div class="track">${seg}</div><ul class="legend">${leg}</ul>`;
 }
 
 // Number formatting helper for the pages.

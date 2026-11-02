@@ -46,6 +46,7 @@
         <div class="stat"><span>ดอกเบี้ยทั้งหมด</span><b id="interest">–</b></div>
         <div class="stat"><span>จ่ายรวมทั้งหมด</span><b id="total">–</b></div>
       </div>
+      <div class="bars" id="bars"></div>
     </section>
 
     <div>
@@ -97,10 +98,12 @@ function run(){
   $("total").textContent=baht(r.total);
   $("rows").innerHTML=[24,36,48,60,72,84].map(m=>{const x=Calc.computeCar({...o,months:m});
     return `<tr class="${m===r.months?"on":""}"><td>${m} งวด (${m/12} ปี)</td><td>${baht(x.monthly)}</td><td>${baht(x.interest)}</td><td>${baht(x.total)}</td></tr>`}).join("");
+  drawBars("bars",[{th:"ยอดจัด",en:"Amount financed",v:r.finance},{th:"ดอกเบี้ย",en:"Interest",v:r.interest,c:2},{th:"VAT",en:"VAT",v:Math.max(0,r.monthly*r.months-r.finance-r.interest),c:3}]);
 }
 $("f").addEventListener("input",run);
 $("f").addEventListener("submit",e=>e.preventDefault());
 run();
 </script>
+<script src="i18n.js"></script>
 </body>
 </html>

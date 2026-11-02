@@ -41,6 +41,7 @@
         <div class="stat"><span>ของราคาเท่านี้วันนี้ อนาคตจะราคา</span><b id="future">–</b></div>
         <div class="stat"><span>อำนาจซื้อหายไป</span><b id="lost">–</b></div>
       </div>
+      <div class="bars" id="bars"></div>
       <p class="tip" id="tip"></p>
     </section>
   </form>
@@ -75,9 +76,11 @@ function run(){
   $("future").textContent=baht(r.future)+" บาท";
   $("lost").textContent=(r.lost*100).toFixed(1)+"%";
   $("tip").textContent=`ถ้าเก็บเงิน ${baht(num($("amount").value))} บาทไว้เฉย ๆ อีก ${num($("years").value)} ปี จะซื้อของได้เหมือนเงินวันนี้แค่ ${baht(r.worth)} บาท`;
+  drawBars("bars",[{th:"มูลค่าที่เหลือ",en:"Value left",v:r.worth},{th:"หายไปเพราะเงินเฟ้อ",en:"Lost to inflation",v:num($("amount").value)-r.worth,c:2}]);
 }
 $("f").addEventListener("input",run); run();
 document.querySelectorAll("form").forEach(f=>f.addEventListener("submit",e=>e.preventDefault()));
 </script>
+<script src="i18n.js"></script>
 </body>
 </html>

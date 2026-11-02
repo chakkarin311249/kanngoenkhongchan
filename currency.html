@@ -89,12 +89,13 @@ function run(){
 fetch("https://open.er-api.com/v6/latest/USD").then(r=>r.json()).then(d=>{
   if(d.result!=="success") throw 0;
   rates=d.rates;
-  $("upd").textContent="อัปเดตล่าสุด: "+new Date(d.time_last_update_unix*1000).toLocaleString("th-TH",{dateStyle:"long",timeStyle:"short"});
+  $("upd").textContent="อัปเดตล่าสุด: "+new Date(d.time_last_update_unix*1000).toLocaleString(window.LANG==="en"?"en-GB":"th-TH",{dateStyle:"long",timeStyle:"short"});
   run();
 }).catch(()=>{$("out").textContent="โหลดอัตราไม่สำเร็จ";$("upd").textContent="ตรวจสอบอินเทอร์เน็ตแล้วรีเฟรชหน้าอีกครั้ง";});
 $("f").addEventListener("input",run);
 $("swap").addEventListener("click",()=>{const a=$("from").value;$("from").value=$("to").value;$("to").value=a;run();});
 document.querySelectorAll("form").forEach(f=>f.addEventListener("submit",e=>e.preventDefault()));
 </script>
+<script src="i18n.js"></script>
 </body>
 </html>

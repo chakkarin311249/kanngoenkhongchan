@@ -45,6 +45,7 @@
         <div class="stat"><span>หมดหนี้ใน (จ่ายคงที่)</span><b id="fixTime">–</b></div>
         <div class="stat"><span>ดอกเบี้ยรวม (จ่ายคงที่)</span><b id="fixInt">–</b></div>
       </div>
+      <div class="bars" id="bars"></div>
       <p class="tip" id="tip"></p>
     </section>
   </form>
@@ -87,9 +88,11 @@ function run(){
     !isFinite(r.fixed.months)?"ยอดจ่ายต่อเดือนน้อยกว่าดอกเบี้ย หนี้จะไม่ลดลง ต้องจ่ายมากกว่านี้":
     r.fixed.months<r.min.months?`จ่ายเดือนละ ${baht(o.fixed)} บาท หมดหนี้เร็วกว่าจ่ายขั้นต่ำ ${ym(r.min.months-r.fixed.months)} และประหยัดดอกเบี้ย ${baht(r.min.interest-r.fixed.interest)} บาท`:
     "จ่ายคงที่จำนวนนี้น้อยกว่าขั้นต่ำช่วงแรก ลองเพิ่มยอดจ่ายต่อเดือน";
+  drawBars("bars",[{th:"ยอดหนี้",en:"Balance",v:o.balance},{th:"ดอกเบี้ย (จ่ายขั้นต่ำ)",en:"Interest (minimum)",v:isFinite(r.min.interest)?r.min.interest:0,c:2}]);
 }
 $("f").addEventListener("input",run); run();
 document.querySelectorAll("form").forEach(f=>f.addEventListener("submit",e=>e.preventDefault()));
 </script>
+<script src="i18n.js"></script>
 </body>
 </html>

@@ -47,6 +47,7 @@
         <div class="stat"><span>ภาษีหัก ณ ที่จ่าย (ประมาณ)</span><b id="wht">–</b></div>
         <div class="stat"><span>ภาษีทั้งปี</span><b id="annual">–</b></div>
       </div>
+      <div class="bars" id="bars"></div>
       <p class="tip" id="tip"></p>
     </section>
   </form>
@@ -89,10 +90,12 @@ function run(){
   $("tip").textContent=r.marginal>0
     ? `คุณอยู่ในขั้นภาษี ${r.marginal*100}% ถ้าใส่เงินกองทุนสำรองฯ หรือซื้อกองทุนลดหย่อนเพิ่ม ทุก 10,000 บาทจะประหยัดภาษีได้ราว ${baht(10000*r.marginal)} บาท`
     : "รายได้ระดับนี้ยังไม่ต้องเสียภาษี แต่ถ้ารายได้ทั้งปีเกิน 120,000 บาท ยังต้องยื่นแบบภาษีประจำปี";
+  drawBars("bars",[{th:"เงินเดือนสุทธิ",en:"Take-home",v:r.net},{th:"ภาษี",en:"Tax",v:r.wht,c:2},{th:"ประกันสังคม",en:"Social security",v:r.sso,c:3},{th:"กองทุนสำรองฯ",en:"Provident fund",v:r.pvd,c:4}]);
 }
 $("f").addEventListener("input",run);
 $("f").addEventListener("submit",e=>e.preventDefault());
 run();
 </script>
+<script src="i18n.js"></script>
 </body>
 </html>

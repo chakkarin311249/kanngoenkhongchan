@@ -52,6 +52,7 @@
         <div class="stat"><span>เงินที่มีแล้ว (มูลค่าตอนเกษียณ)</span><b id="have">–</b></div>
         <div class="stat"><span>ค่าใช้จ่ายต่อเดือนตอนเกษียณ</span><b id="exp">–</b></div>
       </div>
+      <div class="bars" id="bars"></div>
       <p class="tip" id="tip"></p>
     </section>
   </form>
@@ -96,9 +97,11 @@ function run(){
   $("have").textContent=baht(r.have);
   $("exp").textContent=baht(r.monthlyExpenseAtRetire);
   $("tip").textContent=r.gap===0?"เงินที่มีอยู่เพียงพอสำหรับเกษียณตามแผนนี้แล้ว":`ออมเดือนละ ${baht(r.monthly)} บาท ต่อเนื่อง ${r.years} ปี จะมีเงินพอใช้เดือนละ ${baht(r.monthlyExpenseAtRetire)} บาท ไปอีก ${r.retireYears} ปีหลังเกษียณ`;
+  drawBars("bars",[{th:"เงินที่มีแล้ว",en:"Already have",v:Math.min(r.have,r.need),c:3},{th:"ต้องออมเพิ่ม",en:"Still needed",v:r.gap,c:2}]);
 }
 $("f").addEventListener("input",run); run();
 document.querySelectorAll("form").forEach(f=>f.addEventListener("submit",e=>e.preventDefault()));
 </script>
+<script src="i18n.js"></script>
 </body>
 </html>
