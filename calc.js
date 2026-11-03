@@ -234,6 +234,33 @@ function drawBars(id, parts) {
   el.innerHTML = `<div class="track">${seg}</div><ul class="legend">${leg}</ul>`;
 }
 
+// Column chart: items [{label, v}], one highlighted column.
+function drawColumns(id, items, hi) {
+  const el = typeof document !== "undefined" && document.getElementById(id);
+  if (!el) return;
+  const max = Math.max(1, ...items.map(i => i.v));
+  el.innerHTML = items.map((it, k) => {
+    const h = Math.max(3, it.v / max * 100);
+    return `<div class="col${k === hi ? " on" : ""}"><em>${k === hi ? baht(it.v) : ""}</em><span style="height:${h.toFixed(1)}%"></span><small>${it.label}</small></div>`;
+  }).join("");
+}
+
+// Line chart (SVG): series [{name, color, values[], fill}], x labels at ends.
+function drawLine(id, series, xFirst, xLast) {
+  const el = typeof document !== "undefined" && document.getElementById(id);
+  if (!el) return;
+  const W = Math.max(280, Math.round(el.clientWidth || 320)), H = 170, P = 6, n = series[0].values.length;
+  const max = Math.max(...series.flatMap(s => s.values)) * 1.08 || 1;
+  const x = i => P + i * (W - 2 * P) / (n - 1), y = v => H - P - v / max * (H - 2 * P);
+  const path = vals => vals.map((v, i) => (i ? "L" : "M") + x(i).toFixed(1) + " " + y(v).toFixed(1)).join(" ");
+  const grid = [0.25, 0.5, 0.75].map(f => `<line x1="${P}" x2="${W - P}" y1="${(H - P - f * (H - 2 * P)).toFixed(1)}" y2="${(H - P - f * (H - 2 * P)).toFixed(1)}" stroke="#e6edf6" stroke-width="1"/>`).join("");
+  const body = series.map(s => (s.fill ? `<path d="${path(s.values)} L ${x(n - 1)} ${H - P} L ${x(0)} ${H - P} Z" fill="${s.color}" opacity=".10"/>` : "") +
+    `<path d="${path(s.values)}" fill="none" stroke="${s.color}" stroke-width="${s.fill ? 2.6 : 2}" ${s.fill ? "" : 'stroke-dasharray="5 4"'} stroke-linecap="round" stroke-linejoin="round"/>` +
+    `<circle cx="${x(n - 1)}" cy="${y(s.values[n - 1])}" r="3.5" fill="${s.color}"/>`).join("");
+  el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${series.map(s => s.name).join(" / ")}">${grid}${body}</svg>
+    <div class="ln-x"><span>${xFirst}</span><span>${xLast}</span></div>`;
+}
+
 // Number formatting helper for the pages.
 function baht(v, digits) {
   return Number(v).toLocaleString("th-TH", { minimumFractionDigits: digits || 0, maximumFractionDigits: digits || 0 });

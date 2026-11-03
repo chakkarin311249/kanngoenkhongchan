@@ -84,3 +84,65 @@
     });
   });
 })();
+
+// Dashboard shell: sidebar (desktop) and bottom tab bar (phone), built from the menu panel above.
+(function () {
+  var en = (function () { try { return (new URLSearchParams(location.search).get("lang") || localStorage.getItem("lang")) === "en"; } catch (e) { return false; } })();
+  var T = function (th, e) { return en ? e : th; };
+  var ICO = {
+    home: '<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/>',
+    tax: '<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 17l5-6"/>',
+    loan: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9.5h18"/>',
+    save: '<path d="M3 20h18"/><path d="M6 16v-3M10 16V9M14 16v-5M18 16V6"/>',
+    menu: '<path d="M4 7h16M4 12h16M4 17h16"/>'
+  };
+  var svg = function (k) { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICO[k] + "</svg>"; };
+  document.addEventListener("DOMContentLoaded", function () {
+    var panel = document.getElementById("menu-panel"), head = document.querySelector(".site-head");
+    if (!panel || !head) return;
+    var root = location.pathname.indexOf("/404") > -1 ? "/" : "";
+    var page = location.pathname.split("/").pop() || "index.html";
+    var isHome = page === "index.html" || page === "";
+
+    // sidebar
+    var side = document.createElement("aside");
+    side.className = "side"; side.setAttribute("aria-label", T("เมนูเครื่องมือ", "Tools menu"));
+    var html = '<div class="side-search"><input id="side-q" type="search" placeholder="' + T("ค้นหาเครื่องมือ…", "Search tools…") + '" aria-label="' + T("ค้นหาเครื่องมือ", "Search tools") + '"></div>' +
+      '<a class="side-home"' + (isHome ? ' aria-current="page"' : "") + ' href="' + (root || "index.html") + '">' + svg("home") + T("ภาพรวม", "Overview") + "</a>";
+    panel.querySelectorAll(".menu-group").forEach(function (g) {
+      var links = g.querySelectorAll("a");
+      html += '<div class="side-grp"><p class="side-h"><span>' + g.querySelector("p").textContent + '</span><i>' + links.length + "</i></p>";
+      links.forEach(function (a) { html += '<a href="' + a.getAttribute("href") + '"' + (a.getAttribute("aria-current") ? ' aria-current="page"' : "") + ">" + a.textContent + "</a>"; });
+      html += "</div>";
+    });
+    html += '<p class="side-foot">' + T("ปีภาษี 2569 · ไม่เก็บข้อมูลที่คุณกรอก", "Tax year 2026 · nothing you type is stored") + "</p>";
+    side.innerHTML = html;
+    head.insertAdjacentElement("afterend", side);
+    document.body.classList.add("has-side");
+    var q = side.querySelector("#side-q");
+    q.addEventListener("input", function () {
+      var v = q.value.trim().toLowerCase();
+      side.querySelectorAll(".side-grp").forEach(function (g) {
+        var any = false;
+        g.querySelectorAll("a").forEach(function (a) { var ok = !v || a.textContent.toLowerCase().indexOf(v) > -1; a.hidden = !ok; any = any || ok; });
+        g.hidden = !any;
+      });
+    });
+    var setTop = function () { document.documentElement.style.setProperty("--headh", head.offsetHeight + "px"); };
+    setTop(); addEventListener("resize", setTop);
+
+    // bottom tab bar
+    var tabs = [["home", root || "index.html", T("หน้าแรก", "Home"), isHome], ["tax", root + "tax.html", T("ภาษี", "Tax"), page === "tax.html"],
+      ["loan", root + "home.html", T("ผ่อน", "Loans"), /^(home|car|credit-card)\.html$/.test(page)], ["save", root + "savings.html", T("ออม", "Save"), /^(savings|invest|retire)\.html$/.test(page)]];
+    var bar = document.createElement("nav");
+    bar.className = "tabbar"; bar.setAttribute("aria-label", T("เมนูลัด", "Quick menu"));
+    bar.innerHTML = tabs.map(function (t) { return '<a href="' + t[1] + '"' + (t[3] ? ' aria-current="page"' : "") + ">" + svg(t[0]) + "<span>" + t[2] + "</span></a>"; }).join("") +
+      '<button type="button" id="tab-menu">' + svg("menu") + "<span>" + T("ทั้งหมด", "All") + "</span></button>";
+    document.body.appendChild(bar);
+    document.body.classList.add("has-tabbar");
+    bar.querySelector("#tab-menu").addEventListener("click", function (e) {
+      e.stopPropagation(); scrollTo({ top: 0, behavior: "smooth" });
+      var b = document.querySelector(".burger"); if (b) b.click();
+    });
+  });
+})();
