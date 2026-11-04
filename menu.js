@@ -2,12 +2,10 @@
 (function () {
   var en = (function () { try { return (new URLSearchParams(location.search).get("lang") || localStorage.getItem("lang")) === "en"; } catch (e) { return false; } })();
   var GROUPS = [
-    { th: "ความรู้และกิจกรรม", en: "Learn & activities", items: ["deductions-2569.html", "quiz.html", "challenge.html"] },
-    { th: "ภาษีและเงินเดือน", en: "Tax & salary", items: ["tax.html", "salary.html", "vat.html"] },
-    { th: "ผ่อนและสินเชื่อ", en: "Loans & credit", items: ["home.html", "car.html", "credit-card.html"] },
-    { th: "ออมและลงทุน", en: "Saving & investing", items: ["savings.html", "invest.html", "retire.html"] },
-    { th: "การเงินทั่วโลก", en: "World finance", items: ["currency.html", "inflation.html"] },
-    { th: "อื่น ๆ", en: "Other", items: ["age.html"] }
+    { th: "ภาษีและเงินเดือน", en: "Tax & salary", items: ["tax.html", "salary.html", "vat.html", "deductions-2569.html"] },
+    { th: "ผ่อนและหนี้", en: "Loans & debt", items: ["home.html", "car.html", "credit-card.html"] },
+    { th: "ออมและลงทุน", en: "Saving & investing", items: ["savings.html", "invest.html", "retire.html", "inflation.html", "challenge.html"] },
+    { th: "เครื่องมือและความรู้", en: "Tools & learning", items: ["currency.html", "age.html", "quiz.html"] }
   ];
   document.addEventListener("DOMContentLoaded", function () {
     var head = document.querySelector(".site-head .in"), nav = head && head.querySelector(".nav");
@@ -133,7 +131,7 @@
 
     // bottom tab bar
     var tabs = [["home", root || "index.html", T("หน้าแรก", "Home"), isHome], ["tax", root + "tax.html", T("ภาษี", "Tax"), page === "tax.html"],
-      ["loan", root + "home.html", T("ผ่อน", "Loans"), /^(home|car|credit-card)\.html$/.test(page)], ["save", root + "savings.html", T("ออม", "Save"), /^(savings|invest|retire)\.html$/.test(page)]];
+      ["loan", root + "home.html", T("ผ่อน", "Loans"), /^(home|car|credit-card)\.html$/.test(page)], ["save", root + "savings.html", T("ออม", "Save"), /^(savings|invest|retire|inflation|challenge)\.html$/.test(page)]];
     var bar = document.createElement("nav");
     bar.className = "tabbar"; bar.setAttribute("aria-label", T("เมนูลัด", "Quick menu"));
     bar.innerHTML = tabs.map(function (t) { return '<a href="' + t[1] + '"' + (t[3] ? ' aria-current="page"' : "") + ">" + svg(t[0]) + "<span>" + t[2] + "</span></a>"; }).join("") +

@@ -503,3 +503,22 @@ form .result .stat b{font-size:1.05rem}
 .col em{min-height:1em}
 .col small{padding-top:2px}
 @media (min-width:1024px){.lang{right:max(16px,env(safe-area-inset-right,0px))}}
+
+/* main topic hubs (homepage) */
+.hubs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:760px){.hubs{grid-template-columns:1fr}}
+.hub{background:#fff;border:1.5px solid var(--sky);border-radius:16px;padding:16px;display:grid;gap:12px;align-content:start;scroll-margin-top:calc(var(--headh,100px) + 12px)}
+.hub-h{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center}
+.hub-h .ico{width:44px;height:44px;border-radius:12px;background:var(--accent);color:#fff;display:grid;place-items:center;border:0}
+.hub-h .ico svg{width:24px;height:24px}
+.hub-h h3{font-size:1.12rem;color:#0b3d91}
+.hub-h p{font-size:.85rem;color:var(--muted);line-height:1.45}
+.hub-h i{font-style:normal;font-family:var(--mono);font-size:.75rem;color:var(--accent);background:var(--sky-soft);border:1px solid #cfe5fd;border-radius:999px;padding:2px 9px}
+.hub-list{display:grid;gap:6px}
+.hub-list a{display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:center;padding:9px 10px;border-radius:10px;background:var(--raise);border:1px solid transparent;color:var(--ink);text-decoration:none;transition:border-color .15s,background .15s}
+.hub-list a:hover{border-color:var(--sky);background:var(--sky-soft)}
+.hub-i{width:32px;height:32px;border-radius:9px;background:#fff;border:1px solid #d9e8fb;color:var(--accent);display:grid;place-items:center}
+.hub-i svg{width:18px;height:18px}
+.hub-t{display:grid;min-width:0}
+.hub-t b{font-size:.95rem;font-weight:600}
+.hub-t small{font-size:.8rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
