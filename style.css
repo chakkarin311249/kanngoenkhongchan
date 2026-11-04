@@ -522,3 +522,52 @@ form .result .stat b{font-size:1.05rem}
 .hub-t{display:grid;min-width:0}
 .hub-t b{font-size:.95rem;font-weight:600}
 .hub-t small{font-size:.8rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ---------- settings (gear) + tools sheet ---------- */
+html.fs-lg{font-size:112.5%}
+html.fs-lg body{font-size:18.5px}
+.lang{display:none!important}
+.gear{position:absolute;top:10px;right:max(16px,env(safe-area-inset-right,0px));width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--line);color:var(--ink);display:grid;place-items:center;cursor:pointer}
+.gear svg{width:22px;height:22px;transition:transform .4s}
+.gear[aria-expanded="true"]{border-color:var(--sky);color:var(--accent)}
+.gear[aria-expanded="true"] svg{transform:rotate(60deg)}
+.shade{position:fixed;inset:0;background:rgba(15,23,42,.35);z-index:60;animation:fade .2s ease}
+.shade[hidden]{display:none}
+@keyframes fade{from{opacity:0}}
+body.modal-open{overflow:hidden}
+.sheet,.settings{position:fixed;z-index:61;background:#fff;display:grid;gap:12px;align-content:start;overflow-y:auto;
+  left:0;right:0;bottom:0;max-height:86vh;border-radius:20px 20px 0 0;border-top:2px solid var(--sky);
+  padding:14px max(16px,env(safe-area-inset-right,0px)) calc(20px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+  box-shadow:0 -20px 50px -20px rgba(15,23,42,.35);animation:sheet-up .26s cubic-bezier(.2,.8,.2,1)}
+.sheet[hidden],.settings[hidden]{display:none!important}
+@keyframes sheet-up{from{transform:translateY(40px);opacity:0}}
+.menu-panel.sheet{display:grid}
+@media (min-width:1024px){
+  .settings{left:auto;top:0;bottom:0;right:0;width:400px;max-height:none;border-radius:0;border-top:0;border-left:2px solid var(--sky);padding-top:20px;animation:sheet-in .26s cubic-bezier(.2,.8,.2,1)}
+  @keyframes sheet-in{from{transform:translateX(40px);opacity:0}}
+  .menu-panel.sheet{display:none!important}
+}
+.sheet-h{display:flex;justify-content:space-between;align-items:center;position:sticky;top:-14px;background:#fff;padding:4px 0 8px;z-index:1}
+.sheet-h b{font-size:1.1rem;color:#0b3d91}
+.x{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);background:var(--raise);font:inherit;cursor:pointer;color:var(--muted)}
+.st-sec{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:6px}
+.st-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px;border:1px solid var(--line);border-radius:12px}
+.st-row>span{display:grid;gap:2px;font-weight:500}
+.st-row small{font-size:.8rem;color:var(--muted);font-weight:400}
+.st-row small.mono{font-family:var(--mono);color:var(--ink);word-break:break-all}
+.seg{display:flex;background:var(--bg);border-radius:10px;padding:3px;gap:3px;flex:none}
+.seg button{font:inherit;font-size:.88rem;border:0;background:none;padding:7px 12px;border-radius:8px;cursor:pointer;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:#fff;color:#0b3d91;font-weight:600;box-shadow:0 1px 3px rgba(15,23,42,.15)}
+.st-btn{font:inherit;font-size:.88rem;font-weight:600;color:var(--accent);background:var(--sky-soft);border:1px solid #cfe5fd;border-radius:10px;padding:8px 12px;cursor:pointer;flex:none}
+.st-btn.danger{color:#b42318;background:#fff3f1;border-color:#f6c9c3}
+.st-card{display:grid;gap:4px;padding:12px;border:1.5px solid var(--sky);background:var(--sky-soft);border-radius:12px}
+.st-card b{color:#0b3d91}
+.st-card small{color:var(--muted);font-size:.82rem}
+.st-links{display:grid;gap:6px}
+.st-links a{padding:11px 12px;border:1px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);display:flex;justify-content:space-between}
+.st-links a::after{content:"›";color:var(--muted)}
+.st-det{border:1px solid var(--line);border-radius:12px;padding:12px}
+.st-det summary{cursor:pointer;font-weight:500}
+.st-det p{margin-top:8px;font-size:.88rem;color:var(--muted)}
+.st-msg{font-size:.88rem;color:#15803d;min-height:1em}
+.st-legal{font-size:.78rem;color:var(--muted)}

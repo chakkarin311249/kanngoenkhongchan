@@ -74,8 +74,11 @@
     });
     head.appendChild(b);
   }
+  window.setLang = function (l) {
+    try { localStorage.setItem("lang", l); } catch (e) {}
+    var u = new URL(location.href); u.searchParams.delete("lang"); location.href = u.toString();
+  };
   document.addEventListener("DOMContentLoaded", function () {
-    addToggle();
     if (lang !== "en") return;
     if (DICT[document.title]) document.title = DICT[document.title];
     walk(document.body);
