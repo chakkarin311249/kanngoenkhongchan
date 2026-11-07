@@ -7,7 +7,7 @@
 <title>บันทึกการออม จดเงินเก็บรายวัน | การเงินของฉัน</title>
 <meta name="description" content="บันทึกการออมรายวัน จดว่าวันนี้เก็บเงินได้เท่าไร ยอดรวมเพิ่มจากกี่บาทเป็นกี่บาท และบันทึกต่อเนื่องมากี่วันแล้ว ข้อมูลเก็บในมือถือของคุณ ใช้ฟรี">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="style.css?v=202611071200">
+<link rel="stylesheet" href="style.css?v=202611071300">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#ffffff">
@@ -100,7 +100,7 @@
   <p class="f-legal">ข้อมูลอ้างอิงจากกรมสรรพากร สำนักงานประกันสังคม และอัตราแลกเปลี่ยนจาก ExchangeRate-API ผลคำนวณเป็นการประมาณ ไม่ใช่คำแนะนำทางการเงิน · © 2569 การเงินของฉัน</p>
 </div></footer>
 
-<script src="calc.js?v=202611071200"></script>
+<script src="calc.js?v=202611071300"></script>
 <script>
 const EN=window.LANG==="en", T=(th,en)=>EN?en:th, U=T("บาท","THB");
 const $=id=>document.getElementById(id);
@@ -149,7 +149,7 @@ $("rows").addEventListener("click",e=>{const b=e.target.closest(".log-x");if(!b)
 $("reset").addEventListener("click",()=>{if(!armed){armed=true;render();return;}log=[];armed=false;save();render();});
 render();
 </script>
-<script src="menu.js?v=202611071200"></script>
-<script src="i18n.js?v=202611071200"></script>
+<script src="menu.js?v=202611071300"></script>
+<script src="i18n.js?v=202611071300"></script>
 </body>
 </html>
