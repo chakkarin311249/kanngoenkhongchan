@@ -571,3 +571,30 @@ body.modal-open{overflow:hidden}
 .st-det p{margin-top:8px;font-size:.88rem;color:var(--muted)}
 .st-msg{font-size:.88rem;color:#15803d;min-height:1em}
 .st-legal{font-size:.78rem;color:var(--muted)}
+
+/* v5: loan tabs, expense box (tax), savings log */
+[hidden]{display:none!important}
+.ch-tabs.t3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.loan-tabs{border:1.5px solid var(--sky);background:#fff}
+.loan-tabs button{min-height:44px}
+.exp-box{display:grid;gap:6px;padding:12px 14px;border:1px solid #e3ebf5;border-radius:12px;background:#f8fbff}
+.exp-box div{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.exp-box b{font-family:var(--mono);font-size:1.1rem;color:#0b3d91}
+.exp-box small{color:var(--muted);font-size:.85rem}
+table.log td{vertical-align:top}
+table.log td:last-child{width:44px;text-align:right}
+.log-m{display:block;color:var(--muted);font-size:.8rem}
+.log-x{font:inherit;width:36px;height:36px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--muted);cursor:pointer}
+.sv-quick{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 10px;align-items:center}
+.sv-quick label{grid-column:1/-1;font-size:.88rem;color:var(--muted)}
+.sv-quick .btn-main{min-height:48px;padding:10px 20px}
+.sv-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.sv-tiles div{display:grid;gap:2px;padding:10px 12px;border:1px solid #e3ebf5;border-radius:10px;background:#f8fbff;min-width:0}
+.sv-tiles span,.sv-tiles small{font-size:.78rem;color:var(--muted)}
+.sv-tiles b{font-family:var(--mono);font-size:1.05rem;overflow-wrap:anywhere}
+@media (max-width:560px){.sv-tiles{grid-template-columns:1fr 1fr}.sv-tiles div:last-child{grid-column:1/-1}}
+.sv-quick .q-in input{font-size:1.4rem;min-width:0;width:100%}
+table.log{min-width:0;width:100%}
+table.log th,table.log td{padding:10px 6px}
+table.log td:nth-child(3){white-space:nowrap}
+@media (max-width:420px){table.log{font-size:.86rem}.log-x{width:32px;height:32px}}

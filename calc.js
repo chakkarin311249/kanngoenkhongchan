@@ -137,21 +137,6 @@ if (typeof window !== "undefined") {
     return { balance: bal, deposited, interest, rows };
   }
 
-  // VAT 7% (add or extract) and withholding tax on the pre-VAT amount.
-  function computeVat(o) {
-    const amt = n(o.amount), whtPct = n(o.whtPct);
-    const base = o.mode === "extract" ? amt / 1.07 : amt;
-    const vat = base * 0.07, total = base + vat, wht = base * whtPct / 100;
-    return { base, vat, total, wht, pay: total - wht };
-  }
-
-  // Inflation: what an amount costs in the future, and what it is worth in today's money.
-  function computeInflation(o) {
-    const amt = n(o.amount), r = n(o.rate) / 100, y = Math.max(0, n(o.years));
-    const f = Math.pow(1 + r, y);
-    return { future: amt * f, worth: amt / f, lost: 1 - 1 / f };
-  }
-
   // Retirement: money needed at retirement and monthly saving to get there.
   function computeRetire(o) {
     const age = n(o.age), ret = n(o.retireAge), life = n(o.lifeAge);
@@ -186,26 +171,24 @@ if (typeof window !== "undefined") {
     return { firstMin: Math.min(n(o.balance) * (1 + n(o.apr) / 1200), Math.max(n(o.balance) * (1 + n(o.apr) / 1200) * pct, floor)), min, fixed };
   }
 
-  const api = { computeTax, computeCar, computeAge, computeSalary, computeHome, computeSavings, computeVat,
-    computeInflation, computeRetire, computeCard, BRACKETS };
+  const api = { computeTax, computeCar, computeAge, computeSalary, computeHome, computeSavings,
+    computeRetire, computeCard, BRACKETS };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else root.Calc = api;
 })(this);
 
 // Sticky bottom bar that mirrors the main result while the result box is off screen.
+// Pages with tabs (home.html) call window.knSumbar() after switching, to follow the visible result.
 if (typeof document !== "undefined") {
   document.addEventListener("DOMContentLoaded", function () {
-    const box = document.querySelector(".result");
-    const big = box && box.querySelector(".big");
-    if (!big) return;
-    const label = (box.querySelector(".note") || {}).textContent || "ผลลัพธ์";
+    const pick = () => Array.from(document.querySelectorAll(".result")).find(b => !b.closest("[hidden]") && b.querySelector(".big"));
+    if (!pick()) return;
     const bar = document.createElement("div");
     bar.className = "sumbar";
     bar.innerHTML = "<span></span><b></b>";
-    bar.firstChild.textContent = label;
     document.body.appendChild(bar);
     document.body.classList.add("has-sumbar");
-    let last = big.textContent;
+    let big = null, last = "", mo = null, io = null;
     const sync = () => {
       bar.lastChild.textContent = big.textContent;
       if (big.textContent !== last) {
@@ -213,11 +196,19 @@ if (typeof document !== "undefined") {
         big.classList.remove("bump"); void big.offsetWidth; big.classList.add("bump");
       }
     };
-    new MutationObserver(sync).observe(big, { childList: true, characterData: true, subtree: true });
-    sync();
-    if ("IntersectionObserver" in window) {
-      new IntersectionObserver(es => bar.classList.toggle("hide", es[0].isIntersecting)).observe(big);
+    function bind() {
+      const box = pick(); if (!box) return;
+      big = box.querySelector(".big"); last = big.textContent;
+      bar.firstChild.textContent = (box.querySelector(".note") || {}).textContent || "ผลลัพธ์";
+      if (mo) mo.disconnect(); if (io) io.disconnect();
+      mo = new MutationObserver(sync); mo.observe(big, { childList: true, characterData: true, subtree: true });
+      sync();
+      if ("IntersectionObserver" in window) {
+        io = new IntersectionObserver(es => bar.classList.toggle("hide", es[0].isIntersecting)); io.observe(big);
+      }
     }
+    window.knSumbar = bind;
+    bind();
   });
 }
 

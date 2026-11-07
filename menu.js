@@ -2,9 +2,9 @@
 (function () {
   var en = (function () { try { return (new URLSearchParams(location.search).get("lang") || localStorage.getItem("lang")) === "en"; } catch (e) { return false; } })();
   var GROUPS = [
-    { th: "ภาษีและเงินเดือน", en: "Tax & salary", items: ["tax.html", "salary.html", "vat.html", "deductions-2569.html"] },
-    { th: "ผ่อนและหนี้", en: "Loans & debt", items: ["home.html", "car.html", "credit-card.html"] },
-    { th: "ออมและลงทุน", en: "Saving & investing", items: ["savings.html", "invest.html", "retire.html", "inflation.html", "challenge.html"] },
+    { th: "ภาษีและเงินเดือน", en: "Tax & salary", items: ["tax.html", "deductions-2569.html"] },
+    { th: "ผ่อนและหนี้", en: "Loans & debt", items: ["home.html"] },
+    { th: "ออมและลงทุน", en: "Saving & investing", items: ["savings.html", "invest.html", "retire.html", "challenge.html"] },
     { th: "เครื่องมือและความรู้", en: "Tools & learning", items: ["currency.html", "age.html", "quiz.html"] }
   ];
   document.addEventListener("DOMContentLoaded", function () {
@@ -40,7 +40,7 @@
       '<p class="st-sec">' + T("ตั้งค่า", "Settings") + "</p>" +
       '<div class="st-row"><span>' + T("ภาษา", "Language") + '</span><div class="seg"><button type="button" data-lang="th" aria-pressed="' + !en + '">ไทย</button><button type="button" data-lang="en" aria-pressed="' + en + '">English</button></div></div>' +
       '<div class="st-row"><span>' + T("ขนาดตัวอักษร", "Text size") + '</span><div class="seg"><button type="button" data-fs="0" aria-pressed="' + !fsLg + '">' + T("ปกติ", "Normal") + '</button><button type="button" data-fs="1" aria-pressed="' + fsLg + '">' + T("ใหญ่", "Large") + "</button></div></div>" +
-      '<div class="st-row st-col"><span>' + T("ข้อมูลที่เก็บในเครื่องนี้", "Data saved on this device") + '<small>' + T("ความคืบหน้าชาเลนจ์เก็บเงิน และอัตราแลกเปลี่ยนที่จำไว้", "Savings-challenge progress and the remembered exchange rate") + '</small></span><button type="button" class="st-btn danger" id="st-clear">' + T("ล้างข้อมูล", "Clear data") + "</button></div>" +
+      '<div class="st-row st-col"><span>' + T("ข้อมูลที่เก็บในเครื่องนี้", "Data saved on this device") + '<small>' + T("บันทึกการออม ความคืบหน้าชาเลนจ์เก็บเงิน และอัตราแลกเปลี่ยนที่จำไว้", "Savings log, savings-challenge progress and the remembered exchange rate") + '</small></span><button type="button" class="st-btn danger" id="st-clear">' + T("ล้างข้อมูล", "Clear data") + "</button></div>" +
       '<p class="st-sec">' + T("ข้อมูล", "Information") + "</p>" +
       '<div class="st-card"><b>' + T("เกณฑ์ปีภาษี 2569 · อัปเดตพฤศจิกายน 2569", "Tax-year 2026 rules · updated November 2026") + '</b><small>' + T("แหล่งข้อมูล: กรมสรรพากร, สำนักงานประกันสังคม, ExchangeRate-API", "Sources: Revenue Department, Social Security Office, ExchangeRate-API") + "</small></div>" +
       '<nav class="st-links"><a href="' + root + 'about.html">' + T("เกี่ยวกับเรา", "About us") + '</a><a href="' + root + 'privacy.html">' + T("นโยบายความเป็นส่วนตัว", "Privacy policy") + '</a><a href="' + root + 'deductions-2569.html">' + T("ลดหย่อนภาษี 2569", "Tax deductions 2026") + "</a></nav>" +
@@ -81,7 +81,7 @@
     var armed = false, clr = st.querySelector("#st-clear");
     clr.addEventListener("click", function () {
       if (!armed) { armed = true; clr.textContent = T("แตะอีกครั้งเพื่อยืนยัน", "Tap again to confirm"); return; }
-      try { ["kn-challenge-v1", "kn-game-best", "kn-usd", "kn-usd-prev"].forEach(function (k) { localStorage.removeItem(k); }); } catch (e) {}
+      try { ["kn-savelog-v1", "kn-challenge-v1", "kn-game-best", "kn-usd", "kn-usd-prev"].forEach(function (k) { localStorage.removeItem(k); }); } catch (e) {}
       armed = false; clr.textContent = T("ล้างข้อมูล", "Clear data"); msg(T("ล้างข้อมูลในเครื่องนี้แล้ว", "Data on this device cleared"));
     });
     st.querySelector("#st-mail").addEventListener("click", function () {
@@ -89,7 +89,7 @@
       (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () { msg(T("คัดลอกอีเมลแล้ว", "Email copied")); }, function () { msg(t); });
     });
     st.querySelector("#st-share").addEventListener("click", function () {
-      var url = "https://kanngoenkhongchan.com/", text = T("เครื่องคำนวณการเงินฟรี ภาษี ผ่อนบ้าน ออมเงิน", "Free finance calculators for Thailand");
+      var url = "https://kanngoenkhongchan.com/", text = T("เครื่องคำนวณการเงินฟรี ภาษี การผ่อน บันทึกการออม", "Free finance calculators for Thailand");
       if (navigator.share) { navigator.share({ text: text, url: url }).catch(function () {}); return; }
       (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(function () { msg(T("คัดลอกลิงก์แล้ว", "Link copied")); }, function () { msg(url); });
     });
@@ -183,7 +183,7 @@
 
     // bottom tab bar
     var tabs = [["home", root || "index.html", T("หน้าแรก", "Home"), isHome], ["tax", root + "tax.html", T("ภาษี", "Tax"), page === "tax.html"],
-      ["loan", root + "home.html", T("ผ่อน", "Loans"), /^(home|car|credit-card)\.html$/.test(page)], ["save", root + "savings.html", T("ออม", "Save"), /^(savings|invest|retire|inflation|challenge)\.html$/.test(page)]];
+      ["loan", root + "home.html", T("ผ่อน", "Loans"), /^home\.html$/.test(page)], ["save", root + "savings.html", T("ออม", "Save"), /^(savings|invest|retire|challenge)\.html$/.test(page)]];
     var bar = document.createElement("nav");
     bar.className = "tabbar"; bar.setAttribute("aria-label", T("เมนูลัด", "Quick menu"));
     bar.innerHTML = tabs.map(function (t) { return '<a href="' + t[1] + '"' + (t[3] ? ' aria-current="page"' : "") + ">" + svg(t[0]) + "<span>" + t[2] + "</span></a>"; }).join("") +

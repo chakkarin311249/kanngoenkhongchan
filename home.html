@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <script>try{if(localStorage.getItem("kn-fs")==="1")document.documentElement.classList.add("fs-lg")}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>คำนวณผ่อนบ้าน สินเชื่อบ้าน ผ่อนเดือนละเท่าไร | การเงินของฉัน</title>
-<meta name="description" content="คำนวณค่าผ่อนบ้านต่อเดือน ดอกเบี้ยรวม และดูว่าถ้าโปะบ้านเพิ่มจะหมดหนี้เร็วขึ้นกี่ปี ประหยัดดอกเบี้ยได้เท่าไร ใช้ฟรี">
+<title>คำนวณการผ่อน บ้าน รถ บัตรเครดิต ผ่อนเดือนละเท่าไร | การเงินของฉัน</title>
+<meta name="description" content="คำนวณการผ่อนในหน้าเดียว ผ่อนบ้านลดต้นลดดอกพร้อมโปะบ้าน ผ่อนรถดอกเบี้ยคงที่รวม VAT และหนี้บัตรเครดิตจ่ายขั้นต่ำกี่เดือนหมด ใช้ฟรี">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="style.css?v=202611040922">
+<link rel="stylesheet" href="style.css?v=202611071200">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#ffffff">
@@ -18,8 +18,8 @@
 <link rel="canonical" href="https://kanngoenkhongchan.com/home.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="การเงินของฉัน">
-<meta property="og:title" content="คำนวณผ่อนบ้าน สินเชื่อบ้าน ผ่อนเดือนละเท่าไร | การเงินของฉัน">
-<meta property="og:description" content="คำนวณค่าผ่อนบ้านต่อเดือน ดอกเบี้ยรวม และดูว่าถ้าโปะบ้านเพิ่มจะหมดหนี้เร็วขึ้นกี่ปี ประหยัดดอกเบี้ยได้เท่าไร ใช้ฟรี">
+<meta property="og:title" content="คำนวณการผ่อน บ้าน รถ บัตรเครดิต ผ่อนเดือนละเท่าไร | การเงินของฉัน">
+<meta property="og:description" content="คำนวณการผ่อนในหน้าเดียว ผ่อนบ้านลดต้นลดดอกพร้อมโปะบ้าน ผ่อนรถดอกเบี้ยคงที่รวม VAT และหนี้บัตรเครดิตจ่ายขั้นต่ำกี่เดือนหมด ใช้ฟรี">
 <meta property="og:url" content="https://kanngoenkhongchan.com/home.html">
 <meta property="og:locale" content="th_TH">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1190395119954248" crossorigin="anonymous"></script>
@@ -29,84 +29,220 @@
 <body>
 <header class="site-head"><div class="in">
   <a class="logo" href="index.html"><span>฿</span>การเงินของฉัน</a>
-  <nav class="nav"><a href="tax.html">ภาษี</a><a href="salary.html">เงินเดือนสุทธิ</a><a href="vat.html">VAT</a><a href="home.html" aria-current="page">ผ่อนบ้าน</a><a href="car.html">ผ่อนรถ</a><a href="credit-card.html">บัตรเครดิต</a><a href="savings.html">เงินออม</a><a href="invest.html">ลงทุน DCA</a><a href="retire.html">เกษียณ</a><a href="currency.html">แปลงสกุลเงิน</a><a href="inflation.html">เงินเฟ้อ</a><a href="age.html">อายุ / พ.ศ.</a><a href="deductions-2569.html">ลดหย่อนภาษี 2569</a><a href="quiz.html">แบบทดสอบการเงิน</a><a href="challenge.html">ชาเลนจ์เก็บเงิน</a></nav>
+  <nav class="nav"><a href="tax.html">ภาษี</a><a href="home.html" aria-current="page">คำนวณการผ่อน</a><a href="savings.html">บันทึกการออม</a><a href="invest.html">ลงทุน DCA</a><a href="retire.html">เกษียณ</a><a href="currency.html">แปลงสกุลเงิน</a><a href="age.html">อายุ / พ.ศ.</a><a href="deductions-2569.html">ลดหย่อนภาษี 2569</a><a href="quiz.html">แบบทดสอบการเงิน</a><a href="challenge.html">ชาเลนจ์เก็บเงิน</a></nav>
 </div></header>
 
 <main class="wrap">
   <div>
     <a class="crumb" href="index.html#loan">ผ่อนและหนี้</a>
-    <h1>คำนวณผ่อนบ้าน</h1>
-    <p class="lede">รู้ค่างวดต่อเดือน ดอกเบี้ยทั้งหมด และผลของการโปะบ้าน</p>
+    <h1>คำนวณการผ่อน</h1>
+    <p class="lede">ผ่อนบ้าน ผ่อนรถ และหนี้บัตรเครดิต รวมไว้ในหน้าเดียว เลือกประเภทด้านล่าง ผลลัพธ์จะเปลี่ยนทันที</p>
   </div>
 
-  <form class="card" id="f" autocomplete="off">
+  <div class="ch-tabs t3 loan-tabs" role="tablist" aria-label="ประเภทการผ่อน">
+    <button type="button" role="tab" data-t="home" aria-selected="true">บ้าน</button>
+    <button type="button" role="tab" data-t="car" aria-selected="false">รถ</button>
+    <button type="button" role="tab" data-t="card" aria-selected="false">บัตรเครดิต</button>
+  </div>
+
+  <form data-tab="home" class="card" id="h-f" autocomplete="off">
     <div class="fields">
-      <div class="field"><label for="price">ราคาบ้าน / คอนโด (บาท)</label><input id="price" inputmode="decimal" value="3000000"></div>
-      <div class="field"><label for="downPct">เงินดาวน์ (%)</label><input id="downPct" inputmode="decimal" value="10"><small id="loanTxt"></small></div>
-      <div class="field"><label for="rate">ดอกเบี้ยเฉลี่ยต่อปี (%)</label><input id="rate" inputmode="decimal" value="4"><small>ใช้ดอกเบี้ยเฉลี่ยตลอดสัญญา ส่วนใหญ่อยู่ที่ 3–6%</small></div>
-      <div class="field"><label for="years">ระยะเวลาผ่อน (ปี)</label><input id="years" type="number" min="1" max="40" value="30"></div>
-      <div class="field"><label for="extra">โปะเพิ่มต่อเดือน (บาท)</label><input id="extra" inputmode="decimal" value="3000"><small>ใส่ 0 ถ้าไม่โปะ</small></div>
+      <div class="field"><label for="h-price">ราคาบ้าน / คอนโด (บาท)</label><input id="h-price" inputmode="decimal" value="3000000"></div>
+      <div class="field"><label for="h-downPct">เงินดาวน์ (%)</label><input id="h-downPct" inputmode="decimal" value="10"><small id="h-loanTxt"></small></div>
+      <div class="field"><label for="h-rate">ดอกเบี้ยเฉลี่ยต่อปี (%)</label><input id="h-rate" inputmode="decimal" value="4"><small>ใช้ดอกเบี้ยเฉลี่ยตลอดสัญญา ส่วนใหญ่อยู่ที่ 3–6%</small></div>
+      <div class="field"><label for="h-years">ระยะเวลาผ่อน (ปี)</label><input id="h-years" type="number" min="1" max="40" value="30"></div>
+      <div class="field"><label for="h-extra">โปะเพิ่มต่อเดือน (บาท)</label><input id="h-extra" inputmode="decimal" value="3000"><small>ใส่ 0 ถ้าไม่โปะ</small></div>
     </div>
 
     <section class="result" aria-live="polite">
-      <div><span class="note">ผ่อนเดือนละ</span><div class="big" id="pay">–</div></div>
+      <div><span class="note">ผ่อนเดือนละ</span><div class="big" id="h-pay">–</div></div>
       <div class="stats">
-        <div class="stat"><span>ยอดกู้</span><b id="loan">–</b></div>
-        <div class="stat"><span>ดอกเบี้ยรวม</span><b id="interest">–</b></div>
-        <div class="stat"><span>จ่ายรวมทั้งหมด</span><b id="total">–</b></div>
-        <div class="stat"><span>งวดแรก: ดอกเบี้ย</span><b id="fi">–</b></div>
-        <div class="stat"><span>งวดแรก: ตัดเงินต้น</span><b id="fp">–</b></div>
+        <div class="stat"><span>ยอดกู้</span><b id="h-loan">–</b></div>
+        <div class="stat"><span>ดอกเบี้ยรวม</span><b id="h-interest">–</b></div>
+        <div class="stat"><span>จ่ายรวมทั้งหมด</span><b id="h-total">–</b></div>
+        <div class="stat"><span>งวดแรก: ดอกเบี้ย</span><b id="h-fi">–</b></div>
+        <div class="stat"><span>งวดแรก: ตัดเงินต้น</span><b id="h-fp">–</b></div>
       </div>
-      <div class="bars" id="bars"></div>
-      <p class="tip" id="tip"></p>
+      <div class="bars" id="h-bars"></div>
+      <p class="tip" id="h-tip"></p>
+    </section>
+  </form>
+
+  <form data-tab="car" hidden class="card" id="c-f" autocomplete="off">
+    <div class="fields">
+      <div class="field"><label for="c-price">ราคารถ (บาท)</label><input id="c-price" inputmode="decimal" value="800000"></div>
+      <div class="field"><label for="c-downPct">เงินดาวน์ (%)</label><input id="c-downPct" inputmode="decimal" value="25"><small id="c-downBaht"></small></div>
+      <div class="field"><label for="c-rate">ดอกเบี้ยต่อปี (%)</label><input id="c-rate" inputmode="decimal" value="2.5"><small>รถใหม่มักอยู่ที่ 1.5–4% รถมือสอง 4–8%</small></div>
+      <div class="field"><label for="c-months">จำนวนงวด</label>
+        <select id="c-months"><option>12</option><option>24</option><option>36</option><option>48</option><option selected>60</option><option>72</option><option>84</option></select></div>
+    </div>
+    <label class="check"><input type="checkbox" id="c-vat" checked> รวม VAT 7% ในค่างวด (ไฟแนนซ์ส่วนใหญ่คิดแบบนี้)</label>
+
+    <section class="result" aria-live="polite">
+      <div><span class="note">ผ่อนเดือนละ</span><div class="big" id="c-monthly">–</div></div>
+      <div class="stats">
+        <div class="stat"><span>ยอดจัดไฟแนนซ์</span><b id="c-finance">–</b></div>
+        <div class="stat"><span>ดอกเบี้ยทั้งหมด</span><b id="c-interest">–</b></div>
+        <div class="stat"><span>จ่ายรวมทั้งหมด</span><b id="c-total">–</b></div>
+      </div>
+      <div class="bars" id="c-bars"></div>
+    </section>
+
+    <div>
+      <h3 style="margin-bottom:8px">เปรียบเทียบจำนวนงวด</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>จำนวนงวด</th><th>ค่างวด/เดือน</th><th>ดอกเบี้ยรวม</th><th>จ่ายรวม</th></tr></thead>
+        <tbody id="c-rows"></tbody>
+      </table></div>
+    </div>
+  </form>
+
+  <form data-tab="card" hidden class="card" id="k-f" autocomplete="off">
+    <div class="fields">
+      <div class="field"><label for="k-balance">ยอดหนี้บัตรเครดิต (บาท)</label><input id="k-balance" inputmode="decimal" value="50000"></div>
+      <div class="field"><label for="k-apr">ดอกเบี้ยต่อปี (%)</label><input id="k-apr" inputmode="decimal" value="16"><small>เพดานดอกเบี้ยบัตรเครดิตในไทยคือ 16% ต่อปี</small></div>
+      <div class="field"><label for="k-minPct">จ่ายขั้นต่ำ (% ของยอด)</label><input id="k-minPct" inputmode="decimal" value="8"><small>ดูอัตราขั้นต่ำในใบแจ้งยอดของคุณ</small></div>
+      <div class="field"><label for="k-minBaht">ขั้นต่ำไม่น้อยกว่า (บาท)</label><input id="k-minBaht" inputmode="decimal" value="300"></div>
+      <div class="field"><label for="k-fixed">ถ้าจ่ายเดือนละ (บาท)</label><input id="k-fixed" inputmode="decimal" value="5000"><small>ใช้เทียบกับการจ่ายขั้นต่ำ</small></div>
+    </div>
+    <section class="result" aria-live="polite">
+      <div><span class="note">ถ้าจ่ายขั้นต่ำ จะหมดหนี้ใน</span><div class="big" id="k-minTime">–</div></div>
+      <div class="stats">
+        <div class="stat"><span>ขั้นต่ำเดือนแรก</span><b id="k-first">–</b></div>
+        <div class="stat"><span>ดอกเบี้ยรวม (จ่ายขั้นต่ำ)</span><b id="k-minInt">–</b></div>
+        <div class="stat"><span>หมดหนี้ใน (จ่ายคงที่)</span><b id="k-fixTime">–</b></div>
+        <div class="stat"><span>ดอกเบี้ยรวม (จ่ายคงที่)</span><b id="k-fixInt">–</b></div>
+      </div>
+      <div class="bars" id="k-bars"></div>
+      <p class="tip" id="k-tip"></p>
     </section>
   </form>
 
   <div class="ad-slot"><!-- วางโค้ดหน่วยโฆษณา AdSense ตรงนี้ --></div>
 
-  <article>
+  <article data-tab="home">
     <h2>ทำไมผ่อนบ้านช่วงแรกตัดต้นน้อย</h2>
     <p>สินเชื่อบ้านคิดดอกเบี้ยจากเงินต้นคงเหลือ (ลดต้นลดดอก) ช่วงแรกเงินต้นยังสูง ค่างวดส่วนใหญ่จึงเป็นดอกเบี้ย ค่างวดที่เหลือถึงจะไปตัดเงินต้น เมื่อเงินต้นลดลง สัดส่วนนี้จะค่อย ๆ กลับกัน</p>
     <h2>โปะบ้านคุ้มไหม</h2>
     <p>เงินที่โปะเพิ่มจะไปตัดเงินต้นทั้งหมด ดอกเบี้ยเดือนถัดไปจึงลดลงทันที ยิ่งโปะเร็ว ยิ่งประหยัดดอกเบี้ยมาก ก่อนโปะควรตรวจสัญญาว่ามีค่าปรับไถ่ถอนก่อนกำหนดในช่วง 3 ปีแรกหรือไม่</p>
     <h2>ควรผ่อนบ้านเท่าไรดี</h2>
-    <p>ธนาคารส่วนใหญ่อนุมัติเมื่อหนี้ทั้งหมดต่อเดือนไม่เกิน 40–50% ของรายได้ เพื่อความสบายใจ ค่าผ่อนบ้านควรอยู่ราว 30% ของรายได้ คำนวณรายได้หลังหักแล้วได้ที่ <a href="salary.html">เงินเดือนสุทธิ</a></p>
+    <p>ธนาคารส่วนใหญ่อนุมัติเมื่อหนี้ทั้งหมดต่อเดือนไม่เกิน 40–50% ของรายได้ เพื่อความสบายใจ ค่าผ่อนบ้านควรอยู่ราว 30% ของรายได้</p>
     <p class="note">ผลลัพธ์เป็นการประมาณ ธนาคารจริงมักใช้ดอกเบี้ยคงที่ช่วงแรกแล้วลอยตัว และอาจปัดค่างวดต่างไปเล็กน้อย</p>
+  </article>
+  <article data-tab="car" hidden>
+    <h2>สูตรคำนวณค่างวดรถแบบดอกเบี้ยคงที่</h2>
+    <ol>
+      <li>ยอดจัด = ราคารถ − เงินดาวน์</li>
+      <li>ดอกเบี้ยทั้งหมด = ยอดจัด × อัตราดอกเบี้ยต่อปี × จำนวนปี</li>
+      <li>ค่างวด = (ยอดจัด + ดอกเบี้ยทั้งหมด) ÷ จำนวนงวด แล้วคูณ 1.07 ถ้ารวม VAT</li>
+    </ol>
+    <p>ดอกเบี้ยแบบคงที่คิดจากยอดจัดเต็มจำนวนตลอดสัญญา แม้คุณจะผ่อนเงินต้นลดลงไปเรื่อย ๆ อัตราดอกเบี้ยจริงจึงสูงกว่าตัวเลขที่ประกาศเกือบเท่าตัว</p>
+    <h2>เคล็ดลับให้จ่ายน้อยลง</h2>
+    <ul>
+      <li>ดาวน์มากขึ้น ยอดจัดลดลง ดอกเบี้ยรวมก็ลดลงตาม</li>
+      <li>ผ่อนสั้นลงจ่ายดอกเบี้ยรวมน้อยกว่า ดูตัวเลขเปรียบเทียบได้จากตารางด้านบน</li>
+      <li>ขอใบเสนอราคาจากไฟแนนซ์อย่างน้อย 2–3 เจ้า แล้วนำอัตราดอกเบี้ยมาเทียบกันที่นี่</li>
+      <li>ค่างวดรถไม่ควรเกิน 20–30% ของรายได้ต่อเดือน</li>
+    </ul>
+    <p class="note">ผลลัพธ์เป็นการประมาณเบื้องต้น ยังไม่รวมค่าประกันภัย ค่าจดทะเบียน และค่าธรรมเนียมอื่นของไฟแนนซ์</p>
+  </article>
+  <article data-tab="card" hidden>
+    <h2>ทำไมจ่ายขั้นต่ำแล้วหนี้ไม่ค่อยลด</h2>
+    <p>บัตรเครดิตคิดดอกเบี้ยจากยอดค้างทุกวัน เงินที่จ่ายขั้นต่ำส่วนหนึ่งจึงหมดไปกับดอกเบี้ย ยิ่งยอดลดลง ขั้นต่ำก็ลดตาม หนี้จึงลากยาว</p>
+    <h2>วิธีปลดหนี้บัตรเครดิตให้เร็วขึ้น</h2>
+    <ul>
+      <li>จ่ายเกินขั้นต่ำทุกเดือน แม้เพิ่มไม่มากก็ช่วยได้เยอะ</li>
+      <li>หยุดรูดเพิ่มระหว่างปลดหนี้</li>
+      <li>ถ้ามีหลายใบ จ่ายใบที่ดอกเบี้ยสูงที่สุดก่อน</li>
+      <li>สอบถามธนาคารเรื่องการรวมหนี้ หรือเปลี่ยนเป็นสินเชื่อผ่อนที่ดอกเบี้ยต่ำกว่า</li>
+    </ul>
+    <p class="note">ผลลัพธ์เป็นการประมาณ คิดดอกเบี้ยแบบรายเดือนและสมมติว่าไม่มีการรูดเพิ่ม อัตราขั้นต่ำและดอกเบี้ยจริงดูได้จากใบแจ้งยอดของคุณ</p>
   </article>
 </main>
 
+
 <footer class="site-foot"><div class="in">
   <div class="f-brand"><a class="logo" href="index.html"><span>฿</span>การเงินของฉัน</a><p>เครื่องคิดเงินสำหรับคนทำงานในไทย ใช้ฟรี ไม่เก็บข้อมูลที่คุณกรอก</p></div>
-  <div class="f-col"><b>เครื่องมือยอดนิยม</b><a href="tax.html">ภาษีเงินได้</a><a href="salary.html">เงินเดือนสุทธิ</a><a href="home.html">ผ่อนบ้าน</a><a href="credit-card.html">หนี้บัตรเครดิต</a></div>
+  <div class="f-col"><b>เครื่องมือยอดนิยม</b><a href="tax.html">ภาษีเงินได้</a><a href="home.html">คำนวณการผ่อน</a><a href="savings.html">บันทึกการออม</a><a href="challenge.html">ชาเลนจ์เก็บเงิน</a></div>
   <div class="f-col"><b>ความรู้</b><a href="deductions-2569.html">ลดหย่อนภาษี 2569</a><a href="quiz.html">แบบทดสอบการเงิน</a></div>
   <div class="f-col"><b>เกี่ยวกับ</b><a href="about.html">เกี่ยวกับเรา</a><a href="privacy.html">นโยบายความเป็นส่วนตัว</a><span>kanngoenkhongchan@gmail.com</span></div>
   <p class="f-legal">ข้อมูลอ้างอิงจากกรมสรรพากร สำนักงานประกันสังคม และอัตราแลกเปลี่ยนจาก ExchangeRate-API ผลคำนวณเป็นการประมาณ ไม่ใช่คำแนะนำทางการเงิน · © 2569 การเงินของฉัน</p>
 </div></footer>
 
-<script src="calc.js?v=202611040922"></script>
+<script src="calc.js?v=202611071200"></script>
 <script>
 const $=id=>document.getElementById(id);
 const num=s=>Number(String(s).replace(/[, ]/g,""))||0;
 const ym=m=>{const y=Math.floor(m/12),r=m%12;return (y?y+" ปี":"")+(r?(y?" ":"")+r+" เดือน":"")||"0 เดือน"};
-function run(){
-  const r=Calc.computeHome({price:num($("price").value),downPct:num($("downPct").value),rate:num($("rate").value),years:num($("years").value),extra:num($("extra").value)});
-  $("loanTxt").textContent=`ยอดกู้ ${baht(r.loan)} บาท`;
-  $("pay").textContent=baht(r.pay)+" บาท";
-  $("loan").textContent=baht(r.loan);
-  $("interest").textContent=baht(r.totalInterest);
-  $("total").textContent=baht(r.total);
-  $("fi").textContent=baht(r.firstInterest);
-  $("fp").textContent=baht(r.firstPrincipal);
-  $("tip").textContent=num($("extra").value)>0
-    ? `ถ้าโปะเพิ่มเดือนละ ${baht(num($("extra").value))} บาท จะหมดหนี้ใน ${ym(r.extraMonths)} เร็วขึ้น ${ym(r.months-r.extraMonths)} และประหยัดดอกเบี้ยได้ ${baht(r.totalInterest-r.extraInterest)} บาท`
+function runHome(){
+  const r=Calc.computeHome({price:num($("h-price").value),downPct:num($("h-downPct").value),rate:num($("h-rate").value),years:num($("h-years").value),extra:num($("h-extra").value)});
+  $("h-loanTxt").textContent=`ยอดกู้ ${baht(r.loan)} บาท`;
+  $("h-pay").textContent=baht(r.pay)+" บาท";
+  $("h-loan").textContent=baht(r.loan);
+  $("h-interest").textContent=baht(r.totalInterest);
+  $("h-total").textContent=baht(r.total);
+  $("h-fi").textContent=baht(r.firstInterest);
+  $("h-fp").textContent=baht(r.firstPrincipal);
+  $("h-tip").textContent=num($("h-extra").value)>0
+    ? `ถ้าโปะเพิ่มเดือนละ ${baht(num($("h-extra").value))} บาท จะหมดหนี้ใน ${ym(r.extraMonths)} เร็วขึ้น ${ym(r.months-r.extraMonths)} และประหยัดดอกเบี้ยได้ ${baht(r.totalInterest-r.extraInterest)} บาท`
     : "ลองใส่จำนวนเงินในช่อง \"โปะเพิ่มต่อเดือน\" เพื่อดูว่าจะหมดหนี้เร็วขึ้นแค่ไหน";
-  drawBars("bars",[{th:"เงินต้น",en:"Principal",v:r.loan},{th:"ดอกเบี้ย",en:"Interest",v:r.totalInterest,c:2}]);
+  drawBars("h-bars",[{th:"เงินต้น",en:"Principal",v:r.loan},{th:"ดอกเบี้ย",en:"Interest",v:r.totalInterest,c:2}]);
 }
-$("f").addEventListener("input",run);
-$("f").addEventListener("submit",e=>e.preventDefault());
-run();
+$("h-f").addEventListener("input",runHome);
+$("h-f").addEventListener("submit",e=>e.preventDefault());
+runHome();
+
+function runCar(){
+  const o={price:num($("c-price").value),downPct:num($("c-downPct").value),rate:num($("c-rate").value),months:num($("c-months").value),vat:$("c-vat").checked};
+  const r=Calc.computeCar(o);
+  $("c-downBaht").textContent=`= ${baht(r.down)} บาท`;
+  $("c-monthly").textContent=baht(r.monthly)+" บาท";
+  $("c-finance").textContent=baht(r.finance);
+  $("c-interest").textContent=baht(r.interest);
+  $("c-total").textContent=baht(r.total);
+  $("c-rows").innerHTML=[24,36,48,60,72,84].map(m=>{const x=Calc.computeCar({...o,months:m});
+    return `<tr class="${m===r.months?"on":""}"><td>${m} งวด (${m/12} ปี)</td><td>${baht(x.monthly)}</td><td>${baht(x.interest)}</td><td>${baht(x.total)}</td></tr>`}).join("");
+  drawBars("c-bars",[{th:"ยอดจัด",en:"Amount financed",v:r.finance},{th:"ดอกเบี้ย",en:"Interest",v:r.interest,c:2},{th:"VAT",en:"VAT",v:Math.max(0,r.monthly*r.months-r.finance-r.interest),c:3}]);
+}
+$("c-f").addEventListener("input",runCar);
+$("c-f").addEventListener("submit",e=>e.preventDefault());
+runCar();
+
+const ymc=m=>{if(!isFinite(m))return "ไม่มีวันหมด";const y=Math.floor(m/12),r=m%12;return (y?y+" ปี":"")+(r?(y?" ":"")+r+" เดือน":"")||"0 เดือน"};
+function runCard(){
+  const o={balance:num($("k-balance").value),apr:num($("k-apr").value),minPct:num($("k-minPct").value),minBaht:num($("k-minBaht").value),fixed:num($("k-fixed").value)};
+  const r=Calc.computeCard(o);
+  $("k-minTime").textContent=ymc(r.min.months);
+  $("k-first").textContent=baht(r.firstMin);
+  $("k-minInt").textContent=isFinite(r.min.interest)?baht(r.min.interest):"–";
+  $("k-fixTime").textContent=r.fixed?ymc(r.fixed.months):"–";
+  $("k-fixInt").textContent=r.fixed&&isFinite(r.fixed.interest)?baht(r.fixed.interest):"–";
+  $("k-tip").textContent=!r.fixed?"ใส่จำนวนเงินในช่อง \"ถ้าจ่ายเดือนละ\" เพื่อเทียบ":
+    !isFinite(r.fixed.months)?"ยอดจ่ายต่อเดือนน้อยกว่าดอกเบี้ย หนี้จะไม่ลดลง ต้องจ่ายมากกว่านี้":
+    r.fixed.months<r.min.months?`จ่ายเดือนละ ${baht(o.fixed)} บาท หมดหนี้เร็วกว่าจ่ายขั้นต่ำ ${ymc(r.min.months-r.fixed.months)} และประหยัดดอกเบี้ย ${baht(r.min.interest-r.fixed.interest)} บาท`:
+    "จ่ายคงที่จำนวนนี้น้อยกว่าขั้นต่ำช่วงแรก ลองเพิ่มยอดจ่ายต่อเดือน";
+  drawBars("k-bars",[{th:"ยอดหนี้",en:"Balance",v:o.balance},{th:"ดอกเบี้ย (จ่ายขั้นต่ำ)",en:"Interest (minimum)",v:isFinite(r.min.interest)?r.min.interest:0,c:2}]);
+}
+$("k-f").addEventListener("input",runCard); runCard();
+$("k-f").addEventListener("submit",e=>e.preventDefault());
+
+// tabs: บ้าน / รถ / บัตรเครดิต (?t=car or ?t=card opens that tab)
+(function(){
+  const tabs=document.querySelectorAll(".loan-tabs button");
+  function pick(t,push){
+    if(!["home","car","card"].includes(t)) t="home";
+    tabs.forEach(b=>b.setAttribute("aria-selected",String(b.dataset.t===t)));
+    document.querySelectorAll("main [data-tab]").forEach(el=>el.hidden=el.dataset.tab!==t);
+    if(window.knSumbar) window.knSumbar();
+    if(push){try{const u=new URL(location.href);t==="home"?u.searchParams.delete("t"):u.searchParams.set("t",t);history.replaceState(null,"",u);}catch(e){}}
+  }
+  tabs.forEach(b=>b.addEventListener("click",()=>pick(b.dataset.t,true)));
+  let t0="home";try{t0=new URLSearchParams(location.search).get("t")||location.hash.slice(1)||"home";}catch(e){}
+  pick(t0,false);
+  document.addEventListener("DOMContentLoaded",()=>pick(t0,false));
+})();
 </script>
-<script src="menu.js?v=202611040922"></script>
-<script src="i18n.js?v=202611040922"></script>
+<script src="menu.js?v=202611071200"></script>
+<script src="i18n.js?v=202611071200"></script>
 </body>
 </html>

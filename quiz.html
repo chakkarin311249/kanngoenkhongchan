@@ -7,7 +7,7 @@
 <title>แบบทดสอบสุขภาพการเงิน 10 ข้อ การเงินคุณแข็งแรงแค่ไหน | การเงินของฉัน</title>
 <meta name="description" content="ทำแบบทดสอบสุขภาพการเงิน 10 ข้อ ใช้เวลา 2 นาที รู้คะแนน จุดแข็ง จุดที่ควรปรับ พร้อมคำแนะนำเฉพาะคุณ ฟรี">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="style.css?v=202611040922">
+<link rel="stylesheet" href="style.css?v=202611071200">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#ffffff">
@@ -29,7 +29,7 @@
 <body>
 <header class="site-head"><div class="in">
   <a class="logo" href="index.html"><span>฿</span>การเงินของฉัน</a>
-  <nav class="nav"><a href="tax.html">ภาษี</a><a href="salary.html">เงินเดือนสุทธิ</a><a href="vat.html">VAT</a><a href="home.html">ผ่อนบ้าน</a><a href="car.html">ผ่อนรถ</a><a href="credit-card.html">บัตรเครดิต</a><a href="savings.html">เงินออม</a><a href="invest.html">ลงทุน DCA</a><a href="retire.html">เกษียณ</a><a href="currency.html">แปลงสกุลเงิน</a><a href="inflation.html">เงินเฟ้อ</a><a href="age.html">อายุ / พ.ศ.</a><a href="deductions-2569.html">ลดหย่อนภาษี 2569</a><a href="quiz.html" aria-current="page">แบบทดสอบการเงิน</a><a href="challenge.html">ชาเลนจ์เก็บเงิน</a></nav>
+  <nav class="nav"><a href="tax.html">ภาษี</a><a href="home.html">คำนวณการผ่อน</a><a href="savings.html">บันทึกการออม</a><a href="invest.html">ลงทุน DCA</a><a href="retire.html">เกษียณ</a><a href="currency.html">แปลงสกุลเงิน</a><a href="age.html">อายุ / พ.ศ.</a><a href="deductions-2569.html">ลดหย่อนภาษี 2569</a><a href="quiz.html" aria-current="page">แบบทดสอบการเงิน</a><a href="challenge.html">ชาเลนจ์เก็บเงิน</a></nav>
 </div></header>
 <main class="wrap">
   <div>
@@ -47,7 +47,7 @@
 </main>
 <footer class="site-foot"><div class="in">
   <div class="f-brand"><a class="logo" href="index.html"><span>฿</span>การเงินของฉัน</a><p>เครื่องคิดเงินสำหรับคนทำงานในไทย ใช้ฟรี ไม่เก็บข้อมูลที่คุณกรอก</p></div>
-  <div class="f-col"><b>เครื่องมือยอดนิยม</b><a href="tax.html">ภาษีเงินได้</a><a href="salary.html">เงินเดือนสุทธิ</a><a href="home.html">ผ่อนบ้าน</a><a href="credit-card.html">หนี้บัตรเครดิต</a></div>
+  <div class="f-col"><b>เครื่องมือยอดนิยม</b><a href="tax.html">ภาษีเงินได้</a><a href="home.html">คำนวณการผ่อน</a><a href="savings.html">บันทึกการออม</a><a href="challenge.html">ชาเลนจ์เก็บเงิน</a></div>
   <div class="f-col"><b>ความรู้</b><a href="deductions-2569.html">ลดหย่อนภาษี 2569</a><a href="quiz.html">แบบทดสอบการเงิน</a></div>
   <div class="f-col"><b>เกี่ยวกับ</b><a href="about.html">เกี่ยวกับเรา</a><a href="privacy.html">นโยบายความเป็นส่วนตัว</a><span>kanngoenkhongchan@gmail.com</span></div>
   <p class="f-legal">ข้อมูลอ้างอิงจากกรมสรรพากร สำนักงานประกันสังคม และอัตราแลกเปลี่ยนจาก ExchangeRate-API ผลคำนวณเป็นการประมาณ ไม่ใช่คำแนะนำทางการเงิน · © 2569 การเงินของฉัน</p>
@@ -59,9 +59,9 @@ const Q=[
  {th:"ถ้าวันนี้ตกงาน เงินสำรองที่มีพอใช้ได้กี่เดือน",en:"If you lost your job today, how many months could your savings cover?",o:[["ไม่มีเงินสำรองเลย","None"],["ไม่ถึง 3 เดือน","Less than 3 months"],["3–6 เดือน","3–6 months"],["มากกว่า 6 เดือน","More than 6 months"]],tip:["ตั้งเป้าเงินสำรองฉุกเฉินอย่างน้อย 3–6 เดือนของค่าใช้จ่าย","Aim for an emergency fund of 3–6 months of expenses"],link:"savings.html"},
  {th:"แต่ละเดือนคุณออมเงินกี่เปอร์เซ็นต์ของรายได้",en:"What share of your income do you save each month?",o:[["ไม่ได้ออม","Nothing"],["น้อยกว่า 10%","Under 10%"],["10–20%","10–20%"],["มากกว่า 20%","Over 20%"]],tip:["ออมทันทีที่เงินเดือนออก อย่างน้อย 10% ของรายได้","Save at least 10% as soon as you get paid"],link:"challenge.html"},
  {th:"ค่าผ่อนหนี้ทุกอย่างรวมกัน คิดเป็นเท่าไรของรายได้",en:"How much of your income goes to debt payments?",o:[["มากกว่า 50%","Over 50%"],["30–50%","30–50%"],["น้อยกว่า 30%","Under 30%"],["ไม่มีหนี้","No debt"]],tip:["ค่าผ่อนรวมไม่ควรเกิน 30–40% ของรายได้","Keep total debt payments under 30–40% of income"],link:"home.html"},
- {th:"คุณจ่ายบัตรเครดิตอย่างไร",en:"How do you pay your credit card?",o:[["จ่ายขั้นต่ำหรือเคยค้างชำระ","Minimum only, or I’ve missed payments"],["บางเดือนจ่ายไม่เต็ม","Sometimes not in full"],["จ่ายเต็มเกือบทุกเดือน","In full most months"],["จ่ายเต็มทุกเดือน หรือไม่มีบัตร","Always in full, or no card"]],tip:["จ่ายบัตรเครดิตเต็มจำนวนเพื่อเลี่ยงดอกเบี้ยสูงถึง 16% ต่อปี","Pay your card in full to avoid interest of up to 16% a year"],link:"credit-card.html"},
- {th:"คุณจดรายรับรายจ่ายบ้างไหม",en:"Do you track your income and spending?",o:[["ไม่เคย","Never"],["นาน ๆ ครั้ง","Rarely"],["คร่าว ๆ ทุกเดือน","Roughly each month"],["ละเอียดและสม่ำเสมอ","In detail, consistently"]],tip:["จดรายจ่ายอย่างน้อย 1 เดือน จะเห็นว่าเงินรั่วไปตรงไหน","Track spending for a month to see where money leaks"],link:"salary.html"},
- {th:"เงินเดือนหมดก่อนสิ้นเดือนบ่อยแค่ไหน",en:"How often does your money run out before payday?",o:[["แทบทุกเดือน","Almost every month"],["บางเดือน","Some months"],["นาน ๆ ครั้ง","Rarely"],["ไม่เคย","Never"]],tip:["แบ่งเงินเป็นก้อน: ออม จ่ายบิล และใช้จ่าย ตั้งแต่วันเงินเดือนออก","Split pay into savings, bills and spending on payday"],link:"salary.html"},
+ {th:"คุณจ่ายบัตรเครดิตอย่างไร",en:"How do you pay your credit card?",o:[["จ่ายขั้นต่ำหรือเคยค้างชำระ","Minimum only, or I’ve missed payments"],["บางเดือนจ่ายไม่เต็ม","Sometimes not in full"],["จ่ายเต็มเกือบทุกเดือน","In full most months"],["จ่ายเต็มทุกเดือน หรือไม่มีบัตร","Always in full, or no card"]],tip:["จ่ายบัตรเครดิตเต็มจำนวนเพื่อเลี่ยงดอกเบี้ยสูงถึง 16% ต่อปี","Pay your card in full to avoid interest of up to 16% a year"],link:"home.html?t=card"},
+ {th:"คุณจดรายรับรายจ่ายบ้างไหม",en:"Do you track your income and spending?",o:[["ไม่เคย","Never"],["นาน ๆ ครั้ง","Rarely"],["คร่าว ๆ ทุกเดือน","Roughly each month"],["ละเอียดและสม่ำเสมอ","In detail, consistently"]],tip:["จดรายจ่ายอย่างน้อย 1 เดือน จะเห็นว่าเงินรั่วไปตรงไหน","Track spending for a month to see where money leaks"],link:"savings.html"},
+ {th:"เงินเดือนหมดก่อนสิ้นเดือนบ่อยแค่ไหน",en:"How often does your money run out before payday?",o:[["แทบทุกเดือน","Almost every month"],["บางเดือน","Some months"],["นาน ๆ ครั้ง","Rarely"],["ไม่เคย","Never"]],tip:["แบ่งเงินเป็นก้อน: ออม จ่ายบิล และใช้จ่าย ตั้งแต่วันเงินเดือนออก","Split pay into savings, bills and spending on payday"],link:"savings.html"},
  {th:"ตอนนี้คุณลงทุนอยู่ไหม",en:"Are you investing right now?",o:[["ไม่ได้ลงทุน","No"],["ลงทุนแต่ไม่ค่อยเข้าใจ","Yes, but I don’t really understand it"],["ลงทุนบ้างเป็นครั้งคราว","Occasionally"],["ลงทุนสม่ำเสมอระยะยาว","Regularly, long-term"]],tip:["เริ่มลงทุนแบบ DCA เดือนละเท่า ๆ กันในกองทุนที่เข้าใจ","Start monthly DCA investing in funds you understand"],link:"invest.html"},
  {th:"คุณมีประกันสุขภาพหรือประกันชีวิตไหม",en:"Do you have health or life insurance?",o:[["ไม่มีเลย","None"],["มีแค่สิทธิพื้นฐาน เช่น ประกันสังคม","Only basic cover, like social security"],["มีบางส่วน","Some cover"],["มีครอบคลุมเพียงพอ","Enough cover"]],tip:["ประกันสุขภาพช่วยไม่ให้เงินเก็บหมดเมื่อเจ็บป่วยหนัก","Health insurance protects your savings from big medical bills"],link:"deductions-2569.html"},
  {th:"คุณวางแผนเกษียณแล้วหรือยัง",en:"Have you planned for retirement?",o:[["ยังไม่เคยคิด","Not yet"],["คิดแต่ยังไม่ได้เริ่ม","Thought about it, haven’t started"],["เริ่มเก็บแล้ว","Started saving"],["มีเป้าหมายชัดและทำตามแผน","Clear goal and on track"]],tip:["คำนวณว่าต้องมีเงินเท่าไรตอนเกษียณ แล้วเริ่มออมตั้งแต่วันนี้","Work out your retirement number and start now"],link:"retire.html"},
@@ -102,7 +102,7 @@ function result(){
 }
 start();
 </script>
-<script src="menu.js?v=202611040922"></script>
-<script src="i18n.js?v=202611040922"></script>
+<script src="menu.js?v=202611071200"></script>
+<script src="i18n.js?v=202611071200"></script>
 </body>
 </html>

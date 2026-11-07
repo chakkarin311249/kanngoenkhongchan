@@ -2,114 +2,15 @@
 <html lang="th">
 <head>
 <meta charset="utf-8">
-<script>try{if(localStorage.getItem("kn-fs")==="1")document.documentElement.classList.add("fs-lg")}catch(e){}</script>
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>คำนวณเงินเดือนสุทธิ หักประกันสังคมและภาษี 2569 | การเงินของฉัน</title>
-<meta name="description" content="คำนวณเงินเดือนสุทธิที่ได้รับจริงต่อเดือน หลังหักประกันสังคม กองทุนสำรองเลี้ยงชีพ และภาษีหัก ณ ที่จ่าย ฟรี อัปเดตเพดานประกันสังคมปี 2569">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="style.css?v=202611040922">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta name="theme-color" content="#ffffff">
-<meta property="og:image" content="https://kanngoenkhongchan.com/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://kanngoenkhongchan.com/salary.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="การเงินของฉัน">
-<meta property="og:title" content="คำนวณเงินเดือนสุทธิ หักประกันสังคมและภาษี 2569 | การเงินของฉัน">
-<meta property="og:description" content="คำนวณเงินเดือนสุทธิที่ได้รับจริงต่อเดือน หลังหักประกันสังคม กองทุนสำรองเลี้ยงชีพ และภาษีหัก ณ ที่จ่าย ฟรี อัปเดตเพดานประกันสังคมปี 2569">
-<meta property="og:url" content="https://kanngoenkhongchan.com/salary.html">
-<meta property="og:locale" content="th_TH">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1190395119954248" crossorigin="anonymous"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-37TLF4G2VC"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-37TLF4G2VC");</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ย้ายไปหน้าใหม่ | การเงินของฉัน</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://kanngoenkhongchan.com/tax.html">
+<meta http-equiv="refresh" content="0; url=tax.html">
+<script>location.replace("tax.html"+(location.search&&"tax.html".indexOf("?")<0?location.search:""));</script>
+<style>body{font-family:system-ui,sans-serif;background:#fff;color:#0f172a;padding:40px 16px;text-align:center}a{color:#1a6fe0}</style>
 </head>
 <body>
-<header class="site-head"><div class="in">
-  <a class="logo" href="index.html"><span>฿</span>การเงินของฉัน</a>
-  <nav class="nav"><a href="tax.html">ภาษี</a><a href="salary.html" aria-current="page">เงินเดือนสุทธิ</a><a href="vat.html">VAT</a><a href="home.html">ผ่อนบ้าน</a><a href="car.html">ผ่อนรถ</a><a href="credit-card.html">บัตรเครดิต</a><a href="savings.html">เงินออม</a><a href="invest.html">ลงทุน DCA</a><a href="retire.html">เกษียณ</a><a href="currency.html">แปลงสกุลเงิน</a><a href="inflation.html">เงินเฟ้อ</a><a href="age.html">อายุ / พ.ศ.</a><a href="deductions-2569.html">ลดหย่อนภาษี 2569</a><a href="quiz.html">แบบทดสอบการเงิน</a><a href="challenge.html">ชาเลนจ์เก็บเงิน</a></nav>
-</div></header>
-
-<main class="wrap">
-  <div>
-    <a class="crumb" href="index.html#tax">ภาษีและเงินเดือน</a>
-    <h1>คำนวณเงินเดือนสุทธิ</h1>
-    <p class="lede">เงินเดือนเข้าบัญชีจริงเท่าไร หลังหักประกันสังคม กองทุนสำรองเลี้ยงชีพ และภาษี</p>
-  </div>
-
-  <form class="card" id="f" autocomplete="off">
-    <div class="fields">
-      <div class="field"><label for="salary">เงินเดือน (บาท)</label><input id="salary" inputmode="decimal" value="35000"></div>
-      <div class="field"><label for="bonus">โบนัสทั้งปี (ถ้ามี)</label><input id="bonus" inputmode="decimal" value="0"><small>ใช้คำนวณภาษีทั้งปี</small></div>
-      <div class="field"><label for="pvdPct">กองทุนสำรองเลี้ยงชีพ (%)</label><input id="pvdPct" inputmode="decimal" value="0"><small>ส่วนที่หักจากเงินเดือนคุณ 2–15%</small></div>
-      <div class="field"><label for="kids">จำนวนบุตร</label><input id="kids" type="number" min="0" value="0"></div>
-    </div>
-    <label class="check"><input type="checkbox" id="spouse"> คู่สมรสไม่มีเงินได้</label>
-
-    <section class="result" aria-live="polite">
-      <div><span class="note">เงินเดือนสุทธิต่อเดือน</span><div class="big" id="net">–</div></div>
-      <div class="stats">
-        <div class="stat"><span>เงินเดือน</span><b id="gross">–</b></div>
-        <div class="stat"><span>ประกันสังคม</span><b id="sso">–</b></div>
-        <div class="stat"><span>กองทุนสำรองฯ</span><b id="pvd">–</b></div>
-        <div class="stat"><span>ภาษีหัก ณ ที่จ่าย (ประมาณ)</span><b id="wht">–</b></div>
-        <div class="stat"><span>ภาษีทั้งปี</span><b id="annual">–</b></div>
-      </div>
-      <div class="bars" id="bars"></div>
-      <p class="tip" id="tip"></p>
-    </section>
-  </form>
-
-  <div class="ad-slot"><!-- วางโค้ดหน่วยโฆษณา AdSense ตรงนี้ --></div>
-
-  <article>
-    <h2>เงินเดือนถูกหักอะไรบ้าง</h2>
-    <ul>
-      <li><strong>ประกันสังคม</strong> หัก 5% ของเงินเดือน ตั้งแต่ปี 2569 คิดจากเงินเดือนไม่เกิน 17,500 บาท จึงหักสูงสุดเดือนละ 875 บาท (เดิมสูงสุด 750 บาท)</li>
-      <li><strong>กองทุนสำรองเลี้ยงชีพ</strong> ถ้าบริษัทมีและคุณสมัคร จะหักตามเปอร์เซ็นต์ที่เลือก เงินส่วนนี้ยังเป็นของคุณ และนำไปลดหย่อนภาษีได้</li>
-      <li><strong>ภาษีหัก ณ ที่จ่าย</strong> บริษัทประมาณภาษีทั้งปีแล้วหารเฉลี่ยหักทุกเดือน ตัวเลขจริงขึ้นกับข้อมูลค่าลดหย่อนที่คุณแจ้งบริษัท</li>
-    </ul>
-    <h2>คำถามที่พบบ่อย</h2>
-    <div class="faq">
-      <details><summary>ทำไมเงินเดือนสุทธิไม่ตรงกับสลิป</summary><p>สลิปจริงอาจมีรายการอื่น เช่น ค่าล่วงเวลา เบี้ยขยัน หักขาดลา หรือหักเงินกู้สหกรณ์ และบริษัทอาจคำนวณภาษีจากค่าลดหย่อนที่ต่างจากที่กรอกที่นี่</p></details>
-      <details><summary>ถ้าบริษัทหักภาษีไว้มากเกินไปทำอย่างไร</summary><p>ยื่นภาษีประจำปีพร้อมค่าลดหย่อนทั้งหมดที่มี ส่วนที่หักเกินไว้จะได้คืน ลองใช้ <a href="tax.html">เครื่องคำนวณภาษีเงินได้</a> เพื่อดูตัวเลขละเอียด</p></details>
-    </div>
-    <p class="note">ผลลัพธ์เป็นการประมาณ ใช้ค่าลดหย่อนพื้นฐาน (ส่วนตัว ประกันสังคม กองทุนสำรองฯ บุตร คู่สมรส) เท่านั้น</p>
-  </article>
-</main>
-
-<footer class="site-foot"><div class="in">
-  <div class="f-brand"><a class="logo" href="index.html"><span>฿</span>การเงินของฉัน</a><p>เครื่องคิดเงินสำหรับคนทำงานในไทย ใช้ฟรี ไม่เก็บข้อมูลที่คุณกรอก</p></div>
-  <div class="f-col"><b>เครื่องมือยอดนิยม</b><a href="tax.html">ภาษีเงินได้</a><a href="salary.html">เงินเดือนสุทธิ</a><a href="home.html">ผ่อนบ้าน</a><a href="credit-card.html">หนี้บัตรเครดิต</a></div>
-  <div class="f-col"><b>ความรู้</b><a href="deductions-2569.html">ลดหย่อนภาษี 2569</a><a href="quiz.html">แบบทดสอบการเงิน</a></div>
-  <div class="f-col"><b>เกี่ยวกับ</b><a href="about.html">เกี่ยวกับเรา</a><a href="privacy.html">นโยบายความเป็นส่วนตัว</a><span>kanngoenkhongchan@gmail.com</span></div>
-  <p class="f-legal">ข้อมูลอ้างอิงจากกรมสรรพากร สำนักงานประกันสังคม และอัตราแลกเปลี่ยนจาก ExchangeRate-API ผลคำนวณเป็นการประมาณ ไม่ใช่คำแนะนำทางการเงิน · © 2569 การเงินของฉัน</p>
-</div></footer>
-
-<script src="calc.js?v=202611040922"></script>
-<script>
-const $=id=>document.getElementById(id);
-const num=s=>Number(String(s).replace(/[, ]/g,""))||0;
-function run(){
-  const r=Calc.computeSalary({salary:num($("salary").value),bonus:num($("bonus").value),pvdPct:num($("pvdPct").value),kids:num($("kids").value),spouse:$("spouse").checked});
-  $("net").textContent=baht(r.net)+" บาท";
-  $("gross").textContent=baht(r.salary);
-  $("sso").textContent=r.sso?"−"+baht(r.sso):"0";
-  $("pvd").textContent=r.pvd?"−"+baht(r.pvd):"0";
-  $("wht").textContent="−"+baht(r.wht);
-  $("annual").textContent=baht(r.annualTax);
-  $("tip").textContent=r.marginal>0
-    ? `คุณอยู่ในขั้นภาษี ${r.marginal*100}% ถ้าใส่เงินกองทุนสำรองฯ หรือซื้อกองทุนลดหย่อนเพิ่ม ทุก 10,000 บาทจะประหยัดภาษีได้ราว ${baht(10000*r.marginal)} บาท`
-    : "รายได้ระดับนี้ยังไม่ต้องเสียภาษี แต่ถ้ารายได้ทั้งปีเกิน 120,000 บาท ยังต้องยื่นแบบภาษีประจำปี";
-  drawBars("bars",[{th:"เงินเดือนสุทธิ",en:"Take-home",v:r.net},{th:"ภาษี",en:"Tax",v:r.wht,c:2},{th:"ประกันสังคม",en:"Social security",v:r.sso,c:3},{th:"กองทุนสำรองฯ",en:"Provident fund",v:r.pvd,c:4}]);
-}
-$("f").addEventListener("input",run);
-$("f").addEventListener("submit",e=>e.preventDefault());
-run();
-</script>
-<script src="menu.js?v=202611040922"></script>
-<script src="i18n.js?v=202611040922"></script>
+<p>หน้านี้ย้ายแล้ว ไปที่ <a href="tax.html">คำนวณภาษีเงินได้</a></p>
 </body>
 </html>
